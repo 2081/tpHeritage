@@ -4,5 +4,5 @@ cd tpHeritage
 Pour mettre à jour les données du serveur au local : git pull
 
 Pour synchroniser le serveur avec ses données locales : 
-	git commit -a	// ouvre un fichier dans lequel il faut décommenter la ligne correspondant à la modification (fichier créé ou modifié)
+	git commit -a	// ouvre un fichier dans lequel il faut décommenter la ligne correspondant à la modification (fichier créé, modifié ou suppression)
 	git push origin master		//Synchronise du local au server
