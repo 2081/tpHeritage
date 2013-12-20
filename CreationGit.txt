@@ -1,0 +1,5 @@
+(Optionnel)Créer un répertoire (mkdir) et se placer dedans (cd).
+Cloner les données : git clone https://github.com/2081/tpHeritage.git	//Cette commande créer un dossier tpHeritage
+cd tpHeritage
+Pour mettre à jour les données du serveur au local : git pull
+Pour synchroniser le serveur avec ses données locales : git push origin master
