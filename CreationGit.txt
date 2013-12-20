@@ -2,4 +2,7 @@
 Cloner les données : git clone https://github.com/2081/tpHeritage.git	//Cette commande créer un dossier tpHeritage
 cd tpHeritage
 Pour mettre à jour les données du serveur au local : git pull
-Pour synchroniser le serveur avec ses données locales : git push origin master
+
+Pour synchroniser le serveur avec ses données locales : 
+	git commit -a	// ouvre un fichier dans lequel il faut décommenter la ligne correspondant à la modification (fichier créé ou modifié)
+	git push origin master		//Synchronise du local au server
