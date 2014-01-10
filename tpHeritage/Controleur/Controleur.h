@@ -33,9 +33,15 @@ public:
     // Contrat :
     //
 
+	void executer_instruction(string instruction);
+	// type Méthode ( liste des paramètres );
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Controleur & operator = ( const Controleur & unControleur );
+//    Controleur & operator = ( const Controleur & unControleur );
     // Mode d'emploi :
     //
     // Contrat :
@@ -67,6 +73,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+    ConsoleUI console;
+    FichierUI fichier;
+    Modele modele;
 
 };
 

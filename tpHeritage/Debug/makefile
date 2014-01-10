@@ -8,6 +8,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Vue/subdir.mk
+-include Modele/subdir.mk
+-include Controleur/subdir.mk
 -include Commande/subdir.mk
 -include subdir.mk
 -include objects.mk

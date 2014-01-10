@@ -27,9 +27,15 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+void Controleur::executer_instruction(string instruction)
+// Algorithme :
+//
+{
+} //----- Fin de Méthode
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-Controleur & Controleur::operator = ( const Controleur & unControleur )
+//Controleur & Controleur::operator = ( const Controleur & unControleur )
 // Algorithme :
 //
 {

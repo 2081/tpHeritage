@@ -4,32 +4,38 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../Commande/CmdAjouterElement.cpp \
-../Commande/CmdDeplacer.cpp \
-../Commande/CmdGrouper.cpp \
-../Commande/CmdSupprimer.cpp \
-../Commande/CmdVider.cpp \
-../Commande/Commande.cpp 
+../Modele/Cercle.cpp \
+../Modele/ElementGeo.cpp \
+../Modele/Groupe.cpp \
+../Modele/Ligne.cpp \
+../Modele/Modele.cpp \
+../Modele/Point.cpp \
+../Modele/PolyLigne.cpp \
+../Modele/Rectangle.cpp 
 
 OBJS += \
-./Commande/CmdAjouterElement.o \
-./Commande/CmdDeplacer.o \
-./Commande/CmdGrouper.o \
-./Commande/CmdSupprimer.o \
-./Commande/CmdVider.o \
-./Commande/Commande.o 
+./Modele/Cercle.o \
+./Modele/ElementGeo.o \
+./Modele/Groupe.o \
+./Modele/Ligne.o \
+./Modele/Modele.o \
+./Modele/Point.o \
+./Modele/PolyLigne.o \
+./Modele/Rectangle.o 
 
 CPP_DEPS += \
-./Commande/CmdAjouterElement.d \
-./Commande/CmdDeplacer.d \
-./Commande/CmdGrouper.d \
-./Commande/CmdSupprimer.d \
-./Commande/CmdVider.d \
-./Commande/Commande.d 
+./Modele/Cercle.d \
+./Modele/ElementGeo.d \
+./Modele/Groupe.d \
+./Modele/Ligne.d \
+./Modele/Modele.d \
+./Modele/Point.d \
+./Modele/PolyLigne.d \
+./Modele/Rectangle.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Commande/%.o: ../Commande/%.cpp
+Modele/%.o: ../Modele/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
 	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"

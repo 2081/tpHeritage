@@ -4,32 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../Commande/CmdAjouterElement.cpp \
-../Commande/CmdDeplacer.cpp \
-../Commande/CmdGrouper.cpp \
-../Commande/CmdSupprimer.cpp \
-../Commande/CmdVider.cpp \
-../Commande/Commande.cpp 
+../Controleur/Controleur.cpp 
 
 OBJS += \
-./Commande/CmdAjouterElement.o \
-./Commande/CmdDeplacer.o \
-./Commande/CmdGrouper.o \
-./Commande/CmdSupprimer.o \
-./Commande/CmdVider.o \
-./Commande/Commande.o 
+./Controleur/Controleur.o 
 
 CPP_DEPS += \
-./Commande/CmdAjouterElement.d \
-./Commande/CmdDeplacer.d \
-./Commande/CmdGrouper.d \
-./Commande/CmdSupprimer.d \
-./Commande/CmdVider.d \
-./Commande/Commande.d 
+./Controleur/Controleur.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Commande/%.o: ../Commande/%.cpp
+Controleur/%.o: ../Controleur/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
 	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
