@@ -39,7 +39,7 @@ CmdDeplacer & CmdDeplacer::operator = ( const CmdDeplacer & unCmdDeplacer )
 //-------------------------------------------- Constructeurs - destructeur
 CmdDeplacer::CmdDeplacer ( const CmdDeplacer & unCmdDeplacer )
 // Algorithme :
-//
+////
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <CmdDeplacer>" << endl;
