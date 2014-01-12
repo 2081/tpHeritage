@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Modele & Modele::operator = ( const Modele & unModele )
+/*Modele & Modele::operator = ( const Modele & unModele )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Modele::Modele ( const Modele & unModele )

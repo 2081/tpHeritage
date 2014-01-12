@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Point & Point::operator = ( const Point & unPoint )
+/*Point & Point::operator = ( const Point & unPoint )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Point::Point ( const Point & unPoint )

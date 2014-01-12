@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Ligne & Ligne::operator = ( const Ligne & unLigne )
+/*Ligne & Ligne::operator = ( const Ligne & unLigne )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Ligne::Ligne ( const Ligne & unLigne )

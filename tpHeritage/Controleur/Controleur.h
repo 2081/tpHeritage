@@ -10,6 +10,7 @@
 #define CONTROLEUR_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <stack> //Pile
 
 //------------------------------------------------------------- Constantes 
 

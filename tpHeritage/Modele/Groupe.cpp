@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Groupe & Groupe::operator = ( const Groupe & unGroupe )
+/*Groupe & Groupe::operator = ( const Groupe & unGroupe )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Groupe::Groupe ( const Groupe & unGroupe )

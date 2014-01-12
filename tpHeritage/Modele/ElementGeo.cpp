@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-ElementGeo & ElementGeo::operator = ( const ElementGeo & unElementGeo )
+/*ElementGeo & ElementGeo::operator = ( const ElementGeo & unElementGeo )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 ElementGeo::ElementGeo ( const ElementGeo & unElementGeo )

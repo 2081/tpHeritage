@@ -10,6 +10,8 @@
 #define CMDAJOUTERELEMENT_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include "Commande.h"
+
 
 //------------------------------------------------------------- Constantes 
 
@@ -21,7 +23,7 @@
 //
 //------------------------------------------------------------------------ 
 
-class CmdAjouterElement : public Ancetre
+class CmdAjouterElement : public Commande
 {
 //----------------------------------------------------------------- PUBLIC
 

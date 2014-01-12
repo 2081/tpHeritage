@@ -15,7 +15,9 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Controleur.h"
-
+#include "ConsoleUI.h"	//Vue
+#include "FichierUI.h"	//Vue
+#include "Commande.h"
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC

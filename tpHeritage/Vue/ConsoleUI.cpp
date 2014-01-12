@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-ConsoleUI & ConsoleUI::operator = ( const ConsoleUI & unConsoleUI )
+/*ConsoleUI & ConsoleUI::operator = ( const ConsoleUI & unConsoleUI )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 ConsoleUI::ConsoleUI ( const ConsoleUI & unConsoleUI )

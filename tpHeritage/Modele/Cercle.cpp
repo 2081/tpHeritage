@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Cercle & Cercle::operator = ( const Cercle & unCercle )
+/*Cercle & Cercle::operator = ( const Cercle & unCercle )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Cercle::Cercle ( const Cercle & unCercle )

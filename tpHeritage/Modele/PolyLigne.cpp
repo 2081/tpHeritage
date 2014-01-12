@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-PolyLigne & PolyLigne::operator = ( const PolyLigne & unPolyLigne )
+/*PolyLigne & PolyLigne::operator = ( const PolyLigne & unPolyLigne )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 PolyLigne::PolyLigne ( const PolyLigne & unPolyLigne )

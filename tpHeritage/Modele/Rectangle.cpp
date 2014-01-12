@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Rectangle & Rectangle::operator = ( const Rectangle & unRectangle )
+/*Rectangle & Rectangle::operator = ( const Rectangle & unRectangle )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Rectangle::Rectangle ( const Rectangle & unRectangle )

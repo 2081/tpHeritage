@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-FichierUI & FichierUI::operator = ( const FichierUI & unFichierUI )
+/*FichierUI & FichierUI::operator = ( const FichierUI & unFichierUI )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 FichierUI::FichierUI ( const FichierUI & unFichierUI )
