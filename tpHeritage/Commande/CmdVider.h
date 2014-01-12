@@ -1,13 +1,13 @@
 /*************************************************************************
-                           CmdVider.  -  description
+                           CmdVider  -  description
                              -------------------
-    début                : 10 janv. 2014
+    début                : 12 janv. 2014
     copyright            : (C) 2014 par jeje
 *************************************************************************/
 
-//---------- Interface de la classe <CmdVider.> (fichier CmdVider..h) ------
-#if ! defined ( CMDVIDER__H_ )
-#define CMDVIDER__H_
+//---------- Interface de la classe <CmdVider> (fichier CmdVider.h) ------
+#if ! defined ( CMDVIDER_H_ )
+#define CMDVIDER_H_
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
@@ -17,7 +17,7 @@
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <CmdVider.>
+// Rôle de la classe <CmdVider>
 //
 //
 //------------------------------------------------------------------------ 
@@ -36,7 +36,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    CmdVider. & operator = ( const CmdVider. & unCmdVider. );
+    CmdVider & operator = ( const CmdVider & unCmdVider );
     // Mode d'emploi :
     //
     // Contrat :
@@ -44,19 +44,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    CmdVider. ( const CmdVider. & unCmdVider. );
+    CmdVider ( const CmdVider & unCmdVider );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    CmdVider. ( );
+    CmdVider ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~CmdVider. ( );
+    virtual ~CmdVider ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,7 +71,7 @@ protected:
 
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdVider.>
+//--------------------------- Autres définitions dépendantes de <CmdVider>
 
-#endif // CMDVIDER__H_
+#endif // CMDVIDER_H_
 
