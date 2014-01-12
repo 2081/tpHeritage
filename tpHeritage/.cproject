@@ -42,6 +42,11 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1509085560.1799853036" name="Controleur.cpp" rcbsApplicability="disable" resourcePath="Controleur/Controleur.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.139689033.1046698592">
+						<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.139689033.1046698592" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.139689033">
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.200316775" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="Vue|Controleur|Modele|Commande" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Commande"/>
@@ -109,6 +114,8 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="tpHeritage.cdt.managedbuild.target.gnu.exe.2008004290" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1085315353;cdt.managedbuild.config.gnu.exe.release.1085315353.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1347565643;cdt.managedbuild.tool.gnu.cpp.compiler.input.831056770">
@@ -136,6 +143,4 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
 </cproject>

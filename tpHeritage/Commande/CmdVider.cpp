@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-CmdVider & CmdVider::operator = ( const CmdVider & unCmdVider )
+/*CmdVider & CmdVider::operator = ( const CmdVider & unCmdVider )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CmdVider::CmdVider ( const CmdVider & unCmdVider )

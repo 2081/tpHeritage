@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-CmdSupprimer & CmdSupprimer::operator = ( const CmdSupprimer & unCmdSupprimer )
+/*mdSupprimer & CmdSupprimer::operator = ( const CmdSupprimer & unCmdSupprimer )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CmdSupprimer::CmdSupprimer ( const CmdSupprimer & unCmdSupprimer )

@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-CmdGrouper & CmdGrouper::operator = ( const CmdGrouper & unCmdGrouper )
+/*CmdGrouper & CmdGrouper::operator = ( const CmdGrouper & unCmdGrouper )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CmdGrouper::CmdGrouper ( const CmdGrouper & unCmdGrouper )

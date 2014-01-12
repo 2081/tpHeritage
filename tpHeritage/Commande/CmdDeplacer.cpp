@@ -29,12 +29,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-CmdDeplacer & CmdDeplacer::operator = ( const CmdDeplacer & unCmdDeplacer )
+/*CmdDeplacer & CmdDeplacer::operator = ( const CmdDeplacer & unCmdDeplacer )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CmdDeplacer::CmdDeplacer ( const CmdDeplacer & unCmdDeplacer )

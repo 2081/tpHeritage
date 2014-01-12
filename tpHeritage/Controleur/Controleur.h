@@ -11,10 +11,20 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <stack> //Pile
+#include <list>
+#include <map>
+
+#include "../Vue/ConsoleUI.h"	//Vue
+#include "../Vue/FichierUI.h"	//Vue
+#include "../Commande/Commande.h" //Commande
+#include "../Modele/Modele.h"
+
+using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
-//------------------------------------------------------------------ Types 
+//------------------------------------------------------------------ Types
+typedef list <string> commandes;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Controleur>
@@ -77,6 +87,7 @@ protected:
     ConsoleUI console;
     FichierUI fichier;
     Modele modele;
+
 
 };
 

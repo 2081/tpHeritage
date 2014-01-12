@@ -15,9 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Controleur.h"
-#include "ConsoleUI.h"	//Vue
-#include "FichierUI.h"	//Vue
-#include "Commande.h"
+
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -37,12 +35,12 @@ void Controleur::executer_instruction(string instruction)
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-//Controleur & Controleur::operator = ( const Controleur & unControleur )
+/*Controleur & Controleur::operator = ( const Controleur & unControleur )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 Controleur::Controleur ( const Controleur & unControleur )
@@ -59,6 +57,7 @@ Controleur::Controleur ( )
 // Algorithme :
 //
 {
+
 #ifdef MAP
     cout << "Appel au constructeur de <Controleur>" << endl;
 #endif
