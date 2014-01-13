@@ -27,6 +27,22 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+void ConsoleUI::Attendre_instruction()
+// Algorithme :
+//
+{
+	string commande_tapee ;
+	while (getline(cin , commande_tapee))
+	{
+		pt_controleur->Executer_instruction(commande_tapee);
+	}
+} //----- Fin de Attendre_instruction
+
+void ConsoleUI::Lister_modele()
+// Algorithme :
+//
+{
+} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*ConsoleUI & ConsoleUI::operator = ( const ConsoleUI & unConsoleUI )

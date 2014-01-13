@@ -4,12 +4,19 @@
  *  Created on: 10 janv. 2014
  *      Author: jeje
  */
-#include "./Commande/Commande.h"
+#include "./Controleur/Controleur.h"
 #include <iostream>
+
+
+
 
 int main()
 {
-	std::cout << "Bienvenue dans votre dessinateur préféré !" << std::endl ;
-	Commande commande ;
+	cout << "Bienvenue dans votre dessinateur préféré !" << endl ;
+
+
+
+
+	Controleur controleur ;
 
 }
