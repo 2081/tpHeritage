@@ -10,6 +10,8 @@
 #define CONSOLEUI_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include "../Controleur/Controleur.h"
+#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -43,17 +45,14 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    ConsoleUI ( const ConsoleUI & unConsoleUI );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    ConsoleUI ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    ConsoleUI(Modele* m , Controleur* c);
+    // Mode d'emploi (constructeur de copie) :
+	//
+	// Contrat :
+	//
+
+    ConsoleUI();
 
     virtual ~ConsoleUI ( );
     // Mode d'emploi :
@@ -67,6 +66,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+    Controleur * pt_controleur ;
+    Modele * pt_modele ;
+
 
 };
 

@@ -12,19 +12,20 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <stack> //Pile
 #include <list>
-#include <map>
+
 
 #include "../Vue/ConsoleUI.h"	//Vue
 #include "../Vue/FichierUI.h"	//Vue
 #include "../Commande/Commande.h" //Commande
-#include "../Modele/Modele.h"
+#include "../Modele/Modele.h"	//Modele
 
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
-typedef list <string> commandes;
+typedef stack <Commande> Pile_Commande;
+class ConsoleUI ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Controleur>
@@ -84,10 +85,15 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    ConsoleUI console;
-    FichierUI fichier;
     Modele modele;
-
+    ConsoleUI console(&modele ,this);
+    FichierUI fichier;
+    string liste_commandes[15] = {"C","R","L","PL","OA","DELETE","MOVE",
+    		"LIST","UNDO","REDO","LOAD","SAVE","CLEAR","EXIT"};
+    //rajouter -std=c++11 aux options de compilation si problème pour l'attribut liste_commandes
+    Pile_Commande commandes_executees ;
+    //commandes_executees::iterator curseur_commandes=commandes_executees.size();
+    //curseur sur une stack ?
 
 };
 

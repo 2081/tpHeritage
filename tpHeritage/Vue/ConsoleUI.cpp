@@ -37,20 +37,15 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-ConsoleUI::ConsoleUI ( const ConsoleUI & unConsoleUI )
+
+
+
+ConsoleUI::ConsoleUI ( Modele* m , Controleur* c )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ConsoleUI>" << endl;
-#endif
-} //----- Fin de ConsoleUI (constructeur de copie)
-
-
-ConsoleUI::ConsoleUI ( )
-// Algorithme :
-//
-{
+	pt_modele = m;
+	pt_controleur = c;
 #ifdef MAP
     cout << "Appel au constructeur de <ConsoleUI>" << endl;
 #endif

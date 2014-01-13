@@ -57,7 +57,6 @@ Controleur::Controleur ( )
 // Algorithme :
 //
 {
-
 #ifdef MAP
     cout << "Appel au constructeur de <Controleur>" << endl;
 #endif
