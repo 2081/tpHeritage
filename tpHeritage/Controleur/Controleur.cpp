@@ -28,6 +28,12 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+
+void Controleur::Lancer_console()
+{
+	console->Attendre_instruction();
+}
+
 Commande * Controleur::Traduire_instruction(string instruction)
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
@@ -86,6 +92,7 @@ bool Controleur::Executer_instruction(string instruction)
 		/*Appel de la fonction traduire.
 		son retour est ajouté dans la pile de commandes.*/
 		commandes_executees.push( Traduire_instruction(instruction)) ;
+		premier_argument = "pas_trouve"; //Pour le prochain appel
 		return true ;
 	}
 
@@ -120,6 +127,8 @@ Controleur::Controleur ( )
 {
 	pt = liste_commandes ;	//Réinitialisé à chaque fois dans
 		//Executer_instruction
+	console = new ConsoleUI(&modele , this) ;
+	cout <<"Appel du constructeur de Controleur " << endl;
 #ifdef MAP
     cout << "Appel au constructeur de <Controleur>" << endl;
 #endif

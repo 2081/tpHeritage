@@ -35,12 +35,12 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    FichierUI & operator = ( const FichierUI & unFichierUI );
+    /*FichierUI & operator = ( const FichierUI & unFichierUI );
     // Mode d'emploi :
     //
     // Contrat :
     //
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
     FichierUI ( const FichierUI & unFichierUI );

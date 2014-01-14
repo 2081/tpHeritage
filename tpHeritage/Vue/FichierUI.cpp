@@ -37,7 +37,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-FichierUI::FichierUI ( const FichierUI & unFichierUI )
+/*FichierUI::FichierUI ( const FichierUI & unFichierUI )
 // Algorithme :
 //
 {
@@ -45,7 +45,7 @@ FichierUI::FichierUI ( const FichierUI & unFichierUI )
     cout << "Appel au constructeur de copie de <FichierUI>" << endl;
 #endif
 } //----- Fin de FichierUI (constructeur de copie)
-
+*/
 
 FichierUI::FichierUI ( )
 // Algorithme :

@@ -46,7 +46,7 @@ public:
     //
     // Contrat :
     //
-	//void Lancer_console(){console.Attendre_instruction();}
+	void Lancer_console() ;
 
 
 	Commande * Traduire_instruction(string instruction);
@@ -97,9 +97,8 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
     Modele modele;
-
     FichierUI fichier;
-    ConsoleUI console (Modele &modele , Controleur);
+    ConsoleUI* console ;
     string liste_commandes[14] = {"C","R","L","PL","OA","DELETE","MOVE",
     			   		"LIST","UNDO","REDO","LOAD","SAVE","CLEAR","EXIT"};
     //rajouter -std=c++11 aux options de compilation si problème pour l'attribut liste_commandes
