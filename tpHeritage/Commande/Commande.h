@@ -9,6 +9,10 @@
 #if ! defined ( COMMANDE_H_ )
 #define COMMANDE_H_
 
+#include <string>
+
+using namespace std;
+
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes 
@@ -32,6 +36,24 @@ public:
     //
     // Contrat :
     //
+
+	virtual void Faire() = 0;
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	virtual void Defaire() = 0;
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	virtual bool Initialisation( string instruction) = 0;
+	// Mode d'emploi : Renvoie false si la commande n'a pas pu etre initalisee.
+	//
+	// Contrat :
+	//
 
 
 //------------------------------------------------- Surcharge d'opérateurs
