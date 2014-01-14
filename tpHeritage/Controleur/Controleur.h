@@ -25,7 +25,7 @@ using namespace std ;
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
-typedef stack <Commande> Pile_Commande;
+typedef stack <Commande*> Pile_Commande;
 class ConsoleUI ;
 class Modele ;
 

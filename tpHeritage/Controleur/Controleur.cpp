@@ -17,6 +17,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Controleur.h"
 
+
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -27,6 +28,12 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+Commande * Controleur::Traduire_instruction(string instruction)
+{
+	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
+	"LIST"*/
+}
+
 
 bool Controleur::Executer_instruction(string instruction)
 // Algorithme :
@@ -45,17 +52,41 @@ bool Controleur::Executer_instruction(string instruction)
 	//Analyse du résultat et appel des procédures de commandes.
 	if(premier_argument=="pas_trouve")
 	{
-		cout << "\"" << instruction << "\"" << "n\' est pas une commande valide" << endl ;
+		cout << "\"" << instruction << "\"" << " n'est pas une commande valide" << endl ;
 		return false;
 	}
 	else if(premier_argument == "SAVE")
 	{
-
+		return true ;
 	}
 	else if(premier_argument == "LOAD")
 	{
 		/*Appels successifs de Traduire_instruction
 		ligne par ligne par rapport aux lignes du fichier*/
+		return true ;
+	}
+	else if(premier_argument == "CLEAR")
+	{
+		return true ;
+	}
+	else if(premier_argument == "EXIT")
+	{
+		return true ;
+	}
+	else if(premier_argument == "REDO")
+	{
+		return true ;
+	}
+	else if(premier_argument == "UNDO")
+	{
+		return true ;
+	}
+	else
+	{
+		/*Appel de la fonction traduire.
+		son retour est ajouté dans la pile de commandes.*/
+		commandes_executees.push( Traduire_instruction(instruction)) ;
+		return true ;
 	}
 
 	//liste des elsif
