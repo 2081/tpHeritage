@@ -46,8 +46,17 @@ public:
     //
     // Contrat :
     //
+	//void Lancer_console(){console.Attendre_instruction();}
 
-	void Executer_instruction(string instruction);
+
+	Commande * Traduire_instruction(string instruction);
+	// type Méthode ( liste des paramètres );
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	bool Executer_instruction(string instruction);
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
 	//

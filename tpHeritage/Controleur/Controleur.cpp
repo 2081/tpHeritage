@@ -28,7 +28,7 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-void Controleur::Executer_instruction(string instruction)
+bool Controleur::Executer_instruction(string instruction)
 // Algorithme :
 //
 {
@@ -46,8 +46,18 @@ void Controleur::Executer_instruction(string instruction)
 	if(premier_argument=="pas_trouve")
 	{
 		cout << "\"" << instruction << "\"" << "n\' est pas une commande valide" << endl ;
-		return;
+		return false;
 	}
+	else if(premier_argument == "SAVE")
+	{
+
+	}
+	else if(premier_argument == "LOAD")
+	{
+		/*Appels successifs de Traduire_instruction
+		ligne par ligne par rapport aux lignes du fichier*/
+	}
+
 	//liste des elsif
 } //----- Fin de Méthode
 
@@ -77,6 +87,8 @@ Controleur::Controleur ( )
 // Algorithme :
 //
 {
+	pt = liste_commandes ;	//Réinitialisé à chaque fois dans
+		//Executer_instruction
 #ifdef MAP
     cout << "Appel au constructeur de <Controleur>" << endl;
 #endif
