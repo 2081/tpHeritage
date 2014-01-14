@@ -11,6 +11,11 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
+#include "../Modele/ElementGeo.h"
+#include "../Modele/Cercle.h"
+#include "../Modele/Ligne.h"
+#include "../Modele/PolyLigne.h"
+#include "../Modele/Rectangle.h"
 
 
 //------------------------------------------------------------- Constantes 
@@ -35,6 +40,23 @@ public:
     // Contrat :
     //
 
+	void Faire();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	void Defaire();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	bool Initialisation( string instruction);
+	// Mode d'emploi : Renvoie false si la commande n'a pas pu etre initalisee.
+	//
+	// Contrat :
+	//
 
 //------------------------------------------------- Surcharge d'opérateurs
     CmdAjouterElement & operator = ( const CmdAjouterElement & unCmdAjouterElement );
@@ -67,7 +89,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+ElementGeo * element;
 //----------------------------------------------------- Attributs protégés
 
 };
