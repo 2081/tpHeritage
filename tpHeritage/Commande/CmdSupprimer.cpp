@@ -27,6 +27,20 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+bool CmdSupprimer::Initialisation(string instruction){
+	vector<string> donnees;
+	Commande::Decouper(instruction,donnees);
+	vector<ElementGeo *> vect;
+	for(int i = 1; i< donnees.size(); i++){
+		ElementGeo * el = modele->Element_par_nom(donnees[i]);
+		if(el == 0)return false;
+		vect.push_back(el);
+	}
+	for(int i = 0; i<vect.size(); i++){
+		modele->Enlever_element(vect[i]);
+	}
+	return true;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*mdSupprimer & CmdSupprimer::operator = ( const CmdSupprimer & unCmdSupprimer )
@@ -37,7 +51,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSupprimer::CmdSupprimer ( const CmdSupprimer & unCmdSupprimer )
+CmdSupprimer::CmdSupprimer ( const CmdSupprimer & unCmdSupprimer ) : Commande(unCmdSupprimer.modele)
 // Algorithme :
 //
 {
@@ -47,7 +61,7 @@ CmdSupprimer::CmdSupprimer ( const CmdSupprimer & unCmdSupprimer )
 } //----- Fin de CmdSupprimer (constructeur de copie)
 
 
-CmdSupprimer::CmdSupprimer ( )
+CmdSupprimer::CmdSupprimer ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
 {

@@ -13,9 +13,6 @@
 using namespace std;
 #include <iostream>
 #include <vector>
-#include <istream>
-#include <sstream>
-#include <iterator>
 
 //------------------------------------------------------ Include personnel
 #include "CmdAjouterElement.h"
@@ -30,29 +27,46 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-
-bool Initialisation( string instruction)
+void CmdAjouterElement::Faire()
 // Algorithme :
 {
-	istringstream ss(instruction);
-	istream_iterator<string> begin(ss), end;
-	vector<std::string> mots(begin, end);
+	//modele->Ajouter_element(element);
+}
+
+void CmdAjouterElement::Defaire()
+// Algorithme :
+{
+	//modele->Enlever_element(element);
+}
+
+
+bool CmdAjouterElement::Initialisation( string instruction)
+// Algorithme :
+{
+	vector<string> mots;
+	Commande::Decouper(instruction,mots);
+
 	int taille = mots.size();
 	if(taille == 0)return false;
 	if(mots[0].compare("C")){
 		if(taille != 5)return false;
 		// element = new Cercle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()));
+		return true;
 	} else if(mots[0].compare("R")){
 		if(taille != 6)return false;
 		// element = new Rectangle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()), atoi(mots[4].c_str()));
+		return true;
 	} else if(mots[0].compare("L")){
 		if(taille != 6)return false;
-		// element = new Cercle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()), atoi(mots[4].c_str()));
+		// element = new Ligne(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()), atoi(mots[4].c_str()));
+		return true;
 	} else if(mots[0].compare("PL")){
 		if(taille >= 6 && taille%2 == 0)return false;
-		// element = new Cercle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()));
+		// Constructeur PL ?
+
+		return true;
 	}
-	return true;
+	return false;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -60,27 +74,30 @@ bool Initialisation( string instruction)
 // Algorithme :
 //
 {
+    delete modele;
 } //----- Fin de operator =
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdAjouterElement::CmdAjouterElement ( const CmdAjouterElement & unCmdAjouterElement )
+CmdAjouterElement::CmdAjouterElement ( const CmdAjouterElement & unCmdAjouterElement ) : Commande(unCmdAjouterElement.modele)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <CmdAjouterElement>" << endl;
 #endif
+    element = 0;
 } //----- Fin de CmdAjouterElement (constructeur de copie)
 
 
-CmdAjouterElement::CmdAjouterElement ( )
+CmdAjouterElement::CmdAjouterElement ( Modele * fmodele) : Commande(fmodele)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterElement>" << endl;
 #endif
+    element = 0;
 } //----- Fin de CmdAjouterElement
 
 
@@ -91,6 +108,7 @@ CmdAjouterElement::~CmdAjouterElement ( )
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterElement>" << endl;
 #endif
+    delete element;
 } //----- Fin de ~CmdAjouterElement
 
 

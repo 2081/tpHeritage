@@ -35,7 +35,6 @@ public:
     // Contrat :
     //
 
-
 //------------------------------------------------- Surcharge d'opérateurs
     CmdSupprimer & operator = ( const CmdSupprimer & unCmdSupprimer );
     // Mode d'emploi :
@@ -51,7 +50,7 @@ public:
     // Contrat :
     //
 
-    CmdSupprimer ( );
+    CmdSupprimer ( Modele * fmodele);
     // Mode d'emploi :
     //
     // Contrat :

@@ -37,7 +37,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdVider::CmdVider ( const CmdVider & unCmdVider )
+CmdVider::CmdVider ( const CmdVider & unCmdVider ) : Commande(unCmdVider.modele)
 // Algorithme :
 //
 {
@@ -47,7 +47,7 @@ CmdVider::CmdVider ( const CmdVider & unCmdVider )
 } //----- Fin de CmdVider (constructeur de copie)
 
 
-CmdVider::CmdVider ( )
+CmdVider::CmdVider ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
 {

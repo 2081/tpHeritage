@@ -50,7 +50,7 @@ public:
     // Contrat :
     //
 
-    CmdVider ( );
+    CmdVider ( Modele * fmodele );
     // Mode d'emploi :
     //
     // Contrat :

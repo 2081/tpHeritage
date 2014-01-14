@@ -40,24 +40,6 @@ public:
     // Contrat :
     //
 
-	void Faire();
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
-
-	void Defaire();
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
-
-	bool Initialisation( string instruction);
-	// Mode d'emploi : Renvoie false si la commande n'a pas pu etre initalisee.
-	//
-	// Contrat :
-	//
-
 //------------------------------------------------- Surcharge d'opérateurs
     CmdAjouterElement & operator = ( const CmdAjouterElement & unCmdAjouterElement );
     // Mode d'emploi :
@@ -73,7 +55,7 @@ public:
     // Contrat :
     //
 
-    CmdAjouterElement ( );
+    CmdAjouterElement (Modele * fmodele);
     // Mode d'emploi :
     //
     // Contrat :

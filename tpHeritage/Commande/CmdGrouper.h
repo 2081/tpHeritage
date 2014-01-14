@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    CmdGrouper ( );
+    CmdGrouper ( Modele * modele );
     // Mode d'emploi :
     //
     // Contrat :

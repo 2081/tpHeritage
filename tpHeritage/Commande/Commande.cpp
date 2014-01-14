@@ -15,6 +15,9 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Commande.h"
+#include <istream>
+#include <sstream>
+#include <iterator>
 
 //------------------------------------------------------------- Constantes
 
@@ -27,6 +30,11 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+void Commande::Decouper(string & str, vector<string> & vect){
+	istringstream ss(str);
+	istream_iterator<string> begin(ss), end;
+	vect = vector<string>(begin, end);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*Commande & Commande::operator = ( const Commande & unCommande )
@@ -47,7 +55,7 @@ Commande::Commande ( const Commande & unCommande )
 } //----- Fin de Commande (constructeur de copie)
 
 
-Commande::Commande ( )
+Commande::Commande ( Modele * fmodele ) : modele(fmodele)
 // Algorithme :
 //
 {
@@ -64,6 +72,7 @@ Commande::~Commande ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Commande>" << endl;
 #endif
+    delete modele;
 } //----- Fin de ~Commande
 
 

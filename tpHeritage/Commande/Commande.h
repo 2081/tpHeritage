@@ -10,6 +10,8 @@
 #define COMMANDE_H_
 
 #include <string>
+#include <vector>
+#include "../Modele/Modele.h"
 
 using namespace std;
 
@@ -36,6 +38,12 @@ public:
     //
     // Contrat :
     //
+	static void Decouper(string & str, vector<string> & vect);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
 
 	virtual void Faire() = 0;
 	// Mode d'emploi :
@@ -71,7 +79,7 @@ public:
     // Contrat :
     //
 
-    Commande ( );
+    Commande ( Modele * fmodele );
     // Mode d'emploi :
     //
     // Contrat :
@@ -87,7 +95,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+Modele * modele;
 //----------------------------------------------------- Attributs protégés
 
 };

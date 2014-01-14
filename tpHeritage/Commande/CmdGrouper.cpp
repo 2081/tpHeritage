@@ -37,7 +37,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdGrouper::CmdGrouper ( const CmdGrouper & unCmdGrouper )
+CmdGrouper::CmdGrouper ( const CmdGrouper & unCmdGrouper ) : Commande(unCmdGrouper.modele)
 // Algorithme :
 //
 {
@@ -47,7 +47,7 @@ CmdGrouper::CmdGrouper ( const CmdGrouper & unCmdGrouper )
 } //----- Fin de CmdGrouper (constructeur de copie)
 
 
-CmdGrouper::CmdGrouper ( )
+CmdGrouper::CmdGrouper ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
 {

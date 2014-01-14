@@ -26,7 +26,30 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void CmdDeplacer::Faire()
+// Algorithme :
+{
+	//element->Deplacer(dx,dy);
+}
 
+void CmdDeplacer::Defaire()
+// Algorithme :
+{
+	//element->Deplacer(-dx,-dy);
+}
+
+bool CmdDeplacer::Initialisation( string instruction)
+// Algorithme :
+{
+	vector<string> donnees;
+	Commande::Decouper(instruction,donnees);
+	if(donnees.size()!= 4)return false;
+	//element = modele->Element_par_nom(donnees[1]);
+	if(element == 0)return false;
+	dx = atoi(donnees[2].c_str());
+	dy = atoi(donnees[3].c_str());
+	return true;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*CmdDeplacer & CmdDeplacer::operator = ( const CmdDeplacer & unCmdDeplacer )
@@ -37,23 +60,27 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdDeplacer::CmdDeplacer ( const CmdDeplacer & unCmdDeplacer )
+CmdDeplacer::CmdDeplacer ( const CmdDeplacer & unCmdDeplacer ) : Commande(unCmdDeplacer.modele)
 // Algorithme :
 ////
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <CmdDeplacer>" << endl;
 #endif
+    element = 0;
+    dx = dy = 0;
 } //----- Fin de CmdDeplacer (constructeur de copie)
 
 
-CmdDeplacer::CmdDeplacer ( )
+CmdDeplacer::CmdDeplacer ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdDeplacer>" << endl;
 #endif
+    element = 0;
+    dx = dy = 0;
 } //----- Fin de CmdDeplacer
 
 

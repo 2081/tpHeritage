@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
+#include "../Modele/ElementGeo.h"
 
 
 //------------------------------------------------------------- Constantes 
@@ -43,7 +44,6 @@ public:
     // Contrat :
     //
 
-
 //-------------------------------------------- Constructeurs - destructeur
     CmdDeplacer ( const CmdDeplacer & unCmdDeplacer );
     // Mode d'emploi (constructeur de copie) :
@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    CmdDeplacer ( );
+    CmdDeplacer ( Modele * fmodele );
     // Mode d'emploi :
     //
     // Contrat :
@@ -67,7 +67,8 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+ElementGeo * element;
+int dx, dy;
 //----------------------------------------------------- Attributs protégés
 
 };
