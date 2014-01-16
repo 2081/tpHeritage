@@ -35,6 +35,23 @@ public:
     // Contrat :
     //
 
+	void Faire();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	void Defaire();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	bool Initialisation( string instruction );
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 //------------------------------------------------- Surcharge d'opérateurs
     CmdGrouper & operator = ( const CmdGrouper & unCmdGrouper );

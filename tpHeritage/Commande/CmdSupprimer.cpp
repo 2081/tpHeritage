@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "CmdSupprimer.h"
+#include "../Modele/ElementGeo.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -31,12 +32,12 @@ bool CmdSupprimer::Initialisation(string instruction){
 	vector<string> donnees;
 	Commande::Decouper(instruction,donnees);
 	vector<ElementGeo *> vect;
-	for(int i = 1; i< donnees.size(); i++){
+	for(uint i = 1; i< donnees.size(); i++){
 		ElementGeo * el = modele->Element_par_nom(donnees[i]);
 		if(el == 0)return false;
 		vect.push_back(el);
 	}
-	for(int i = 0; i<vect.size(); i++){
+	for(uint i = 0; i<vect.size(); i++){
 		modele->Enlever_element(vect[i]);
 	}
 	return true;
