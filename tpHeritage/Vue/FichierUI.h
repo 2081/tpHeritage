@@ -14,11 +14,14 @@
 #include "../Modele/Modele.h"
 
 #include <string>
+#include <vector>
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
+typedef vector<string> Commandes_objet ;
+typedef vector<Commandes_objet> Situation_modele ;
 class Controleur ;
 
 //------------------------------------------------------------------------ 
@@ -86,6 +89,7 @@ protected:
 //----------------------------------------------------- Attributs protégés
     Controleur* controleur ;
     Modele* modele ;
+    Situation_modele situation_modele ;
 
 };
 
