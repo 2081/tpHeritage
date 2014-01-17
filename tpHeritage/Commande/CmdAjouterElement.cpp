@@ -13,6 +13,7 @@
 using namespace std;
 #include <iostream>
 #include <vector>
+#include <string>
 
 //------------------------------------------------------ Include personnel
 #include "CmdAjouterElement.h"
@@ -47,6 +48,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	Commande::Decouper(instruction,mots);
 
 	int taille = mots.size();
+	//Initialisation( string instruction);
 	if(taille == 0)return false;
 	if(mots[0].compare("C")){
 		if(taille != 5)return false;

@@ -43,8 +43,18 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1509085560.1338045190" name="/" resourcePath="Commande">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1396085413" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.728690814" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base.1682789110"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1794275301" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.139689033"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.687450706" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1439823736"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1526898252" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug.894799932"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.740975895" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.991957268"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.1591044933" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug.260462995"/>
+						</toolChain>
+					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Vue|Controleur|Modele|Commande" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Commande|Vue|Controleur|Modele" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Controleur"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Modele"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Vue"/>
@@ -92,6 +102,16 @@
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.release.1369046253" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release">
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.368526781" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.gnu.exe.release.1258465624.879794203" name="/" resourcePath="Commande">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.release.839210187" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.release" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.736896085" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base.1576272482"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.19349736" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1443515046"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1522989971" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1355175253"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.38927228" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release.1982681169"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.1433529369" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.290864343"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.release.1553179675" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release.1369046253"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
