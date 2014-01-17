@@ -24,7 +24,7 @@ using namespace std;
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Commande>
 //
-//
+//strtol end of string
 //------------------------------------------------------------------------ 
 
 class Commande
@@ -44,6 +44,11 @@ public:
 	// Contrat :
 	//
 
+	static bool Est_un_nombre(string & str, int & l);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 	virtual void Faire() = 0;
 	// Mode d'emploi :

@@ -12,10 +12,13 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <list>
+typedef unsigned int uint;
 
 //------------------------------------------------------ Include personnel
 #include "CmdSupprimer.h"
-#include "../Modele/ElementGeo.h"
+#include "../Modele/Groupe.h"
+
 
 //------------------------------------------------------------- Constantes
 
@@ -28,17 +31,39 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-bool CmdSupprimer::Initialisation(string instruction){
+void CmdSupprimer::Faire()
+// Algorithme :
+{
+	for(uint i = 0; i<elements.size(); i++){
+		list<Groupe *>::iterator it; = ;
+		for( it = elements[i]->groupes.begin(); it < elements[i]->groupes.end() ; it++ ){
+			(*it)->Enlever_membre(elements[i]);
+		}
+		modele->Enlever_element(elements[i]);
+	}
+}
+
+void CmdSupprimer::Defaire()
+// Algorithme :
+{
+	for(uint i = 0; i<elements.size(); i++){
+		list<Groupe *>::iterator it;
+		for( it = elements[i]->groupes.begin(); it < elements[i]->groupes.end() ; it++ ){
+			(*it)->Ajouter_membre(elements[i]);
+		}
+		modele->Ajouter_element(elements[i]);
+	}Enlever
+}
+
+bool CmdSupprimer::Initialisation(string instruction)
+// Algorithme :
+{
 	vector<string> donnees;
 	Commande::Decouper(instruction,donnees);
-	vector<ElementGeo *> vect;
 	for(uint i = 1; i< donnees.size(); i++){
 		ElementGeo * el = modele->Element_par_nom(donnees[i]);
 		if(el == 0)return false;
-		vect.push_back(el);
-	}
-	for(uint i = 0; i<vect.size(); i++){
-		modele->Enlever_element(vect[i]);
+		elements.push_back(el);
 	}
 	return true;
 }

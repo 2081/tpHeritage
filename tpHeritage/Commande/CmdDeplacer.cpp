@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <cstdlib>
 
 //------------------------------------------------------ Include personnel
 #include "CmdDeplacer.h"
@@ -46,9 +47,7 @@ bool CmdDeplacer::Initialisation( string instruction)
 	if(donnees.size()!= 4)return false;
 	//element = modele->Element_par_nom(donnees[1]);
 	if(element == 0)return false;
-	dx = atoi(donnees[2].c_str());
-	dy = atoi(donnees[3].c_str());
-	return true;
+	return Est_un_nombre(donnees[2],dx) && Est_un_nombre(donnees[3],dy);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

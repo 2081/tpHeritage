@@ -18,6 +18,9 @@ using namespace std;
 #include <istream>
 #include <sstream>
 #include <iterator>
+#include <stdio.h>
+#include <ctype.h>
+#include <cstdlib>
 
 //------------------------------------------------------------- Constantes
 
@@ -29,6 +32,11 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool Commande::Est_un_nombre(string & str, int & l){
+	char * pEnd;
+	l = (int)strtol(str.c_str(),&pEnd,10);
+	return *pEnd == '\0';
+}
 
 void Commande::Decouper(string & str, vector<string> & vect){
 	istringstream ss(str);

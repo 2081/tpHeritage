@@ -40,6 +40,7 @@ void CmdAjouterElement::Defaire()
 }
 
 
+// Constructeur PL ?
 bool CmdAjouterElement::Initialisation( string instruction)
 // Algorithme :
 {
@@ -50,19 +51,37 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	if(taille == 0)return false;
 	if(mots[0].compare("C")){
 		if(taille != 5)return false;
-		// element = new Cercle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()));
+		int nombre[3];
+		for(int i = 0; i < 3; i++){
+			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
+		}
+		// element = new Cercle(mots[1],nombre[0],nombre[1],nombre[2]);
 		return true;
 	} else if(mots[0].compare("R")){
 		if(taille != 6)return false;
-		// element = new Rectangle(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()), atoi(mots[4].c_str()));
+		int nombre[4];
+		for(int i = 0; i < 4; i++){
+			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
+		}
+		// element = new Rectangle(mots[1],nombre[2],nombre[3],nombre[4], nombre[5]);
 		return true;
 	} else if(mots[0].compare("L")){
 		if(taille != 6)return false;
-		// element = new Ligne(mots[1],atoi(mots[2].c_str()),atoi(mots[3].c_str()),atoi(mots[4].c_str()), atoi(mots[4].c_str()));
+		int nombre[4];
+		for(int i = 0; i < 4; i++){
+			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
+		}
+		// element = new Ligne(mots[1],nombre[2],nombre[3],nombre[4], nombre[5]);
 		return true;
 	} else if(mots[0].compare("PL")){
 		if(taille >= 6 && taille%2 == 0)return false;
-		// Constructeur PL ?
+		vector<int> nombre;
+		for(int i = 0; i < taille-2; i++){
+			int a;
+			if(!Est_un_nombre(mots[i+2],a))return false;
+			nombre.push_back(a);
+		}
+		// element = new PolyLigne(mots[1],&nombre);
 
 		return true;
 	}

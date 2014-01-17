@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
+#include "../Modele/ElementGeo.h"
+#include <vector>
 
 
 //------------------------------------------------------------- Constantes 
@@ -86,6 +88,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+vector<ElementGeo *> elements;
 
 };
 
