@@ -32,10 +32,15 @@ void ConsoleUI::Attendre_instruction()
 //
 {
 	string commande_tapee ;
+	bool continuer_programme = true ;
 	cout << "Veuillez taper une instruction : " ;
-	while (getline(cin , commande_tapee))
+	while (continuer_programme && getline(cin , commande_tapee))
 	{
-		pt_controleur->Executer_instruction(commande_tapee);
+		continuer_programme = pt_controleur->Executer_instruction(commande_tapee);
+		if(continuer_programme)
+		{
+			cout << "Veuillez taper une instruction : " ;
+		}
 	}
 } //----- Fin de Attendre_instruction
 
@@ -63,7 +68,6 @@ ConsoleUI::ConsoleUI ( Modele* m , Controleur* c )
 {
 	pt_modele = m;
 	pt_controleur = c;
-	cout << "Appel du constructeur modifié" << endl ;
 
 #ifdef MAP
     cout << "Appel au constructeur de <ConsoleUI>" << endl;
@@ -75,7 +79,6 @@ ConsoleUI::~ConsoleUI ( )
 // Algorithme :
 //
 {
-	cout << "Appel du constructeur de consoleUI normal" << endl ;
 #ifdef MAP
     cout << "Appel au destructeur de <ConsoleUI>" << endl;
 #endif

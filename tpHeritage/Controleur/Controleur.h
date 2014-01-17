@@ -15,9 +15,12 @@
 #include <string>
 
 
+
+
 #include "../Vue/ConsoleUI.h"	//Vue
 #include "../Vue/FichierUI.h"	//Vue
 #include "../Commande/Commande.h" //Commande
+//#include "../Commande/CmdAjouterElement.h/"
 #include "../Modele/Modele.h"	//Modele
 
 using namespace std ;
@@ -28,6 +31,7 @@ using namespace std ;
 typedef stack <Commande*> Pile_Commande;
 class ConsoleUI ;
 class Modele ;
+class FichierUI ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Controleur>
@@ -48,6 +52,12 @@ public:
     //
 	void Lancer_console() ;
 
+	bool VerifierSaveLoad(string& filename, string& ligne_de_commande_restante, istringstream& flux_commande);
+	// type Méthode ( liste des paramètres );
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 	Commande * Traduire_instruction(string instruction);
 	// type Méthode ( liste des paramètres );
@@ -72,12 +82,6 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Controleur ( const Controleur & unControleur );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
     Controleur ( );
     // Mode d'emploi :
     //
@@ -97,7 +101,7 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
     Modele modele;
-    FichierUI fichier;
+    FichierUI* fichierUI;
     ConsoleUI* console ;
     string liste_commandes[14] = {"C","R","L","PL","OA","DELETE","MOVE",
     			   		"LIST","UNDO","REDO","LOAD","SAVE","CLEAR","EXIT"};
@@ -106,6 +110,7 @@ protected:
     string premier_argument = "pas_trouve";
 
     Pile_Commande commandes_executees ;
+    string instruction_cours ;
     //commandes_executees::iterator curseur_commandes=commandes_executees.size();
     //curseur sur une stack ?
 

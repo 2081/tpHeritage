@@ -10,10 +10,16 @@
 #define FICHIERUI_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include "../Controleur/Controleur.h"
+#include "../Modele/Modele.h"
+
+#include <string>
+using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
-//------------------------------------------------------------------ Types 
+//------------------------------------------------------------------ Types
+class Controleur ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <FichierUI>
@@ -33,6 +39,17 @@ public:
     // Contrat :
     //
 
+	bool Sauvegarder_modele(string nom_fichier);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+	bool Charger_modele(string nom_fichier);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 //------------------------------------------------- Surcharge d'opérateurs
     /*FichierUI & operator = ( const FichierUI & unFichierUI );
@@ -67,6 +84,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+    Controleur* controleur ;
+    Modele* modele ;
 
 };
 
