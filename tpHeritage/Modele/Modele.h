@@ -10,10 +10,15 @@
 #define MODELE_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <map>
+#include <stack> //Pile
+#include "ElementGeo.h"
+
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+typedef map <string , ElementGeo*> Modele_courant ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Modele>

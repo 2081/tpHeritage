@@ -11,6 +11,7 @@ RM := rm -rf
 -include Vue/subdir.mk
 -include Modele/subdir.mk
 -include Controleur/subdir.mk
+-include Commande/subdir.mk
 -include subdir.mk
 -include objects.mk
 

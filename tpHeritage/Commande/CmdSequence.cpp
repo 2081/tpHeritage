@@ -37,17 +37,7 @@ CmdSequence & CmdSequence::operator = ( const CmdSequence & unCmdSequence )
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSequence::CmdSequence ( const CmdSequence & unCmdSequence )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <CmdSequence>" << endl;
-#endif
-} //----- Fin de CmdSequence (constructeur de copie)
-
-
-CmdSequence::CmdSequence ( )
+CmdSequence::CmdSequence ( Modele* modele):Commande(modele)
 // Algorithme :
 //
 {

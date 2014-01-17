@@ -11,11 +11,13 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
-
+#include "../Modele/Modele.h"
+using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+typedef deque<Commande *> Commandes ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <CmdSequence>
@@ -45,11 +47,11 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    CmdSequence ( const CmdSequence & unCmdSequence );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
+    CmdSequence ( Modele * modele);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
     CmdSequence ( );
     // Mode d'emploi :
@@ -69,6 +71,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+    Commandes cmds ;
 
 };
 
