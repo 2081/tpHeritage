@@ -10,13 +10,15 @@
 #define ELEMENTGEO_H_
 
 #include <string>
-#include "Groupe.h"
+#include <list>
+//#include "Groupe.h"
 
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class Groupe ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ElementGeo>
