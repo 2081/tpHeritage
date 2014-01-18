@@ -10,13 +10,13 @@
 #define GROUPE_H_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "ElementGeo.h"
-#include <list>
+
 
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class ElementGeo ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Groupe>
@@ -35,10 +35,7 @@ public:
     //
     // Contrat :
     //
-	bool Ajouter_membre( ElementGeo * elt);
-	bool Enlever_membre( ElementGeo * elt);
 
-	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Groupe & operator = ( const Groupe & unGroupe );
@@ -55,7 +52,7 @@ public:
     // Contrat :
     //
 
-    Groupe ( string & nom );
+    Groupe ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -66,8 +63,6 @@ public:
     //
     // Contrat :
     //
-
-    list<ElementGeo *> membres;
 
 //------------------------------------------------------------------ PRIVE 
 
