@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Point.h"
+#include "ElementGeo.h"
+
 
 //------------------------------------------------------------- Constantes
 
