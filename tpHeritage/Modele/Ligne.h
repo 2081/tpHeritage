@@ -11,12 +11,12 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
-#include "Point.h"
 
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class Point ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Ligne>
@@ -35,6 +35,7 @@ public:
     //
     // Contrat :
     //
+	string Obtenir_descripteur() ;
 
 	bool Deplacer(int dx, int dy, int id = 0);
 
@@ -71,7 +72,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    Point coord[2];
+    Point* coord[2];
 };
 
 //--------------------------- Autres définitions dépendantes de <Ligne>
