@@ -19,6 +19,11 @@ using namespace std;
 #include <iterator>
 
 //------------------------------------------------------ Include personnel
+#include "../Vue/ConsoleUI.h"	//Vue
+#include "../Vue/FichierUI.h"	//Vue
+#include "../Commande/Commande.h" //Commande
+//#include "../Commande/CmdAjouterElement.h/"
+#include "../Modele/Modele.h"	//Modele
 #include "Controleur.h"
 #include "../Commande/CmdAjouterElement.h"
 #include "../Commande/CmdDeplacer.h"
