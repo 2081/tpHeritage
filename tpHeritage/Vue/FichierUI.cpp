@@ -13,6 +13,7 @@
 using namespace std;
 #include <iostream>
 #include <fstream>
+#include <iterator>
 //------------------------------------------------------ Include personnel
 #include "FichierUI.h"
 
@@ -27,10 +28,23 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+
+
 bool FichierUI::Sauvegarder_modele(string nom_fichier)
 // Algorithme :
 //
 {
+	int nb_rangs = 0 ;
+	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
+	{
+		if(it->second.dependance > nb_rangs)
+		{
+			Commandes_objet Cn ;
+			situation_modele.push_back(Cn) ;
+			situation_modele[++nb_rangs].push_back(it->second.fonction_renvoyant_string)
+		}
+
+	}
 	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
 	return true ;
 }

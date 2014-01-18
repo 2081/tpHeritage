@@ -11,7 +11,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <stack> //Pile
-#include <list>
 #include <string>
 
 
@@ -28,7 +27,7 @@ using namespace std ;
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
-typedef stack <Commande*> Pile_Commande;
+typedef deque <Commande*> Pile_Commande;
 class ConsoleUI ;
 class Modele ;
 class FichierUI ;
@@ -109,9 +108,10 @@ protected:
     string*pt ;		//Pointeur de recherche dans liste_commandes.
     string premier_argument = "pas_trouve";
 
-    Pile_Commande commandes_executees ;
+    Pile_Commande liste_cmd ;
+    //Pile_Commande liste_construction ;
     string instruction_cours ;
-    //commandes_executees::iterator curseur_commandes=commandes_executees.size();
+    //liste_cmd::iterator curseur_commandes=liste_cmd.size();
     //curseur sur une stack ?
 
 };

@@ -7,6 +7,7 @@ CPP_SRCS += \
 ../Commande/CmdAjouterElement.cpp \
 ../Commande/CmdDeplacer.cpp \
 ../Commande/CmdGrouper.cpp \
+../Commande/CmdSequence.cpp \
 ../Commande/CmdSupprimer.cpp \
 ../Commande/CmdVider.cpp \
 ../Commande/Commande.cpp 
@@ -15,6 +16,7 @@ OBJS += \
 ./Commande/CmdAjouterElement.o \
 ./Commande/CmdDeplacer.o \
 ./Commande/CmdGrouper.o \
+./Commande/CmdSequence.o \
 ./Commande/CmdSupprimer.o \
 ./Commande/CmdVider.o \
 ./Commande/Commande.o 
@@ -23,6 +25,7 @@ CPP_DEPS += \
 ./Commande/CmdAjouterElement.d \
 ./Commande/CmdDeplacer.d \
 ./Commande/CmdGrouper.d \
+./Commande/CmdSequence.d \
 ./Commande/CmdSupprimer.d \
 ./Commande/CmdVider.d \
 ./Commande/Commande.d 

@@ -20,7 +20,12 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Controleur.h"
-
+#include "../Commande/CmdAjouterElement.h"
+#include "../Commande/CmdDeplacer.h"
+#include "../Commande/CmdGrouper.h"
+#include "../Commande/CmdSupprimer.h"
+#include "../Commande/CmdVider.h"
+#include "../Commande/Commande.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -52,10 +57,9 @@ bool Controleur::VerifierSaveLoad(string& filename, string& ligne_de_commande_re
 			//les deux apostrophes sont présentes
 			int longueur = found - premiere -1 ;
 			filename = instruction_cours.substr(++premiere , longueur) ;
-			getline(flux_commande , ligne_de_commande_restante , '\'');
-			getline(flux_commande , ligne_de_commande_restante , '\'');
-			ligne_de_commande_restante.clear();
-			getline(flux_commande , ligne_de_commande_restante);
+
+			int fin_commande = instruction_cours.size() - found ;
+			ligne_de_commande_restante = instruction_cours.substr(++found , fin_commande) ;
 		}
 	}
 	else
@@ -117,7 +121,7 @@ bool Controleur::Executer_instruction(string instruction)
 // Algorithme :
 //
 {
-	instruction_cours = instruction ;
+	instruction_cours = instruction ;	//Pour l'appel de SAVE/LOAD
 	premier_argument = "pas_trouve" ;
 	istringstream flux_commande (instruction_cours) ;
 	string premier ;
@@ -127,11 +131,9 @@ bool Controleur::Executer_instruction(string instruction)
 	{
 		if(*pt == premier && premier_argument=="pas_trouve")
 		{
-			cout << "Les deux trucs sont égaux." << endl ;
 			premier_argument = *pt ;
 		}
 	}
-	cout << premier_argument ;
 
 	//Analyse du résultat et appel des procédures de commandes.
 	if(premier_argument=="pas_trouve")
@@ -158,6 +160,8 @@ bool Controleur::Executer_instruction(string instruction)
 
 		if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
 		{
+			//Savegarder l'ancien modèle -> on appelle save.
+			fichierUI->Sauvegarder_modele("modele");
 			fichierUI->Charger_modele(filename);
 		}
 		return true ;
@@ -170,7 +174,7 @@ bool Controleur::Executer_instruction(string instruction)
 	{
 		//demande si l'utilisateur veut enregistrer sa figure
 		//Verif si la dernière commande était une sauvegarde
-		/*if (commandes_executees.top() != ##sauvegarde)
+		/*if (liste_cmd.top() != ##sauvegarde)
 		{*/
 			cout << "Passage dans exit\n" ;
 			bool reponse_pas_bonne = true ;
@@ -210,9 +214,8 @@ bool Controleur::Executer_instruction(string instruction)
 	}
 	else
 	{
-		/*Appel de la fonction traduire.
-		son retour est ajouté dans la pile de commandes.*/
-		commandes_executees.push( Traduire_instruction(instruction)) ;
+		/*Appel de la fonction traduire.*/
+		//liste_cmd.push_back( ) ;
 		premier_argument = "pas_trouve"; //Pour le prochain appel
 		return true ;
 	}
