@@ -9,6 +9,9 @@
 #if ! defined ( ELEMENTGEO_H_ )
 #define ELEMENTGEO_H_
 
+#include <string>
+#include "Groupe.h"
+
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes 
@@ -32,6 +35,10 @@ public:
     //
     // Contrat :
     //
+	virtual bool Deplacer(int dx, int dy, int id = 0) = 0;
+
+	bool Ajouter_au_groupe( Groupe * groupe);
+	bool Enlever_du_groupe( Groupe * groupe);
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -49,7 +56,7 @@ public:
     // Contrat :
     //
 
-    ElementGeo ( );
+    ElementGeo (string nom);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,12 +68,21 @@ public:
     // Contrat :
     //
 
+
+    int dependance;
+	string nom;
+	list<Groupe *> groupes;
+
 //------------------------------------------------------------------ PRIVE 
 
 protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
+    static int prochain_id_deplacement = 0;
+
+private:
+    int dernier_deplacement;
 
 };
 
