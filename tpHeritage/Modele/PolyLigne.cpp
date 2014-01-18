@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "PolyLigne.h"
+#include "Point.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -37,7 +38,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-PolyLigne::PolyLigne ( const PolyLigne & unPolyLigne )
+/*PolyLigne::PolyLigne ( const PolyLigne & unPolyLigne ) : ElementGeo(fnom)
 // Algorithme :
 //
 {
@@ -45,7 +46,7 @@ PolyLigne::PolyLigne ( const PolyLigne & unPolyLigne )
     cout << "Appel au constructeur de copie de <PolyLigne>" << endl;
 #endif
 } //----- Fin de PolyLigne (constructeur de copie)
-
+*/
 
 PolyLigne::PolyLigne ( string & fnom, vector<Point> & fp ) : ElementGeo(fnom)
 // Algorithme :

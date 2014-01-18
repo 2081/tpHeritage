@@ -12,9 +12,6 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <stack> //Pile
 #include <string>
-
-
-
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
@@ -92,7 +89,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    Modele modele;
+    Modele* modele;
     FichierUI* fichierUI;
     ConsoleUI* console ;
     string liste_commandes[14] = {"C","R","L","PL","OA","DELETE","MOVE",

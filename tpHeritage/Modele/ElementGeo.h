@@ -42,6 +42,8 @@ public:
 	bool Ajouter_au_groupe( Groupe * groupe);
 	bool Enlever_du_groupe( Groupe * groupe);
 
+	virtual string Obtenir_descripteur();
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     ElementGeo & operator = ( const ElementGeo & unElementGeo );

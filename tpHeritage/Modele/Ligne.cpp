@@ -12,9 +12,11 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <sstream>
 
 //------------------------------------------------------ Include personnel
 #include "Ligne.h"
+#include "Point.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -26,6 +28,14 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string Ligne::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "C " << nom << " " << coord[0]->x << " " << coord[0]->y << " " << coord[1]->x << " " << coord[2]->y ;
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -37,7 +47,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Ligne::Ligne ( const Ligne & unLigne )
+/*Ligne::Ligne ( const Ligne & unLigne )
 // Algorithme :
 //
 {
@@ -45,12 +55,15 @@ Ligne::Ligne ( const Ligne & unLigne )
     cout << "Appel au constructeur de copie de <Ligne>" << endl;
 #endif
 } //----- Fin de Ligne (constructeur de copie)
-
+*/
 
 Ligne::Ligne (string & fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {
+	nom = fnom ;
+	coord[0] = &fp1 ;
+	coord[1] = &fp2 ;
 #ifdef MAP
     cout << "Appel au constructeur de <Ligne>" << endl;
 #endif

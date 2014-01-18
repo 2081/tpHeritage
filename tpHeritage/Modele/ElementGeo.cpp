@@ -38,7 +38,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-ElementGeo::ElementGeo ( const ElementGeo & unElementGeo )
+/*ElementGeo::ElementGeo ( const ElementGeo & unElementGeo )
 // Algorithme :
 //
 {
@@ -46,9 +46,16 @@ ElementGeo::ElementGeo ( const ElementGeo & unElementGeo )
     cout << "Appel au constructeur de copie de <ElementGeo>" << endl;
 #endif
 } //----- Fin de ElementGeo (constructeur de copie)
+*/
 
-
-
+ElementGeo::ElementGeo ( string fnom )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <ElementGeo>" << endl;
+#endif
+} //----- Fin de ElementGeo (constructeur de copie)
 
 
 ElementGeo::~ElementGeo ( )

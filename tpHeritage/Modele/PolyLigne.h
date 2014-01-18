@@ -10,14 +10,14 @@
 #define POLYLIGNE_H_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "ElementGeo.h"
-#include "Point.h"
 #include <vector>
+#include "ElementGeo.h"
 
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class Point ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <PolyLigne>

@@ -10,13 +10,13 @@
 #define GROUPE_H_
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include <deque>
+#include "ElementGeo.h"
 
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
-class ElementGeo ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Groupe>
@@ -35,6 +35,7 @@ public:
     //
     // Contrat :
     //
+	string Obtenir_descripteur();
 
 	bool Deplacer(int dx, int dy, int id = 0);
 
@@ -70,7 +71,7 @@ public:
     // Contrat :
     //
 
-    list<ElementGeo *> membres;
+    deque<ElementGeo *> membres;
 //------------------------------------------------------------------ PRIVE 
 
 protected:

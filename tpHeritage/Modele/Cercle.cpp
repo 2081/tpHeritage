@@ -12,9 +12,12 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <sstream> //ostringstream
 
 //------------------------------------------------------ Include personnel
 #include "Cercle.h"
+#include "Point.h"
+
 
 //------------------------------------------------------------- Constantes
 
@@ -26,6 +29,14 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string Cercle::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "C " << nom << " " << centre->x << " " << centre->y << " " << rayon ;
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -37,7 +48,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Cercle::Cercle ( const Cercle & unCercle )
+/*Cercle::Cercle ( const Cercle & unCercle )
 // Algorithme :
 //
 {
@@ -45,12 +56,15 @@ Cercle::Cercle ( const Cercle & unCercle )
     cout << "Appel au constructeur de copie de <Cercle>" << endl;
 #endif
 } //----- Fin de Cercle (constructeur de copie)
-
+*/
 
 Cercle::Cercle (string & fnom, Point & c, int r) : ElementGeo(fnom)
 // Algorithme :
 //
 {
+	nom = fnom ;
+	centre = &c ;
+	rayon = r ;
 #ifdef MAP
     cout << "Appel au constructeur de <Cercle>" << endl;
 #endif

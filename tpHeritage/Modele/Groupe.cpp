@@ -12,10 +12,11 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <sstream>
+#include <iterator>
 
 //------------------------------------------------------ Include personnel
 #include "Groupe.h"
-#include "ElementGeo.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,6 +28,18 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string Groupe::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "OA " << nom << " " ;
+	for (deque<ElementGeo *>::iterator it = membres.begin() ; it != membres.end() ; it++)
+	{
+		//flux << it->nom << " " ;
+	}
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -38,7 +51,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Groupe::Groupe ( const Groupe & unGroupe )
+/*Groupe::Groupe ( const Groupe & unGroupe )
 // Algorithme :
 //
 {
@@ -46,12 +59,13 @@ Groupe::Groupe ( const Groupe & unGroupe )
     cout << "Appel au constructeur de copie de <Groupe>" << endl;
 #endif
 } //----- Fin de Groupe (constructeur de copie)
-
+*/
 
 Groupe::Groupe (string & fnom) : ElementGeo(fnom)
 // Algorithme :
 //
 {
+	nom = fnom ;
 #ifdef MAP
     cout << "Appel au constructeur de <Groupe>" << endl;
 #endif

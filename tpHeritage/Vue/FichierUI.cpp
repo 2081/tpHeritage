@@ -37,7 +37,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 //
 {
 	int nb_rangs = 0 ;
-	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
+	/*for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
 		if(it->second.dependance > nb_rangs)
 		{
@@ -48,7 +48,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 
 	}
 	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
-	return true ;
+	return true ;*/
 }
 
 bool FichierUI::Charger_modele(string nom_fichier)
