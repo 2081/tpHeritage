@@ -15,23 +15,16 @@
 
 
 
-
-#include "../Vue/ConsoleUI.h"	//Vue
-#include "../Vue/FichierUI.h"	//Vue
-#include "../Commande/Commande.h" //Commande
-//#include "../Commande/CmdAjouterElement.h/"
-#include "../Modele/Modele.h"	//Modele
-
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
-typedef deque <Commande*> Pile_Commande;
+class Commande ;
 class ConsoleUI ;
 class Modele ;
 class FichierUI ;
-
+typedef deque <Commande*> Pile_Commande;
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Controleur>
 //
