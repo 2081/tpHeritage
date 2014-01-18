@@ -36,6 +36,12 @@ public:
     // Contrat :
     //
 
+	bool Deplacer(int dx, int dy, int id = 0);
+
+	bool Ajouter_membre(ElementGeo * elt);
+
+	bool Enlever_membre(ElementGeo * elt);
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     Groupe & operator = ( const Groupe & unGroupe );
@@ -52,7 +58,7 @@ public:
     // Contrat :
     //
 
-    Groupe ( );
+    Groupe (string & nom);
     // Mode d'emploi :
     //
     // Contrat :
@@ -64,6 +70,7 @@ public:
     // Contrat :
     //
 
+    list<ElementGeo *> membres;
 //------------------------------------------------------------------ PRIVE 
 
 protected:
