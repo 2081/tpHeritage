@@ -10,8 +10,7 @@
 #define FICHIERUI_H_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../Controleur/Controleur.h"
-#include "../Modele/Modele.h"
+
 
 #include <string>
 #include <vector>
@@ -20,9 +19,10 @@ using namespace std ;
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
+class Controleur ;
+class Modele ;
 typedef vector<string> Commandes_objet ;
 typedef vector<Commandes_objet> Situation_modele ;
-class Controleur ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <FichierUI>

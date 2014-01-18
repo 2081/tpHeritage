@@ -16,6 +16,8 @@ using namespace std;
 #include <iterator>
 //------------------------------------------------------ Include personnel
 #include "FichierUI.h"
+#include "../Controleur/Controleur.h"
+#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -41,7 +43,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 		{
 			Commandes_objet Cn ;
 			situation_modele.push_back(Cn) ;
-			situation_modele[++nb_rangs].push_back(it->second.fonction_renvoyant_string) ;
+			situation_modele[++nb_rangs].push_back(it->second.fonction_renvoyant_string)
 		}
 
 	}
