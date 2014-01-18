@@ -37,13 +37,13 @@ public:
     // Contrat :
     //
 
-	void Faire();
+	bool Faire();
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	void Defaire();
+	bool Defaire();
 	// Mode d'emploi :
 	//
 	// Contrat :

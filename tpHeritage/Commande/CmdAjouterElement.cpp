@@ -29,16 +29,16 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void CmdAjouterElement::Faire()
+bool CmdAjouterElement::Faire()
 // Algorithme :
 {
-	modele->Ajouter_element(element);
+	return modele->Ajouter_element(element);
 }
 
-void CmdAjouterElement::Defaire()
+bool CmdAjouterElement::Defaire()
 // Algorithme :
 {
-	modele->Enlever_element(element);
+	return modele->Enlever_element(element);
 }
 
 
@@ -51,7 +51,14 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	int taille = mots.size();
 
 	//Initialisation( string instruction);
-	if(taille == 0)return false;
+	if(taille < 2){
+		cout << Commande::message[0] << endl;
+		return false;
+	}
+	if(modele->Element_par_nom(mots[1]) != 0) {
+		cout << Commande::message[1] << endl;
+		return false;
+	}
 	if(mots[0].compare("C")){
 		if(taille != 5)return false;
 		int nombre[3];

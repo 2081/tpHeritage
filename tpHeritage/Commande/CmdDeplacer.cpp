@@ -27,16 +27,16 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void CmdDeplacer::Faire()
+bool CmdDeplacer::Faire()
 // Algorithme :
 {
-	//element->Deplacer(dx,dy);
+	return element->Deplacer(dx,dy);
 }
 
-void CmdDeplacer::Defaire()
+bool CmdDeplacer::Defaire()
 // Algorithme :
 {
-	//element->Deplacer(-dx,-dy);
+	return element->Deplacer(-dx,-dy);
 }
 
 bool CmdDeplacer::Initialisation( string instruction)
@@ -45,7 +45,7 @@ bool CmdDeplacer::Initialisation( string instruction)
 	vector<string> donnees;
 	Commande::Decouper(instruction,donnees);
 	if(donnees.size()!= 4)return false;
-	//element = modele->Element_par_nom(donnees[1]);
+	element = modele->Element_par_nom(donnees[1]);
 	if(element == 0)return false;
 	return Est_un_nombre(donnees[2],dx) && Est_un_nombre(donnees[3],dy);
 }
