@@ -47,7 +47,7 @@ PolyLigne::PolyLigne ( const PolyLigne & unPolyLigne )
 } //----- Fin de PolyLigne (constructeur de copie)
 
 
-PolyLigne::PolyLigne ( )
+PolyLigne::PolyLigne ( string & fnom, vector<Point> & fp ) : ElementGeo(fnom)
 // Algorithme :
 //
 {

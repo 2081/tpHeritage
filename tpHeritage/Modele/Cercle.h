@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
+#include "Point.h"
 
 //------------------------------------------------------------- Constantes 
 
@@ -34,6 +35,7 @@ public:
     // Contrat :
     //
 
+	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Cercle & operator = ( const Cercle & unCercle );
@@ -50,7 +52,7 @@ public:
     // Contrat :
     //
 
-    Cercle ( );
+    Cercle ( string & nom, Point & centre, int rayon);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,6 +63,9 @@ public:
     //
     // Contrat :
     //
+
+    Point centre;
+    int rayon;
 
 //------------------------------------------------------------------ PRIVE 
 

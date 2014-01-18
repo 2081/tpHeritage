@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
+#include "Point.h"
 
 
 //------------------------------------------------------------- Constantes 
@@ -35,6 +36,7 @@ public:
     // Contrat :
     //
 
+	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Rectangle & operator = ( const Rectangle & unRectangle );
@@ -51,7 +53,7 @@ public:
     // Contrat :
     //
 
-    Rectangle ( );
+    Rectangle (string nom, Point & p1, Point & p2);
     // Mode d'emploi :
     //
     // Contrat :
@@ -67,7 +69,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    Point coord[2];
 //----------------------------------------------------- Attributs protégés
 
 };

@@ -79,7 +79,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    static int prochain_id_deplacement = 0;
+    static int prochain_id_deplacement;
 
 private:
     int dernier_deplacement;

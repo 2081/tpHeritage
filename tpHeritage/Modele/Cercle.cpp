@@ -47,7 +47,7 @@ Cercle::Cercle ( const Cercle & unCercle )
 } //----- Fin de Cercle (constructeur de copie)
 
 
-Cercle::Cercle ( )
+Cercle::Cercle (string & fnom, Point & c, int r) : ElementGeo(fnom)
 // Algorithme :
 //
 {

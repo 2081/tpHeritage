@@ -37,7 +37,11 @@ public:
     //
     // Contrat :
     //
+	bool Ajouter_element( ElementGeo *);
 
+	bool Enlever_element( ElementGeo *);
+
+	ElementGeo * Element_par_nom( string nom);
 
 
 //------------------------------------------------- Surcharge d'opérateurs

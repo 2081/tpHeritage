@@ -47,7 +47,7 @@ Point::Point ( const Point & unPoint )
 } //----- Fin de Point (constructeur de copie)
 
 
-Point::Point ( )
+Point::Point ( int fx, int fy)
 // Algorithme :
 //
 {

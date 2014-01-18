@@ -23,7 +23,7 @@
 //
 //------------------------------------------------------------------------ 
 
-class Point : public ElementGeo
+class Point
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -34,7 +34,7 @@ public:
     //
     // Contrat :
     //
-
+	void Deplacer(int dx, int dy);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Point & operator = ( const Point & unPoint );
@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    Point ( );
+    Point (int x, int y);
     // Mode d'emploi :
     //
     // Contrat :
@@ -62,6 +62,8 @@ public:
     //
     // Contrat :
     //
+
+    int x, y;
 
 //------------------------------------------------------------------ PRIVE 
 

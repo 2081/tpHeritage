@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
+#include "Point.h"
 
 
 //------------------------------------------------------------- Constantes 
@@ -35,6 +36,7 @@ public:
     // Contrat :
     //
 
+	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Ligne & operator = ( const Ligne & unLigne );
@@ -51,7 +53,7 @@ public:
     // Contrat :
     //
 
-    Ligne ( );
+    Ligne (string & nom, Point & p1, Point & p2);
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,7 +71,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-
+    Point coord[2];
 };
 
 //--------------------------- Autres définitions dépendantes de <Ligne>

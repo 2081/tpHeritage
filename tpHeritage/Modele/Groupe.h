@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
+#include <list>
 
 
 //------------------------------------------------------------- Constantes 
@@ -34,7 +35,10 @@ public:
     //
     // Contrat :
     //
+	bool Ajouter_membre( ElementGeo * elt);
+	bool Enlever_membre( ElementGeo * elt);
 
+	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Groupe & operator = ( const Groupe & unGroupe );
@@ -51,7 +55,7 @@ public:
     // Contrat :
     //
 
-    Groupe ( );
+    Groupe ( string & nom );
     // Mode d'emploi :
     //
     // Contrat :
@@ -62,6 +66,8 @@ public:
     //
     // Contrat :
     //
+
+    list<ElementGeo *> membres;
 
 //------------------------------------------------------------------ PRIVE 
 

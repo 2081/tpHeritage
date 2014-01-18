@@ -47,7 +47,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 } //----- Fin de Ligne (constructeur de copie)
 
 
-Ligne::Ligne ( )
+Ligne::Ligne (string & fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {

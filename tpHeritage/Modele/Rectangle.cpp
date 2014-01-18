@@ -47,7 +47,7 @@ Rectangle::Rectangle ( const Rectangle & unRectangle )
 } //----- Fin de Rectangle (constructeur de copie)
 
 
-Rectangle::Rectangle ( )
+Rectangle::Rectangle (string fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {

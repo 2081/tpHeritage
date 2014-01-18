@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
+#include "Point.h"
+#include <vector>
 
 
 //------------------------------------------------------------- Constantes 
@@ -35,6 +37,7 @@ public:
     // Contrat :
     //
 
+	bool Deplacer(int dx, int dy, int id = 0);
 
 //------------------------------------------------- Surcharge d'opérateurs
     PolyLigne & operator = ( const PolyLigne & unPolyLigne );
@@ -51,7 +54,7 @@ public:
     // Contrat :
     //
 
-    PolyLigne ( );
+    PolyLigne (string & fnom, vector<Point> & p);
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,7 +72,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-
+    vector<Point> coord;
 };
 
 //--------------------------- Autres définitions dépendantes de <PolyLigne>

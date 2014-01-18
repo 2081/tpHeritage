@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Groupe.h"
+#include "ElementGeo.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -47,7 +48,7 @@ Groupe::Groupe ( const Groupe & unGroupe )
 } //----- Fin de Groupe (constructeur de copie)
 
 
-Groupe::Groupe ( )
+Groupe::Groupe (string & fnom) : ElementGeo(fnom)
 // Algorithme :
 //
 {
