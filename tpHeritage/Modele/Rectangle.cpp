@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Rectangle.h"
+#include "ElementGeo.h"
+#include "Point.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -37,7 +39,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Rectangle::Rectangle ( const Rectangle & unRectangle )
+/*Rectangle::Rectangle ( const Rectangle & unRectangle )
 // Algorithme :
 //
 {
@@ -45,12 +47,15 @@ Rectangle::Rectangle ( const Rectangle & unRectangle )
     cout << "Appel au constructeur de copie de <Rectangle>" << endl;
 #endif
 } //----- Fin de Rectangle (constructeur de copie)
-
+*/
 
 Rectangle::Rectangle (string fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {
+	nom = fnom ;
+	coord[0] = &fp1 ;
+	coord[1] = &fp2 ;
 #ifdef MAP
     cout << "Appel au constructeur de <Rectangle>" << endl;
 #endif
