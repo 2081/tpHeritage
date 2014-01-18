@@ -11,11 +11,12 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "ElementGeo.h"
-#include "Point.h"
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+//class ElementGeo ;
+class Point ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Cercle>
@@ -34,6 +35,7 @@ public:
     //
     // Contrat :
     //
+	string Obtenir_descripteur() ;
 
 	bool Deplacer(int dx, int dy, int id = 0);
 
@@ -64,7 +66,7 @@ public:
     // Contrat :
     //
 
-    Point centre;
+    Point* centre;
     int rayon;
 
 //------------------------------------------------------------------ PRIVE 
