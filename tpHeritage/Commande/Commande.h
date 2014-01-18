@@ -50,13 +50,13 @@ public:
 	// Contrat :
 	//
 
-	virtual void Faire() = 0;
+	virtual bool Faire() = 0;
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	virtual void Defaire() = 0;
+	virtual bool Defaire() = 0;
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -100,8 +100,15 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-Modele * modele;
 //----------------------------------------------------- Attributs protégés
+Modele * modele;
+
+const static string message[] = {
+		"# Instruction incorrecte. ",
+		"# Ce nom est déjà utilisé. ",
+		"# Une opération a échoué. ",
+		"# Poursuite de l'opération malgré une ou plusieur erreurs. "
+};
 
 };
 

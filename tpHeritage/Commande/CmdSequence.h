@@ -37,6 +37,12 @@ public:
     // Contrat :
     //
 
+	bool Faire();
+
+	bool Defaire();
+
+	bool Initialisation(string instruction);
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     CmdSequence & operator = ( const CmdSequence & unCmdSequence );

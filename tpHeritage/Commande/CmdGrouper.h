@@ -11,6 +11,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
+#include "../Modele/ElementGeo.h"
+#include "../Modele/Groupe.h"
 
 
 //------------------------------------------------------------- Constantes 
@@ -35,13 +37,13 @@ public:
     // Contrat :
     //
 
-	void Faire();
+	bool Faire();
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	void Defaire();
+	bool Defaire();
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -84,7 +86,8 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    vector<ElementGeo *> membres;
+    Groupe groupe;
 //----------------------------------------------------- Attributs protégés
 
 };
