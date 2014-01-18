@@ -16,6 +16,8 @@ using namespace std;
 #include <iterator>
 //------------------------------------------------------ Include personnel
 #include "FichierUI.h"
+#include "../Controleur/Controleur.h"
+#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes
 
