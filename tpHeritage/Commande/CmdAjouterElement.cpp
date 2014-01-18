@@ -17,6 +17,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "CmdAjouterElement.h"
+#include "../Modele/Point.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -31,13 +32,13 @@ using namespace std;
 void CmdAjouterElement::Faire()
 // Algorithme :
 {
-	//modele->Ajouter_element(element);
+	modele->Ajouter_element(element);
 }
 
 void CmdAjouterElement::Defaire()
 // Algorithme :
 {
-	//modele->Enlever_element(element);
+	modele->Enlever_element(element);
 }
 
 
@@ -47,8 +48,8 @@ bool CmdAjouterElement::Initialisation( string instruction)
 {
 	vector<string> mots;
 	Commande::Decouper(instruction,mots);
-
 	int taille = mots.size();
+
 	//Initialisation( string instruction);
 	if(taille == 0)return false;
 	if(mots[0].compare("C")){
@@ -57,7 +58,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 3; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		// element = new Cercle(mots[1],nombre[0],nombre[1],nombre[2]);
+		element = new Cercle(mots[1], Point(nombre[0],nombre[1]),nombre[2]);
 		return true;
 	} else if(mots[0].compare("R")){
 		if(taille != 6)return false;
@@ -65,7 +66,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		// element = new Rectangle(mots[1],nombre[2],nombre[3],nombre[4], nombre[5]);
+		element = new Rectangle(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
 		return true;
 	} else if(mots[0].compare("L")){
 		if(taille != 6)return false;
@@ -73,17 +74,18 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		// element = new Ligne(mots[1],nombre[2],nombre[3],nombre[4], nombre[5]);
+		element = new Ligne(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
 		return true;
 	} else if(mots[0].compare("PL")){
 		if(taille >= 6 && taille%2 == 0)return false;
-		vector<int> nombre;
-		for(int i = 0; i < taille-2; i++){
-			int a;
+		vector<Point> nombre;
+		for(int i = 0; i < taille-2; i += 2){
+			int a,b;
 			if(!Est_un_nombre(mots[i+2],a))return false;
-			nombre.push_back(a);
+			if(!Est_un_nombre(mots[i+2+1],b))return false;
+			nombre.push_back(Point(a,b));
 		}
-		// element = new PolyLigne(mots[1],&nombre);
+		element = new PolyLigne(mots[1],&nombre);
 
 		return true;
 	}
