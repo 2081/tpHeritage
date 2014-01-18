@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
+#include <sstream> //ostringstream
 
 //------------------------------------------------------ Include personnel
 #include "Cercle.h"
@@ -26,6 +27,14 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string Cercle::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "C " << nom << " " << centre.x << " " << centre.y << " " << rayon ;
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
