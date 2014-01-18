@@ -48,7 +48,7 @@ Groupe::Groupe ( const Groupe & unGroupe )
 } //----- Fin de Groupe (constructeur de copie)
 
 
-Groupe::Groupe (string & fnom) : ElementGeo(fnom)
+Groupe::Groupe ( )
 // Algorithme :
 //
 {
