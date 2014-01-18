@@ -10,13 +10,12 @@
 #define CONSOLEUI_H_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "../Controleur/Controleur.h"
-#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types
 class Controleur ;
+class Modele ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ConsoleUI>
