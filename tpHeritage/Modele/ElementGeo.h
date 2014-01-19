@@ -42,7 +42,7 @@ public:
 	bool Ajouter_au_groupe( Groupe * groupe);
 	bool Enlever_du_groupe( Groupe * groupe);
 
-	virtual string Obtenir_descripteur();
+	virtual string Obtenir_descripteur() = 0;
 
 
 //------------------------------------------------- Surcharge d'opérateurs

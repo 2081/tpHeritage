@@ -27,6 +27,15 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool ElementGeo::Ajouter_au_groupe( Groupe * groupe)
+{
+	return true ;
+}
+
+bool ElementGeo::Enlever_du_groupe( Groupe * groupe)
+{
+	return true ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs

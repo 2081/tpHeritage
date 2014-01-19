@@ -27,26 +27,27 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
+bool Faire()
+{
+	return true ;
+}
+
+
+bool Defaire()
+{
+	return true ;
+}
+
+
+bool Initialisation( string instruction )
+{
+	return true ;
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*CmdVider & CmdVider::operator = ( const CmdVider & unCmdVider )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-*/
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdVider::CmdVider ( const CmdVider & unCmdVider ) : Commande(unCmdVider.modele)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <CmdVider>" << endl;
-#endif
-} //----- Fin de CmdVider (constructeur de copie)
-
-
 CmdVider::CmdVider ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //

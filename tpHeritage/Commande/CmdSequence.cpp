@@ -15,7 +15,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "CmdSequence.h"
-#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,6 +26,20 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool CmdSequence::Faire()
+{
+	return true ;
+}
+
+bool CmdSequence::Defaire()
+{
+	return true ;
+}
+
+bool CmdSequence::Initialisation(string instruction)
+{
+	return true ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs

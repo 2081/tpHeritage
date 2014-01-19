@@ -37,6 +37,10 @@ string Ligne::Obtenir_descripteur()
 	return a_retourner ;
 }
 
+bool Ligne::Deplacer(int dx, int dy, int id )
+{
+	return true ;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*Ligne & Ligne::operator = ( const Ligne & unLigne )

@@ -41,6 +41,20 @@ string Groupe::Obtenir_descripteur()
 	return a_retourner ;
 }
 
+bool Groupe::Deplacer(int dx, int dy, int id)
+{
+	return true ;
+}
+
+bool Groupe::Ajouter_membre(ElementGeo * elt)
+{
+	return true ;
+}
+
+bool Groupe::Enlever_membre(ElementGeo * elt)
+{
+	return true ;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*Groupe & Groupe::operator = ( const Groupe & unGroupe )

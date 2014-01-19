@@ -20,6 +20,7 @@ using namespace std;
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class Modele ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Commande>
@@ -91,6 +92,7 @@ public:
     // Contrat :
     //
 
+    static int doudou ;
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -98,7 +100,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 //----------------------------------------------------- Attributs protégés
 Modele * modele;
-const static string message[] ;
+static const string message[];
 /*Message d'erreur : une initialisation en dehors de la classe est requise.*//*= {
 		"# Instruction incorrecte. ",
 		"# Ce nom est déjà utilisé. ",

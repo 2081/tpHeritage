@@ -38,6 +38,11 @@ string Cercle::Obtenir_descripteur()
 	return a_retourner ;
 }
 
+bool Cercle::Deplacer(int dx, int dy, int id )
+{
+	return true ;
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*Cercle & Cercle::operator = ( const Cercle & unCercle )

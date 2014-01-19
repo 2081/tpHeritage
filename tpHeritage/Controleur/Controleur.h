@@ -99,10 +99,9 @@ protected:
     string premier_argument = "pas_trouve";
 
     Pile_Commande liste_cmd ;
-    //Pile_Commande liste_construction ;
+
     string instruction_cours ;
-    //liste_cmd::iterator curseur_commandes=liste_cmd.size();
-    //curseur sur une stack ?
+
 
 };
 

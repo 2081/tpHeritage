@@ -37,6 +37,10 @@ string Rectangle::Obtenir_descripteur()
 	return a_retourner ;
 }
 
+bool Rectangle::Deplacer(int dx, int dy, int id )
+{
+	return true ;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*Rectangle & Rectangle::operator = ( const Rectangle & unRectangle )

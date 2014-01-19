@@ -23,6 +23,13 @@ using namespace std;
 #include <cstdlib>
 
 //------------------------------------------------------------- Constantes
+const string Commande::message[] = {
+		"# Instruction incorrecte. ",
+		"# Ce nom est déjà utilisé. ",
+		"# Une opération a échoué. ",
+		"# Poursuite de l'opération malgré une ou plusieur erreurs. "
+};
+
 
 //----------------------------------------------------------------- PUBLIC
 

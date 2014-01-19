@@ -28,19 +28,19 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-bool Ajouter_element( ElementGeo * element)
+bool Modele::Ajouter_element( ElementGeo * element)
 {
 	return true ;
 }
 
-bool Enlever_element( ElementGeo * element)
+bool Modele::Enlever_element( ElementGeo * element)
 {
 	return true ;
 }
 
-ElementGeo * Element_par_nom( string nom)
+ElementGeo * Modele::Element_par_nom( string nom)
 {
-
+	return 0 ;
 }
 
 

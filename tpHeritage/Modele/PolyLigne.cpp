@@ -42,6 +42,10 @@ string PolyLigne::Obtenir_descripteur()
 	return a_retourner ;
 }
 
+bool PolyLigne::Deplacer(int dx, int dy, int id )
+{
+	return true ;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*PolyLigne & PolyLigne::operator = ( const PolyLigne & unPolyLigne )

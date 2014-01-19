@@ -34,18 +34,18 @@ public:
     //
     // Contrat :
     //
-	void Deplacer(int dx, int dy);
+	bool Deplacer(int dx, int dy);
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Point & operator = ( const Point & unPoint );
+   /* Point & operator = ( const Point & unPoint );
     // Mode d'emploi :
     //
     // Contrat :
     //
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
-    Point ( const Point & unPoint );
+	// Point ( const Point & unPoint );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :

@@ -36,8 +36,8 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 // Algorithme :
 //
 {
-	int nb_rangs = 0 ;
-	/*for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
+	/*int nb_rangs = 0 ;
+	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
 		if(it->second.dependance > nb_rangs)
 		{

@@ -28,6 +28,10 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool Point::Deplacer(int dx, int dy )
+{
+	return true ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -39,7 +43,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Point::Point ( const Point & unPoint )
+/*Point::Point ( const Point & unPoint )
 // Algorithme :
 //
 {
@@ -47,7 +51,7 @@ Point::Point ( const Point & unPoint )
     cout << "Appel au constructeur de copie de <Point>" << endl;
 #endif
 } //----- Fin de Point (constructeur de copie)
-
+*/
 
 Point::Point ( int fx, int fy)
 // Algorithme :

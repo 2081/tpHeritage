@@ -12,6 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
 
+
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
@@ -54,20 +55,8 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    CmdVider & operator = ( const CmdVider & unCmdVider );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    CmdVider ( const CmdVider & unCmdVider );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
     CmdVider ( Modele * fmodele );
     // Mode d'emploi :
     //

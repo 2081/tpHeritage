@@ -11,7 +11,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
-#include "../Modele/ElementGeo.h"
 
 
 //------------------------------------------------------------- Constantes 
