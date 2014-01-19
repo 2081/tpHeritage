@@ -12,7 +12,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
+#include <sstream>
 //------------------------------------------------------ Include personnel
 #include "Rectangle.h"
 #include "ElementGeo.h"
@@ -28,6 +28,14 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string Rectangle::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "R " << nom << " " << coord[0]->x << " " << coord[0]->y << " " << coord[1]->x << " " << coord[1]->y ;
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -49,13 +57,12 @@ using namespace std;
 } //----- Fin de Rectangle (constructeur de copie)
 */
 
-Rectangle::Rectangle (string fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
+Rectangle::Rectangle (string fnom, Point * fp1, Point * fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {
-	nom = fnom ;
-	coord[0] = &fp1 ;
-	coord[1] = &fp2 ;
+	coord[0] = fp1 ;
+	coord[1] = fp2 ;
 #ifdef MAP
     cout << "Appel au constructeur de <Rectangle>" << endl;
 #endif

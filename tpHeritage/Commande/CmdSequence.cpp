@@ -15,6 +15,7 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "CmdSequence.h"
+#include "../Modele/Modele.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -29,12 +30,12 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-CmdSequence & CmdSequence::operator = ( const CmdSequence & unCmdSequence )
+/*CmdSequence & CmdSequence::operator = ( const CmdSequence & unCmdSequence )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-
+*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CmdSequence::CmdSequence ( Modele* modele):Commande(modele)

@@ -54,7 +54,7 @@ public:
     // Contrat :
     //
 
-    Ligne (string & nom, Point & p1, Point & p2);
+    Ligne (string & nom, Point * p1, Point * p2);
     // Mode d'emploi :
     //
     // Contrat :

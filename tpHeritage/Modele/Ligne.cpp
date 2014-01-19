@@ -32,7 +32,7 @@ string Ligne::Obtenir_descripteur()
 {
 	string a_retourner ;
 	ostringstream flux(ostringstream::ate);
-	flux << "C " << nom << " " << coord[0]->x << " " << coord[0]->y << " " << coord[1]->x << " " << coord[2]->y ;
+	flux << "L " << nom << " " << coord[0]->x << " " << coord[0]->y << " " << coord[1]->x << " " << coord[1]->y ;
 	a_retourner = flux.str();
 	return a_retourner ;
 }
@@ -57,13 +57,12 @@ string Ligne::Obtenir_descripteur()
 } //----- Fin de Ligne (constructeur de copie)
 */
 
-Ligne::Ligne (string & fnom, Point & fp1, Point & fp2) : ElementGeo(fnom)
+Ligne::Ligne (string & fnom, Point * fp1, Point * fp2) : ElementGeo(fnom)
 // Algorithme :
 //
 {
-	nom = fnom ;
-	coord[0] = &fp1 ;
-	coord[1] = &fp2 ;
+	coord[0] = fp1 ;
+	coord[1] = fp2 ;
 #ifdef MAP
     cout << "Appel au constructeur de <Ligne>" << endl;
 #endif

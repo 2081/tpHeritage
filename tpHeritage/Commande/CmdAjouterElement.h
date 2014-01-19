@@ -11,11 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
-#include "../Modele/ElementGeo.h"
-#include "../Modele/Cercle.h"
-#include "../Modele/Ligne.h"
-#include "../Modele/PolyLigne.h"
-#include "../Modele/Rectangle.h"
+
 
 
 //------------------------------------------------------------- Constantes 

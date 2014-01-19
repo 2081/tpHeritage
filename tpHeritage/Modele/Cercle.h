@@ -54,7 +54,7 @@ public:
     // Contrat :
     //
 
-    Cercle ( string & nom, Point & centre, int rayon);
+    Cercle ( string & nom, Point* centre, int rayon);
     // Mode d'emploi :
     //
     // Contrat :

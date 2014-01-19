@@ -53,15 +53,6 @@ void Commande::Decouper(string & str, vector<string> & vect){
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Commande::Commande ( const Commande & unCommande )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Commande>" << endl;
-#endif
-} //----- Fin de Commande (constructeur de copie)
-
 
 Commande::Commande ( Modele * fmodele ) : modele(fmodele)
 // Algorithme :

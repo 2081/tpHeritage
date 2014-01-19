@@ -27,4 +27,5 @@ SUBDIRS := \
 Vue \
 Modele \
 Controleur \
+Commande \
 

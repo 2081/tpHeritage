@@ -78,11 +78,6 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Commande ( const Commande & unCommande );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     Commande ( Modele * fmodele );
     // Mode d'emploi :
@@ -103,12 +98,12 @@ protected:
 //----------------------------------------------------- Attributs protégés
 Modele * modele;
 
-const static string message[] = {
+const static string message[] ;/*= {
 		"# Instruction incorrecte. ",
 		"# Ce nom est déjà utilisé. ",
 		"# Une opération a échoué. ",
 		"# Poursuite de l'opération malgré une ou plusieur erreurs. "
-};
+};*/
 
 };
 

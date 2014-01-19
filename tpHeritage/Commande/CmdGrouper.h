@@ -10,14 +10,15 @@
 #define CMDGROUPER_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include <vector>
 #include "Commande.h"
-#include "../Modele/ElementGeo.h"
-#include "../Modele/Groupe.h"
-
 
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+class Groupe ;
+class ElementGeo ;
+class Modele ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <CmdGrouper>
@@ -87,7 +88,7 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     vector<ElementGeo *> membres;
-    Groupe groupe;
+    Groupe* groupe;
 //----------------------------------------------------- Attributs protégés
 
 };

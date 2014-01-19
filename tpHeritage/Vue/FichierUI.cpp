@@ -47,8 +47,8 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 		}
 
 	}
-	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
-	return true ;*/
+	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;*/
+	return true ;
 }
 
 bool FichierUI::Charger_modele(string nom_fichier)

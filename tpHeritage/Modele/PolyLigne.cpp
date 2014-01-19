@@ -12,10 +12,11 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
+#include <sstream>
 //------------------------------------------------------ Include personnel
 #include "PolyLigne.h"
 #include "Point.h"
+
 
 //------------------------------------------------------------- Constantes
 
@@ -27,6 +28,19 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+string PolyLigne::Obtenir_descripteur()
+{
+	string a_retourner ;
+	ostringstream flux(ostringstream::ate);
+	flux << "PL " << nom << " " ;
+	//coord[0]->x << " " << coord[0]->y << " " << coord[1]->x << " " << coord[1]->y ;
+	for(vector<Point>::iterator it = coord.begin() ; it != coord.end() ; it++)
+	{
+		flux << it->x << " " << it->y << " " ;
+	}
+	a_retourner = flux.str();
+	return a_retourner ;
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -52,6 +66,7 @@ PolyLigne::PolyLigne ( string & fnom, vector<Point> & fp ) : ElementGeo(fnom)
 // Algorithme :
 //
 {
+	coord = fp ;
 #ifdef MAP
     cout << "Appel au constructeur de <PolyLigne>" << endl;
 #endif

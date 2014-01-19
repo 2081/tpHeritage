@@ -18,6 +18,11 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "CmdAjouterElement.h"
 #include "../Modele/Point.h"
+#include "../Modele/ElementGeo.h"
+#include "../Modele/Cercle.h"
+#include "../Modele/Ligne.h"
+#include "../Modele/PolyLigne.h"
+#include "../Modele/Rectangle.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -65,7 +70,11 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 3; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		element = new Cercle(mots[1], Point(nombre[0],nombre[1]),nombre[2]);
+		//
+		Point* point = new Point(nombre[0],nombre[1]) ;
+		element = new Cercle(mots[1] , point , nombre[2]);
+		//Le compilateur ne prend pas :
+		//element = new Cercle(mots[1] , Point(nombre[0],nombre[1]) , nombre[2]);
 		return true;
 	} else if(mots[0].compare("R")){
 		if(taille != 6)return false;
@@ -73,7 +82,11 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		element = new Rectangle(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
+		//
+		Point* point1 = new Point(nombre[2],nombre[3]) ;
+		Point* point2 = new Point(nombre[4],nombre[5]) ;
+		element = new Rectangle(mots[1],point1,point2);
+		//element = new Rectangle(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
 		return true;
 	} else if(mots[0].compare("L")){
 		if(taille != 6)return false;
@@ -81,7 +94,11 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i]))return false;
 		}
-		element = new Ligne(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
+		//
+		Point* point1 = new Point(nombre[2],nombre[3]) ;
+		Point* point2 = new Point(nombre[4],nombre[5]) ;
+		element = new Ligne(mots[1],point1,point2);
+		//element = new Ligne(mots[1],Point(nombre[2],nombre[3]),Point(nombre[4], nombre[5]));
 		return true;
 	} else if(mots[0].compare("PL")){
 		if(taille >= 6 && taille%2 == 0)return false;
@@ -92,7 +109,8 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			if(!Est_un_nombre(mots[i+2+1],b))return false;
 			nombre.push_back(Point(a,b));
 		}
-		element = new PolyLigne(mots[1],&nombre);
+		//nombre au lieu de &nombre
+		element = new PolyLigne(mots[1],nombre);
 
 		return true;
 	}

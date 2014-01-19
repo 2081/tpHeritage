@@ -15,6 +15,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "CmdGrouper.h"
+#include "../Modele/ElementGeo.h"
+#include "../Modele/Groupe.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -29,9 +31,9 @@ using namespace std;
 
 bool CmdGrouper::Faire()
 {
-	modele->Ajouter_element(&groupe);
-	for(int i = 0; i < membres.size(); i++){
-		if(!membres[i]->Ajouter_au_groupe(&groupe)){
+	modele->Ajouter_element(groupe);
+	for(unsigned int i = 0; i < membres.size(); i++){
+		if(!membres[i]->Ajouter_au_groupe(groupe)){
 			cout << Commande::message[2] << "( Ajout du groupe dans "<<membres[i]->nom<<")"<<endl;
 		}
 	}
@@ -40,9 +42,9 @@ bool CmdGrouper::Faire()
 
 bool CmdGrouper::Defaire()
 {
-	modele->Enlever_element(&groupe);
-	for(int i = 0; i < membres.size(); i++){
-			if(!membres[i]->Enlever_du_groupe(&groupe)){
+	modele->Enlever_element(groupe);
+	for(unsigned int i = 0; i < membres.size(); i++){
+			if(!membres[i]->Enlever_du_groupe(groupe)){
 				cout << Commande::message[2] << "( Suppression du groupe dans "<<membres[i]->nom<<")"<<endl;
 			}
 		}
@@ -63,7 +65,7 @@ bool CmdGrouper::Initialisation(string instruction)
 		cout << Commande::message[1] << endl;
 		return false;
 	}
-	groupe = Groupe(mots[1]);
+	groupe = new Groupe(mots[1]);
 
 	bool rep = true;
 	int nb_erreur = 0;
@@ -71,7 +73,7 @@ bool CmdGrouper::Initialisation(string instruction)
 		ElementGeo * elt = modele->Element_par_nom(mots[i]);
 		if(elt != 0){
 			membres.push_back(elt);
-			if(!groupe.Ajouter_membre(elt)){
+			if(!groupe->Ajouter_membre(elt)){
 				rep = false;
 				nb_erreur++;
 				cout << Commande::message[2]<< "( Ajout de "<< mots[i]<<" au groupe)"<<endl;

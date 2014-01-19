@@ -11,8 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Commande.h"
-#include "../Modele/Modele.h"
-using namespace std ;
+
 
 //------------------------------------------------------------- Constantes 
 

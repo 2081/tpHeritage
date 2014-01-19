@@ -65,7 +65,6 @@ Groupe::Groupe (string & fnom) : ElementGeo(fnom)
 // Algorithme :
 //
 {
-	nom = fnom ;
 #ifdef MAP
     cout << "Appel au constructeur de <Groupe>" << endl;
 #endif

@@ -36,6 +36,7 @@ public:
     //
     // Contrat :
     //
+	string Obtenir_descripteur() ;
 
 	bool Deplacer(int dx, int dy, int id = 0);
 

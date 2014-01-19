@@ -35,6 +35,7 @@ public:
     //
     // Contrat :
     //
+	string Obtenir_descripteur() ;
 
 	bool Deplacer(int dx, int dy, int id = 0);
 
@@ -53,7 +54,7 @@ public:
     // Contrat :
     //
 
-    Rectangle (string nom, Point & p1, Point & p2);
+    Rectangle (string nom, Point * p1, Point * p2);
     // Mode d'emploi :
     //
     // Contrat :

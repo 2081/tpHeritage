@@ -58,12 +58,11 @@ string Cercle::Obtenir_descripteur()
 } //----- Fin de Cercle (constructeur de copie)
 */
 
-Cercle::Cercle (string & fnom, Point & c, int r) : ElementGeo(fnom)
+Cercle::Cercle (string & fnom, Point* c, int r) : ElementGeo(fnom)
 // Algorithme :
 //
 {
-	nom = fnom ;
-	centre = &c ;
+	centre = c ;
 	rayon = r ;
 #ifdef MAP
     cout << "Appel au constructeur de <Cercle>" << endl;

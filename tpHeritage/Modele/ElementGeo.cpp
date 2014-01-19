@@ -52,6 +52,7 @@ ElementGeo::ElementGeo ( string fnom )
 // Algorithme :
 //
 {
+	nom = fnom ;
 #ifdef MAP
     cout << "Appel au constructeur de <ElementGeo>" << endl;
 #endif

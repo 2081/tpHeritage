@@ -53,6 +53,8 @@ Point::Point ( int fx, int fy)
 // Algorithme :
 //
 {
+	x = fx ;
+	y = fy ;
 #ifdef MAP
     cout << "Appel au constructeur de <Point>" << endl;
 #endif
