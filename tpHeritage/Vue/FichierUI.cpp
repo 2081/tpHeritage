@@ -36,18 +36,18 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 // Algorithme :
 //
 {
-	/*int nb_rangs = 0 ;
+	int nb_rangs = 0 ;
 	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
-		if(it->second.dependance > nb_rangs)
+		if(it->second->dependance > nb_rangs)
 		{
-			Commandes_objet Cn ;
+			Commandes_objet Cn ;	//liste de string
 			situation_modele.push_back(Cn) ;
-			situation_modele[++nb_rangs].push_back(it->second.fonction_renvoyant_string)
+			situation_modele[++nb_rangs].push_back(it->second->Obtenir_descripteur()) ;
 		}
 
 	}
-	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;*/
+	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
 	return true ;
 }
 
@@ -56,7 +56,7 @@ bool FichierUI::Charger_modele(string nom_fichier)
 /*Appels successifs de Controleur::Traduire_instruction
 ligne par ligne par rapport aux lignes du fichier*/
 {
-	cout << nom_fichier << endl ;
+	cout <<"Nom du fichier à charger : " << nom_fichier << endl ;
 	ifstream fichier(nom_fichier , ios::in) ;
 	if (fichier)
 	{
@@ -75,7 +75,7 @@ ligne par ligne par rapport aux lignes du fichier*/
 	}
 	else
 	{
-		cout << "Le fichier demandé \"" << nom_fichier << "\" est introuvable." << endl ;
+		cout << "Le fichier demandé \"" << nom_fichier << "\" est introuvable ou impossible à lire." << endl ;
 		return false ;
 	}
 }
@@ -98,10 +98,12 @@ ligne par ligne par rapport aux lignes du fichier*/
 } //----- Fin de FichierUI (constructeur de copie)
 */
 
-FichierUI::FichierUI ( )
+FichierUI::FichierUI (Controleur* fcontroleur , Modele* fmodele )
 // Algorithme :
 //
 {
+	 controleur = fcontroleur;
+	 modele = fmodele;
 #ifdef MAP
     cout << "Appel au constructeur de <FichierUI>" << endl;
 #endif

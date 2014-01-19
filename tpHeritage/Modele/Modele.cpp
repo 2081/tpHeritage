@@ -30,12 +30,30 @@ using namespace std;
 //} //----- Fin de Méthode
 bool Modele::Ajouter_element( ElementGeo * element)
 {
+	for(map<string,ElementGeo *>::iterator it = elements.begin() ; it != elements.end() ; it++)
+	{
+		if(it->first == element->nom)
+		{
+			cout << "\"" << it->first << "\" est déjà présent dans le dessin." << endl ;
+			return false ;
+		}
+	}
+	elements.insert ( pair<string,ElementGeo *>(element->nom,element) );
 	return true ;
 }
 
 bool Modele::Enlever_element( ElementGeo * element)
 {
-	return true ;
+	for(map<string,ElementGeo *>::iterator it = elements.begin() ; it != elements.end() ; it++)
+	{
+		if(it->first == element->nom)
+		{
+			elements.erase(it) ;
+			return true ;
+		}
+	}
+	return false ;
+
 }
 
 ElementGeo * Modele::Element_par_nom( string nom)

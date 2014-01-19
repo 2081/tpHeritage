@@ -69,7 +69,7 @@ public:
     // Contrat :
     //
 
-    FichierUI ( );
+    FichierUI (Controleur* fcontroleur , Modele* fmodele ) ;
     // Mode d'emploi :
     //
     // Contrat :

@@ -15,7 +15,6 @@ using namespace std;
 #include <sstream>
 //------------------------------------------------------ Include personnel
 #include "Rectangle.h"
-#include "ElementGeo.h"
 #include "Point.h"
 
 //------------------------------------------------------------- Constantes

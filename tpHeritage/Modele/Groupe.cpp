@@ -18,6 +18,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Groupe.h"
 
+
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -48,12 +49,24 @@ bool Groupe::Deplacer(int dx, int dy, int id)
 
 bool Groupe::Ajouter_membre(ElementGeo * elt)
 {
+	membres.push_back(elt) ;
 	return true ;
 }
 
 bool Groupe::Enlever_membre(ElementGeo * elt)
 {
-	return true ;
+	//chercher l'element et l'enlever
+	deque<ElementGeo*>::iterator it ;
+	for(it = membres.begin() ; it != membres.end() ; it++)
+	{
+		if(*it == elt)
+		{
+			membres.erase(it) ;
+			return true ;
+		}
+	}
+	return false ;
+
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

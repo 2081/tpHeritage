@@ -266,8 +266,8 @@ Controleur::Controleur ( )
 	pt = liste_commandes ;	//Réinitialisé à chaque fois dans
 		//Executer_instruction
 	console = new ConsoleUI(modele , this) ;
-	fichierUI = new FichierUI();
 	modele = new Modele() ;
+	fichierUI = new FichierUI( this , modele ) ;
 #ifdef MAP
     cout << "Appel au constructeur de <Controleur>" << endl;
 #endif
