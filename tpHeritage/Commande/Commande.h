@@ -91,14 +91,15 @@ public:
     // Contrat :
     //
 
+
 //------------------------------------------------------------------ PRIVE 
 
 protected:
 //----------------------------------------------------- Méthodes protégées
 //----------------------------------------------------- Attributs protégés
 Modele * modele;
-
-const static string message[] ;/*= {
+const static string message[] ;
+/*Message d'erreur : une initialisation en dehors de la classe est requise.*//*= {
 		"# Instruction incorrecte. ",
 		"# Ce nom est déjà utilisé. ",
 		"# Une opération a échoué. ",

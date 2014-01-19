@@ -35,8 +35,8 @@ bool CmdSupprimer::Faire()
 // Algorithme :
 {
 	for(uint i = 0; i<elements.size(); i++){
-		list<Groupe *>::iterator it; = ;
-		for( it = elements[i]->groupes.begin(); it < elements[i]->groupes.end() ; it++ ){
+		list<Groupe *>::iterator it;
+		for( it = elements[i]->groupes.begin(); it != elements[i]->groupes.end() ; it++ ){
 			(*it)->Enlever_membre(elements[i]);
 		}
 		if(!modele->Enlever_element(elements[i]))return false;
@@ -49,7 +49,7 @@ bool CmdSupprimer::Defaire()
 {
 	for(uint i = 0; i<elements.size(); i++){
 		list<Groupe *>::iterator it;
-		for( it = elements[i]->groupes.begin(); it < elements[i]->groupes.end() ; it++ ){
+		for( it = elements[i]->groupes.begin(); it != elements[i]->groupes.end() ; it++ ){
 			(*it)->Ajouter_membre(elements[i]);
 		}
 		if(!modele->Ajouter_element(elements[i]))return false;

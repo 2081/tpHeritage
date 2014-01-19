@@ -28,6 +28,20 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool Ajouter_element( ElementGeo * element)
+{
+	return true ;
+}
+
+bool Enlever_element( ElementGeo * element)
+{
+	return true ;
+}
+
+ElementGeo * Element_par_nom( string nom)
+{
+
+}
 
 
 //------------------------------------------------- Surcharge d'opérateurs

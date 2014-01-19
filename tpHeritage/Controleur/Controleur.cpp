@@ -90,35 +90,64 @@ Commande * Controleur::Traduire_instruction(string instruction)
 	"LIST"*/
 	cout << "Appel de traduction" << endl ;
 
-	/*if(premier_argument == "C")
+	if (premier_argument == "DELETE")
 	{
-
-		return ;
-	}
-	else if(premier_argument == "R")
-	{
-		return ;
-	}
-	else if(premier_argument == "L")
-	{
-		return ;
-	}
-	else if(premier_argument == "PL")
-	{
-		return ;
-	}
-	else if(premier_argument == "OA")
-	{
-		return ;
-	}
-	else if(premier_argument == "DELETE")
-	{
-		return ;
+		Commande * Nouvelle_commande = new CmdSupprimer(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
 	}
 	else if(premier_argument == "MOVE")
 	{
-		return ;
-	}*/
+		Commande * Nouvelle_commande = new CmdDeplacer(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
+	}
+
+	else if(premier_argument == "LOAD")
+	{
+		string filename;
+		string ligne_de_commande_restante ;
+
+		/*if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
+		{
+			//Savegarder l'ancien modèle -> on appelle save.
+			fichierUI->Sauvegarder_modele("modele");
+			fichierUI->Charger_modele(filename);
+			//Créer instance de CmdSequence.
+		}
+		return true ;*/
+		return 0 ;
+	}
+	else if(premier_argument == "CLEAR")
+	{
+		//Créer instance de CmdSequence.
+		return 0 ;
+	}
+
+	else	//Création d'un objet ou objet agrégé.
+	{
+		Commande * Nouvelle_commande = new CmdAjouterElement(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
+	}
 }
 
 
@@ -158,23 +187,7 @@ bool Controleur::Executer_instruction(string instruction)
 		return true ;
 
 	}
-	else if(premier_argument == "LOAD")
-	{
-		string filename;
-		string ligne_de_commande_restante ;
 
-		if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
-		{
-			//Savegarder l'ancien modèle -> on appelle save.
-			fichierUI->Sauvegarder_modele("modele");
-			fichierUI->Charger_modele(filename);
-		}
-		return true ;
-	}
-	else if(premier_argument == "CLEAR")
-	{
-		return true ;
-	}
 	else if(premier_argument == "EXIT")
 	{
 		//demande si l'utilisateur veut enregistrer sa figure
@@ -211,16 +224,24 @@ bool Controleur::Executer_instruction(string instruction)
 	}
 	else if(premier_argument == "REDO")
 	{
+		//Appel de faire de l'avant dernière commande de la pile.
 		return true ;
 	}
 	else if(premier_argument == "UNDO")
 	{
+		//Appel de defaire de la dernière commande de la pile.
 		return true ;
 	}
 	else
 	{
 		/*Appel de la fonction traduire.*/
 		//liste_cmd.push_back( ) ;
+		Commande * retour = Traduire_instruction(instruction) ;
+		if(retour != 0)
+		{
+			//La commande s'est exécutée correctement, on l'ajoute dans le pile.
+			liste_cmd.push_back(retour);
+		}
 		premier_argument = "pas_trouve"; //Pour le prochain appel
 		return true ;
 	}
