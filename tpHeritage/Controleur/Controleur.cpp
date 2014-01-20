@@ -79,7 +79,7 @@ bool Controleur::VerifierSaveLoad(string& filename, string& ligne_de_commande_re
 	}
 	else
 	{
-		cout << "SAVE ne prend qu'un seul paramètre : son nom de fichier sans espaces." << endl ;
+		cout << "# SAVE ne prend qu'un seul paramètre : son nom de fichier sans espaces." << endl ;
 		return false ;
 	}
 }
@@ -88,7 +88,7 @@ Commande * Controleur::Traduire_instruction(string instruction)
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
 	"LIST"*/
-	cout << "Appel de traduction" << endl ;
+	cout << "# Appel de traduction" << endl ;
 
 	if (premier_argument == "DELETE")
 	{
@@ -138,7 +138,7 @@ Commande * Controleur::Traduire_instruction(string instruction)
 
 	else	//Création d'un objet ou objet agrégé.
 	{
-		cout << "Appel de CmdAjouterElement depuis Traduire." << endl ;
+		cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
 		Commande * Nouvelle_commande = new CmdAjouterElement(modele) ;
 		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
 		{
@@ -173,7 +173,7 @@ bool Controleur::Executer_instruction(string instruction)
 	//Analyse du résultat et appel des procédures de commandes.
 	if(premier_argument=="pas_trouve")
 	{
-		cout << "\"" << premier << "\"" << " n'est pas une commande valide" << endl ;
+		cout << "# \"" << premier << "\"" << " n'est pas une commande valide" << endl ;
 		return true ;
 	}
 	else if(premier_argument == "SAVE")
@@ -195,19 +195,19 @@ bool Controleur::Executer_instruction(string instruction)
 		//Verif si la dernière commande était une sauvegarde
 		/*if (liste_cmd.top() != ##sauvegarde)
 		{*/
-			cout << "Passage dans exit\n" ;
+			cout << "# Passage dans exit\n" ;
 			bool reponse_pas_bonne = true ;
 			while(reponse_pas_bonne == true)
 			{
 				string reponse_question ;
-				cout << "Voulez-vous sauvegarder votre travail avant de quitter ? (y/yes ; n/no) :" ;
+				cout << "# Voulez-vous sauvegarder votre travail avant de quitter ? (y/yes ; n/no) :" ;
 				getline(cin,reponse_question);
 				if (reponse_question == "y" || reponse_question == "yes" || reponse_question == "Yes" || reponse_question == "Y")
 				{
-					cout << "Yes ! " << endl ;
+					cout << "# Yes ! " << endl ;
 					reponse_pas_bonne = false ;
 					string filename;
-					cout << "Veuillez rentrer le nom de votre sauvegarde." << endl ;
+					cout << "# Veuillez rentrer le nom de votre sauvegarde." << endl ;
 					getline(cin , filename);
 					fichierUI->Sauvegarder_modele(filename);
 				}
@@ -217,7 +217,7 @@ bool Controleur::Executer_instruction(string instruction)
 				}
 				else
 				{
-					cout << "\"" << reponse_question << "\" n'est pas une réponse valide, veuillez répondre à nouveau." << endl ;
+					cout << "# \"" << reponse_question << "\" n'est pas une réponse valide, veuillez répondre à nouveau." << endl ;
 				}
 			}
 
@@ -270,7 +270,7 @@ Controleur::Controleur ( )
 	modele = new Modele() ;
 	fichierUI = new FichierUI( this , modele ) ;
 #ifdef MAP
-    cout << "Appel au constructeur de <Controleur>" << endl;
+    cout << "# Appel au constructeur de <Controleur>" << endl;
 #endif
 } //----- Fin de Controleur
 
@@ -283,7 +283,7 @@ Controleur::~Controleur ( )
 	delete console ;
 	delete fichierUI ;
 #ifdef MAP
-    cout << "Appel au destructeur de <Controleur>" << endl;
+    cout << "# Appel au destructeur de <Controleur>" << endl;
 #endif
 } //----- Fin de ~Controleur
 

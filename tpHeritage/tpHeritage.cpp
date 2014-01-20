@@ -12,7 +12,7 @@
 
 int main()
 {
-	cout << "Bienvenue dans votre dessinateur préféré !" << endl ;
+	cout << "# Bienvenue dans votre dessinateur préféré !" << endl ;
 	Controleur controleur ;
 	controleur.Lancer_console();
 }
