@@ -51,6 +51,7 @@ bool CmdAjouterElement::Defaire()
 bool CmdAjouterElement::Initialisation( string instruction)
 // Algorithme :
 {
+	cout << "Instruction : " << instruction ;
 	vector<string> mots;
 	Commande::Decouper(instruction,mots);
 	int taille = mots.size();
@@ -65,6 +66,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		return false;
 	}
 	if(mots[0].compare("C")){
+		cout << "Cercle " << endl ;
 		if(taille != 5)return false;
 		int nombre[3];
 		for(int i = 0; i < 3; i++){
@@ -73,6 +75,8 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		//
 		Point* point = new Point(nombre[0],nombre[1]) ;
 		element = new Cercle(mots[1] , point , nombre[2]);
+		cout << "Ajoute de l'élément" << endl ;
+		modele->Ajouter_element(element);
 		//Le compilateur ne prend pas :
 		//element = new Cercle(mots[1] , Point(nombre[0],nombre[1]) , nombre[2]);
 		return true;

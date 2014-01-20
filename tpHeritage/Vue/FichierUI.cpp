@@ -36,17 +36,30 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 // Algorithme :
 //
 {
-	int nb_rangs = 0 ;
+	//int nb_rangs = 0 ;
 	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
-		if(it->second->dependance > nb_rangs)
+		/*if(it->second->dependance > nb_rangs)	//Un nouveau vector pour le rang supérieur.
 		{
 			Commandes_objet Cn ;	//liste de string
 			situation_modele.push_back(Cn) ;
-			situation_modele[++nb_rangs].push_back(it->second->Obtenir_descripteur()) ;
-		}
+			situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
+		*/
+		situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
+		cout << "Decripteur : " << it->second->Obtenir_descripteur() << endl ;
+
 
 	}
+
+	ofstream fichier(nom_fichier, ios::out | ios::trunc);
+	for (vector<Commandes_objet>::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
+	{
+		for(vector<string>::iterator it_descripteurs = it_listes->begin() ; it_descripteurs != it_listes->end() ; it_descripteurs++)
+		{
+			fichier << *it_descripteurs ;
+		}
+	}
+
 	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
 	return true ;
 }

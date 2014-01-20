@@ -138,6 +138,7 @@ Commande * Controleur::Traduire_instruction(string instruction)
 
 	else	//Création d'un objet ou objet agrégé.
 	{
+		cout << "Appel de CmdAjouterElement depuis Traduire." << endl ;
 		Commande * Nouvelle_commande = new CmdAjouterElement(modele) ;
 		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
 		{
