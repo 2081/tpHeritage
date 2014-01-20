@@ -56,13 +56,13 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    CmdVider ( Modele * fmodele );
+    CmdVider ( Modele * fmodele ) :Commande(fmodele) {};
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~CmdVider ( );
+    virtual ~CmdVider ( ){};
     // Mode d'emploi :
     //
     // Contrat :

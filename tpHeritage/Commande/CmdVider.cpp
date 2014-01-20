@@ -49,6 +49,7 @@ bool Initialisation( string instruction )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
+/*
 CmdVider::CmdVider ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
@@ -67,7 +68,7 @@ CmdVider::~CmdVider ( )
     cout << "Appel au destructeur de <CmdVider>" << endl;
 #endif
 } //----- Fin de ~CmdVider
-
+*/
 
 //------------------------------------------------------------------ PRIVE
 
