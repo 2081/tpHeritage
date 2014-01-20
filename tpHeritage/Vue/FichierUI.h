@@ -14,6 +14,8 @@
 
 #include <string>
 #include <vector>
+#include "../Commande/CmdSequence.h"
+
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
@@ -48,7 +50,7 @@ public:
 	// Contrat :
 	//
 
-	bool Charger_modele(string nom_fichier);
+	CmdSequence * Charger_modele(string nom_fichier);
 	// Mode d'emploi :
 	//
 	// Contrat :

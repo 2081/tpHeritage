@@ -35,8 +35,10 @@ bool CmdGrouper::Faire()
 	for(unsigned int i = 0; i < membres.size(); i++){
 		if(!membres[i]->Ajouter_au_groupe(groupe)){
 			cout << Commande::message[2] << "( Ajout du groupe dans "<<membres[i]->nom<<")"<<endl;
+			return false;
 		}
 	}
+	cout << Commande::message[4] << "Création du groupe : "<< groupe->nom << " ."<< endl;
 	return true;
 }
 
@@ -44,10 +46,12 @@ bool CmdGrouper::Defaire()
 {
 	modele->Enlever_element(groupe);
 	for(unsigned int i = 0; i < membres.size(); i++){
-			if(!membres[i]->Enlever_du_groupe(groupe)){
-				cout << Commande::message[2] << "( Suppression du groupe dans "<<membres[i]->nom<<")"<<endl;
-			}
+		if(!membres[i]->Enlever_du_groupe(groupe)){
+			cout << Commande::message[2] << "( Suppression du groupe dans "<<membres[i]->nom<<")"<<endl;
+			return false;
 		}
+	}
+	cout << Commande::message[5] << "Création du groupe : "<< groupe->nom << " ."<< endl;
 	return true;
 }
 
@@ -79,11 +83,13 @@ bool CmdGrouper::Initialisation(string instruction)
 				cout << Commande::message[2]<< "( Ajout de "<< mots[i]<<" au groupe)"<<endl;
 			}
 		} else {
+			rep = false;
+			nb_erreur++;
 			cout << Commande::message[2] <<  "L'élément \""<< mots[i]<<"\" n'existe pas."<<endl;
 		}
 	}
 	if(!rep) cout << Commande::message[3]<< "("<<nb_erreur<<" erreur"<< (nb_erreur > 1 ? "s" : "")<<".)"<<endl;
-	return true;
+	return rep;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

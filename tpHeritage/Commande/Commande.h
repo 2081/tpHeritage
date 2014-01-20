@@ -51,6 +51,12 @@ public:
 	// Contrat :
 	//
 
+	static void Message(unsigned int num);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
 	virtual bool Faire() = 0;
 	// Mode d'emploi :
 	//
@@ -92,7 +98,7 @@ public:
     // Contrat :
     //
 
-    static int doudou ;
+    static int doudou ; // ??
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -101,6 +107,7 @@ protected:
 //----------------------------------------------------- Attributs protégés
 Modele * modele;
 static const string message[];
+static const unsigned int N_MESSAGE;
 /*Message d'erreur : une initialisation en dehors de la classe est requise.*//*= {
 		"# Instruction incorrecte. ",
 		"# Ce nom est déjà utilisé. ",

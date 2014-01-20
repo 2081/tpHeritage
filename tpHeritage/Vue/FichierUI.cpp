@@ -46,7 +46,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 			situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
 		*/
 		situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
-		cout << "Decripteur : " << it->second->Obtenir_descripteur() << endl ;
+		cout << "# Descripteur : " << it->second->Obtenir_descripteur() << endl ;
 
 
 	}
@@ -60,36 +60,54 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 		}
 	}
 
-	cout << "Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
+	cout << "# Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
 	return true ;
 }
 
-bool FichierUI::Charger_modele(string nom_fichier)
+// bool FichierUI::Charger_modele(string nom_fichier)
+// ( NEW !)
+CmdSequence * FichierUI::Charger_modele(string nom_fichier)
 // Algorithme :
 /*Appels successifs de Controleur::Traduire_instruction
 ligne par ligne par rapport aux lignes du fichier*/
 {
-	cout <<"Nom du fichier à charger : " << nom_fichier << endl ;
+	cout <<"# Nom du fichier à charger : " << nom_fichier << endl ;
 	ifstream fichier(nom_fichier , ios::in) ;
 	if (fichier)
 	{
+		/* Je me permet de modifier ça - Robin
 		string commande_ligne ;
 		bool ligne_ok ;
 		while (getline(fichier,commande_ligne) && ligne_ok)
 		{
 			//C'est comme si on exécutait les instructions une par une.
 			ligne_ok = controleur->Traduire_instruction(commande_ligne);
-			/*si ligne_ok reste true, alors la ligne dans le fichier est une
-			commande correcte.*/
+			//si ligne_ok reste true, alors la ligne dans le fichier est une
+			//commande correcte.
 		}
 		return ligne_ok ;
 		//La lecture s'est bien passée et les commandes ont toute été correctes.
-
+		*/
+		CmdSequence * sequence = new CmdSequence(modele);
+		string commande_ligne ;
+		while (getline(fichier,commande_ligne))
+		{
+			// Si la ligne n'est pas un commentaire
+			if(commande_ligne[0] != '#')
+			{
+				// On remplie la sequence
+				Commande * cmd = controleur->Traduire_instruction(commande_ligne);
+				if(cmd == 0) return 0;
+				sequence->Ajouter_cmd(cmd);
+			}
+		}
+		// Une fois remplie, on retourne la sequence ( NEW ! )
+		return sequence;
 	}
 	else
 	{
-		cout << "Le fichier demandé \"" << nom_fichier << "\" est introuvable ou impossible à lire." << endl ;
-		return false ;
+		cout << "# Le fichier demandé \"" << nom_fichier << "\" est introuvable ou impossible à lire." << endl ;
+		return 0 ;
 	}
 }
 //------------------------------------------------- Surcharge d'opérateurs
