@@ -41,6 +41,7 @@ bool CmdSupprimer::Faire()
 		}
 		if(!modele->Enlever_element(elements[i]))return false;
 	}
+	cout << Commande::message[4] << "Suppression de "<<elements.size()<<" element(s)."<<endl;
 	return true;
 }
 
@@ -54,6 +55,7 @@ bool CmdSupprimer::Defaire()
 		}
 		if(!modele->Ajouter_element(elements[i]))return false;
 	}
+	cout << Commande::message[5] << "Suppression de "<<elements.size()<<" element(s)."<<endl;
 	return true;
 }
 

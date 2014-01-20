@@ -42,6 +42,8 @@ public:
 
 	bool Initialisation(string instruction);
 
+	bool Ajouter_cmd(Commande * cmd);
+
 
 //------------------------------------------------- Surcharge d'opérateurs
     CmdSequence & operator = ( const CmdSequence & unCmdSequence );
