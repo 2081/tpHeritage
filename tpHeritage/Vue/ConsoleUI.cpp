@@ -36,13 +36,13 @@ void ConsoleUI::Attendre_instruction()
 {
 	string commande_tapee ;
 	bool continuer_programme = true ;
-	//cout << "# Veuillez taper une instruction : " ;
+	cout << "# Veuillez taper une instruction : " ;
 	while (continuer_programme && getline(cin , commande_tapee))
 	{
 		continuer_programme = pt_controleur->Executer_instruction(commande_tapee);
 		if(continuer_programme)
 		{
-			//cout << "# Veuillez taper une instruction : " ;
+			cout << "# Veuillez taper une instruction : " ;
 		}
 	}
 } //----- Fin de Attendre_instruction
@@ -51,13 +51,6 @@ void ConsoleUI::Lister_modele()
 // Algorithme :
 //
 {
-	//cout << "# Listage non implémenté." << endl;
-	Elements::iterator it = pt_modele->elements.begin();
-	while(it != pt_modele->elements.end()){
-		cout << it->second->Obtenir_descripteur() << endl;
-		it++;
-	}
-
 } //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs

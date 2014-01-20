@@ -84,62 +84,75 @@ bool Controleur::VerifierSaveLoad(string& filename, string& ligne_de_commande_re
 	}
 }
 
-Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire() ici
+Commande * Controleur::Traduire_instruction(string instruction)
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
 	"LIST"*/
-	//cout << "# Appel de traduction" << endl ;
-
-	Commande * renvoi = 0;
+	cout << "# Appel de traduction" << endl ;
 
 	if (premier_argument == "DELETE")
 	{
-		renvoi = new CmdSupprimer(modele) ;
-
-	} else if(premier_argument == "MOVE")
+		Commande * Nouvelle_commande = new CmdSupprimer(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
+	}
+	else if(premier_argument == "MOVE")
 	{
-		renvoi = new CmdDeplacer(modele) ;
+		Commande * Nouvelle_commande = new CmdDeplacer(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
+	}
 
-	} else if(premier_argument == "LOAD")
+	else if(premier_argument == "LOAD")
 	{
 		string filename;
 		string ligne_de_commande_restante ;
 
 		/*if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
 		{
-			//Savegarder l'ancien modèle -> on appelle save. <- On charge par dessus
-			fichierUI->Sauvegarder_modele("modele"); // NON
-			fichierUI->Charger_modele(filename); // NON
-
-			return fichierUI->Charger_modele(filename);
-
+			//Savegarder l'ancien modèle -> on appelle save.
+			fichierUI->Sauvegarder_modele("modele");
+			fichierUI->Charger_modele(filename);
+			//Créer instance de CmdSequence.
 		}
 		return true ;*/
+		return 0 ;
 	}
 	else if(premier_argument == "CLEAR")
 	{
 		//Créer instance de CmdSequence.
-	}
-	else if(premier_argument == "LIST")
-	{
-		this->console->Lister_modele();
-		//Créer instance de CmdSequence.
+		return 0 ;
 	}
 
 	else	//Création d'un objet ou objet agrégé.
 	{
-		//cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
-		renvoi = new CmdAjouterElement(modele) ;
+		cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
+		Commande * Nouvelle_commande = new CmdAjouterElement(modele) ;
+		if(Nouvelle_commande->Initialisation(instruction) && Nouvelle_commande->Faire())
+		{
+			return Nouvelle_commande ;
+		}
+		else
+		{
+			return 0 ;
+		}
 	}
-	if(!renvoi->Initialisation(instruction)){
-		delete renvoi;
-		renvoi = 0;
-	}
-	return renvoi;
 }
 
 
-bool Controleur::Executer_instruction(string instruction) // retourne toujours true, sauf si EXIT
+bool Controleur::Executer_instruction(string instruction)
 // Algorithme :
 //
 {
@@ -161,7 +174,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	if(premier_argument=="pas_trouve")
 	{
 		cout << "# \"" << premier << "\"" << " n'est pas une commande valide" << endl ;
-		//return true ;
+		return true ;
 	}
 	else if(premier_argument == "SAVE")
 	{
@@ -172,13 +185,13 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		{
 			fichierUI->Sauvegarder_modele(filename);
 		}
-		//return true ;
+		return true ;
 
 	}
 
 	else if(premier_argument == "EXIT")
 	{
-		//demande si l'utilisateur veut enregistrer sa figure /// <--- C'est pas dans les spec !
+		//demande si l'utilisateur veut enregistrer sa figure
 		//Verif si la dernière commande était une sauvegarde
 		/*if (liste_cmd.top() != ##sauvegarde)
 		{*/
@@ -213,12 +226,12 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	else if(premier_argument == "REDO")
 	{
 		//Appel de faire de l'avant dernière commande de la pile.
-		//return true ;
+		return true ;
 	}
 	else if(premier_argument == "UNDO")
 	{
 		//Appel de defaire de la dernière commande de la pile.
-		//return true ;
+		return true ;
 	}
 	else
 	{
@@ -227,20 +240,13 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		Commande * retour = Traduire_instruction(instruction) ;
 		if(retour != 0)
 		{
-			if(retour->Faire()){
-				//La commande s'est exécutée correctement, on l'ajoute dans le pile.
-				liste_cmd.push_back(retour);
-				cout << "OK" << endl;
-			} else {
-				cout << "ERR" << endl;
-			}
-		} else {
-			cout << "ERR" << endl;
+			//La commande s'est exécutée correctement, on l'ajoute dans le pile.
+			liste_cmd.push_back(retour);
 		}
 		premier_argument = "pas_trouve"; //Pour le prochain appel
+		return true ;
 	}
 
-	return true ;
 	//liste des elsif
 } //----- Fin de Méthode
 
@@ -273,7 +279,7 @@ Controleur::~Controleur ( )
 // Algorithme :
 //
 {
-	cout << "# A bientôt ! " << endl ;
+	cout << "A bientôt ! " << endl ;
 	delete console ;
 	delete fichierUI ;
 #ifdef MAP

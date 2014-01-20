@@ -23,17 +23,11 @@ using namespace std;
 #include <cstdlib>
 
 //------------------------------------------------------------- Constantes
-const unsigned int NB_MESSAGE = 9;
 const string Commande::message[] = {
-		"# Instruction incorrecte. ",									// 0
-		"# Ce nom est déjà utilisé. ",									// 1
-		"# Opération échouée. ", 										// 2
-		"# Poursuite de l'opération malgré une ou plusieur erreurs. ",	// 3
-		"# Opération réussie. ",										// 4
-		"# Opération annulée. ", 										// 5
-		"# Echec de l'annulation. ",									// 6
-		"# Nombre d'argument incorrect.",								// 7
-		"# Les coordonnées doivent être des nombres entiers."			// 8
+		"# Instruction incorrecte. ",
+		"# Ce nom est déjà utilisé. ",
+		"# Une opération a échoué. ",
+		"# Poursuite de l'opération malgré une ou plusieur erreurs. "
 };
 
 
@@ -45,15 +39,6 @@ const string Commande::message[] = {
 //
 //{
 //} //----- Fin de Méthode
-void Commande::Message(unsigned int num)
-{
-	if(num < NB_MESSAGE){
-		cout << message[num] << endl;
-	} else {
-		cout << "# ("<<num<<") Code message inconnu."<<endl;
-	}
-}
-
 bool Commande::Est_un_nombre(string & str, int & l){
 	char * pEnd;
 	l = (int)strtol(str.c_str(),&pEnd,10);
