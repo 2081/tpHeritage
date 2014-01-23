@@ -48,47 +48,20 @@ void Controleur::Lancer_console()
 	console->Attendre_instruction();
 }
 
-bool Controleur::VerifierSaveLoad(string& filename, string& ligne_de_commande_restante, istringstream& flux_commande)
+bool Controleur::VerifierSaveLoad(string& filename)
 {
-	//gestion des noms de fichier avec apostrophe.
-	size_t found = instruction_cours.find("\'") ;
-	if (found!=string::npos)
-	{
-		//première apostrophe
-		unsigned int premiere = found ;
-		found = instruction_cours.find("\'" , found+1) ;
-		if(found!=string::npos)
-		{
-			//les deux apostrophes sont présentes
-			int longueur = found - premiere -1 ;
-			filename = instruction_cours.substr(++premiere , longueur) ;
+	if(tab_instruction.size()>2) return false ;
 
-			int fin_commande = instruction_cours.size() - found ;
-			ligne_de_commande_restante = instruction_cours.substr(++found , fin_commande) ;
-		}
-	}
-	else
-	{
-		getline(flux_commande , filename , ' ');
-		getline(flux_commande , ligne_de_commande_restante , ' ');
-	}
-
-	if (ligne_de_commande_restante == "")
-	{
-		return true ;
-	}
-	else
-	{
-		cout << "# SAVE ne prend qu'un seul paramètre : son nom de fichier sans espaces." << endl ;
-		return false ;
-	}
+	filename = tab_instruction[1] ;
+	cout << filename << ", retour de true" << endl ;
+	return true ;
 }
 
 Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire() ici
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
 	"LIST"*/
-	//cout << "# Appel de traduction" << endl ;
+	cout << "# Appel de traduction" << endl ;
 
 	Commande * renvoi = 0;
 
@@ -100,25 +73,19 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	{
 		renvoi = new CmdDeplacer(modele) ;
 
-	} else if(premier_argument == "LOAD")
-	{
-		string filename;
-		string ligne_de_commande_restante ;
-
-		/*if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
-		{
-			//Savegarder l'ancien modèle -> on appelle save. <- On charge par dessus
-			fichierUI->Sauvegarder_modele("modele"); // NON
-			fichierUI->Charger_modele(filename); // NON
-
-			return fichierUI->Charger_modele(filename);
-
-		}
-		return true ;*/
 	}
 	else if(premier_argument == "CLEAR")
 	{
 		//Créer instance de CmdSequence.
+	}
+	else if(premier_argument == "LOAD")
+	{
+		string filename;
+		if (VerifierSaveLoad(filename))
+		{
+			cout << "appel de cherger" << endl ;
+			renvoi = fichierUI->Charger_modele(filename) ;
+		}
 	}
 	else	//Création d'un objet ou objet agrégé.
 	{
@@ -126,10 +93,13 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		renvoi = new CmdAjouterElement(modele) ;
 	}
 	if(!renvoi->Initialisation(instruction)){
-		delete renvoi;
+		cout << "Retour dans traduire - bloc d'erreur" << endl ;
+		cout << "renvoi avant le delete" << renvoi << endl ;
+		delete renvoi;	//Le programme bugue à cet endroit.
+		cout << "arpès le delete" << endl ;
 		renvoi = 0;
 	}
-	cout << "retour de renvoi 0" << endl ;
+	cout << "renvoi dans 0 : " << renvoi << endl ;
 	return renvoi;
 }
 
@@ -137,12 +107,14 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 bool Controleur::Executer_instruction(string instruction) // retourne toujours true, sauf si EXIT
 // Algorithme :
 //
-{
-	instruction_cours = instruction ;	//Pour l'appel de SAVE/LOAD
-	premier_argument = "pas_trouve" ;
-	istringstream flux_commande (instruction_cours) ;
-	string premier ;
-	getline(flux_commande , premier , ' ');
+{	premier_argument = "pas_trouve" ;
+	tab_instruction.clear();
+	istringstream flux_commande(instruction);
+	istream_iterator<string> begin(flux_commande), end;
+	tab_instruction = vector<string>(begin, end);
+
+
+	string premier = tab_instruction[0];
 	//Recherche dans la liste de commandes attendues.
 	for( pt = liste_commandes ; pt != liste_commandes+14; pt++)
 	{
@@ -161,19 +133,19 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	else if(premier_argument == "SAVE")
 	{
 		string filename;
-		string ligne_de_commande_restante ;
-
-		if (VerifierSaveLoad(filename, ligne_de_commande_restante, flux_commande))
+		if (VerifierSaveLoad(filename))
 		{
+			cout << "appel de sauvegarder" << endl ;
+			// && !modele->elements.empty()
 			fichierUI->Sauvegarder_modele(filename);
 		}
 		//return true ;
 
 	}
+
 	else if(premier_argument == "LIST")
 	{
 		console->Lister_modele();
-		cout << "Sortie de lister" << endl ;
 		return true ;
 		//Créer instance de CmdSequence.
 	}
@@ -226,7 +198,8 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		/*Appel de la fonction traduire.*/
 		//liste_cmd.push_back( ) ;
 		Commande * retour = Traduire_instruction(instruction) ;
-		cout << "Retour dans traduire" << endl ;
+		cout << "retour dans exécuter - bloc d'erreur" << endl ;
+		cout << "retour : " << retour << endl ;
 		if(retour != 0)
 		{
 			if(retour->Faire()){
@@ -239,7 +212,6 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		} else {
 			cout << "ERR" << endl;
 		}
-		premier_argument = "pas_trouve"; //Pour le prochain appel
 	}
 
 	return true ;

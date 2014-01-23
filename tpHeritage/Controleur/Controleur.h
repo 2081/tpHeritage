@@ -12,6 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <stack> //Pile
 #include <string>
+#include <vector>
 using namespace std ;
 
 //------------------------------------------------------------- Constantes 
@@ -22,6 +23,7 @@ class ConsoleUI ;
 class Modele ;
 class FichierUI ;
 typedef deque <Commande*> Pile_Commande;
+typedef deque <string> Sauvegardes ;
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Controleur>
 //
@@ -41,7 +43,7 @@ public:
     //
 	void Lancer_console() ;
 
-	bool VerifierSaveLoad(string& filename, string& ligne_de_commande_restante, istringstream& flux_commande);
+	bool VerifierSaveLoad(string& filename);
 	// type Méthode ( liste des paramètres );
 	// Mode d'emploi :
 	//
@@ -97,10 +99,9 @@ protected:
     //rajouter -std=c++11 aux options de compilation si problème pour l'attribut liste_commandes
     string*pt ;		//Pointeur de recherche dans liste_commandes.
     string premier_argument = "pas_trouve";
-
+    vector<string> tab_instruction ;
     Pile_Commande liste_cmd ;
-
-    string instruction_cours ;
+    Sauvegardes sauvegardes ;
 
 
 };

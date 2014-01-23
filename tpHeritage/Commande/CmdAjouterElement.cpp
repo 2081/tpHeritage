@@ -79,9 +79,9 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	//cout << mots[0] << endl;
 
 	if(!mots[0].compare("C")){ // CERCLE
-		cout << "cercle ;" << endl ;
 		if(taille != 5){
 			Commande::Message(7);
+			cout << "retour de false " << endl ;
 			return false;
 		}
 		int nombre[3];
@@ -93,7 +93,6 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		}
 		Point* point = new Point(nombre[0],nombre[1]) ;
 		element = new Cercle(mots[1] , point , nombre[2]);
-
 
 		rep = true;
 	} else if(!mots[0].compare("R")){
@@ -109,8 +108,8 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			}
 		}
 		//
-		Point* point1 = new Point(nombre[2],nombre[3]) ;
-		Point* point2 = new Point(nombre[4],nombre[5]) ;
+		Point* point1 = new Point(nombre[0],nombre[1]) ;
+		Point* point2 = new Point(nombre[2],nombre[3]) ;
 		element = new Rectangle(mots[1],point1,point2);
 
 		rep = true;
@@ -127,13 +126,13 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			}
 		}
 		//
-		Point* point1 = new Point(nombre[2],nombre[3]) ;
-		Point* point2 = new Point(nombre[4],nombre[5]) ;
+		Point* point1 = new Point(nombre[0],nombre[1]) ;
+		Point* point2 = new Point(nombre[2],nombre[3]) ;
 		element = new Ligne(mots[1],point1,point2);
 
 		rep = true;
 	} else if(!mots[0].compare("PL")){
-		if(taille >= 6 && taille%2 == 0){
+		if(!taille < 6 && taille%2){
 			Commande::Message(7);
 			return false;
 		}

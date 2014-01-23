@@ -62,6 +62,7 @@ ElementGeo::ElementGeo ( string fnom )
 //
 {
 	nom = fnom ;
+	dependance = 0 ;
 #ifdef MAP
     cout << "Appel au constructeur de <ElementGeo>" << endl;
 #endif

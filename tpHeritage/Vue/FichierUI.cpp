@@ -36,27 +36,35 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 // Algorithme :
 //
 {
-	//int nb_rangs = 0 ;
-	for(map<string,ElementGeo*>::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
+	//Constitution du vector de vector.
+	situation_modele.clear() ;
+	Commandes_objet Cn ;
+	situation_modele.push_back(Cn) ;
+	int nb_rangs = 0 ;
+	for(Elements::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
-		/*if(it->second->dependance > nb_rangs)	//Un nouveau vector pour le rang supérieur.
+		cout << it->second->dependance << endl ;
+		if(it->second->dependance > nb_rangs)	//Un nouveau vector pour le rang supérieur.
 		{
+			for (int i = nb_rangs ; i!=it->second->dependance ; i++){
 			Commandes_objet Cn ;	//liste de string
 			situation_modele.push_back(Cn) ;
-			situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
-		*/
+			cout << "rang supérieur" << endl ;
+			}
+			nb_rangs = it->second->dependance;
+		}
+		cout << "ajout " << it->second->dependance << endl ;
 		situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
-		cout << "# Descripteur : " << it->second->Obtenir_descripteur() << endl ;
-
-
 	}
 
+	//Ecriture dans le fichier.
+	cout << "ecriture" << endl ;
 	ofstream fichier(nom_fichier, ios::out | ios::trunc);
-	for (vector<Commandes_objet>::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
+	for (Situation_modele::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
 	{
 		for(vector<string>::iterator it_descripteurs = it_listes->begin() ; it_descripteurs != it_listes->end() ; it_descripteurs++)
 		{
-			fichier << *it_descripteurs ;
+			fichier << *it_descripteurs << endl;
 		}
 	}
 

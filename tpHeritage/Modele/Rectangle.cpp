@@ -27,6 +27,8 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+
+
 string Rectangle::Obtenir_descripteur()
 {
 	string a_retourner ;

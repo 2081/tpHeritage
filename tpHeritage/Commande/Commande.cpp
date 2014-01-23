@@ -32,7 +32,7 @@ const string Commande::message[] = {
 		"# Opération réussie. ",										// 4
 		"# Opération annulée. ", 										// 5
 		"# Echec de l'annulation. ",									// 6
-		"# Nombre d'argument incorrect.",								// 7
+		"# Nombre d'arguments incorrect.",								// 7
 		"# Les coordonnées doivent être des nombres entiers."			// 8
 };
 
