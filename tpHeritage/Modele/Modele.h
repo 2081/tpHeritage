@@ -11,7 +11,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <map>
-#include <stack> //Pile
 #include "ElementGeo.h"
 
 //------------------------------------------------------------- Constantes 

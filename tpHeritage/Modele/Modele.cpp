@@ -30,15 +30,23 @@ using namespace std;
 //} //----- Fin de Méthode
 bool Modele::Ajouter_element( ElementGeo * element)
 {
-	for(map<string,ElementGeo *>::iterator it = elements.begin() ; it != elements.end() ; it++)
+
+
+	for(Elements::iterator it = elements.begin() ; it != elements.end() ; it++)
 	{
+		//cout << "element pointé par for : " << it->first << endl ;
 		if(it->first == element->nom)
 		{
 			cout << "\"" << it->first << "\" est déjà présent dans le dessin." << endl ;
 			return false ;
 		}
 	}
-	elements.insert ( pair<string,ElementGeo *>(element->nom,element) );
+	cout << "insertion dans Ajouter_element : " <<  element << " ; " << endl ;
+	elements.insert( pair<string,ElementGeo *>(element->nom,element) ) ;
+
+	cout << "merde" << endl ;
+
+
 	return true ;
 }
 
@@ -75,6 +83,7 @@ Modele::Modele ( const Modele & unModele )
 // Algorithme :
 //
 {
+	//elements = new Elements();
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Modele>" << endl;
 #endif
@@ -85,6 +94,7 @@ Modele::Modele ( )
 // Algorithme :
 //
 {
+	//delete elements ;
 #ifdef MAP
     cout << "Appel au constructeur de <Modele>" << endl;
 #endif

@@ -51,11 +51,13 @@ void ConsoleUI::Lister_modele()
 // Algorithme :
 //
 {
-	//cout << "# Listage non implémenté." << endl;
-	Elements::iterator it = pt_modele->elements.begin();
-	while(it != pt_modele->elements.end()){
-		cout << it->second->Obtenir_descripteur() << endl;
-		it++;
+	if(!pt_modele->elements.empty())
+	{
+		Elements::iterator it = pt_modele->elements.begin();
+		while(it != pt_modele->elements.end()){
+			cout << it->second->Obtenir_descripteur() << endl;
+			it++ ;
+		}
 	}
 
 } //----- Fin de Méthode

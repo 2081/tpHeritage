@@ -61,7 +61,7 @@ bool CmdAjouterElement::Defaire()
 bool CmdAjouterElement::Initialisation( string instruction)
 // Algorithme :
 {
-	//cout << "# Instruction : " << instruction << endl;
+	cout << "# Instruction : " << instruction << endl;
 	vector<string> mots;
 	Commande::Decouper(instruction,mots);
 	int taille = mots.size();
@@ -79,6 +79,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	//cout << mots[0] << endl;
 
 	if(!mots[0].compare("C")){ // CERCLE
+		cout << "cercle ;" << endl ;
 		if(taille != 5){
 			Commande::Message(7);
 			return false;
@@ -92,6 +93,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		}
 		Point* point = new Point(nombre[0],nombre[1]) ;
 		element = new Cercle(mots[1] , point , nombre[2]);
+
 
 		rep = true;
 	} else if(!mots[0].compare("R")){
@@ -149,7 +151,12 @@ bool CmdAjouterElement::Initialisation( string instruction)
 
 		rep = true;
 	}
-	if(rep && element->Deplacer(0,0))return true; // Vérifier si l'élément n'est pas hors limite.
+	if(rep && element->Deplacer(0,0))	// Vérifier si l'élément n'est pas hors limite.
+	{
+		cout << "ajout de l'element" << endl ;
+		//modele->Ajouter_element(element);
+		return true;
+	}
 	delete element;
 	return false;
 }

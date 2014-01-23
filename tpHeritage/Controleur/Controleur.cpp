@@ -120,12 +120,6 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	{
 		//Créer instance de CmdSequence.
 	}
-	else if(premier_argument == "LIST")
-	{
-		this->console->Lister_modele();
-		//Créer instance de CmdSequence.
-	}
-
 	else	//Création d'un objet ou objet agrégé.
 	{
 		//cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
@@ -135,6 +129,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		delete renvoi;
 		renvoi = 0;
 	}
+	cout << "retour de renvoi 0" << endl ;
 	return renvoi;
 }
 
@@ -175,7 +170,13 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		//return true ;
 
 	}
-
+	else if(premier_argument == "LIST")
+	{
+		console->Lister_modele();
+		cout << "Sortie de lister" << endl ;
+		return true ;
+		//Créer instance de CmdSequence.
+	}
 	else if(premier_argument == "EXIT")
 	{
 		//demande si l'utilisateur veut enregistrer sa figure /// <--- C'est pas dans les spec !
@@ -225,10 +226,11 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		/*Appel de la fonction traduire.*/
 		//liste_cmd.push_back( ) ;
 		Commande * retour = Traduire_instruction(instruction) ;
+		cout << "Retour dans traduire" << endl ;
 		if(retour != 0)
 		{
 			if(retour->Faire()){
-				//La commande s'est exécutée correctement, on l'ajoute dans le pile.
+				cout << "La commande s'est exécutée correctement, on l'ajoute dans le pile." << endl ;
 				liste_cmd.push_back(retour);
 				cout << "OK" << endl;
 			} else {
@@ -260,8 +262,8 @@ Controleur::Controleur ( )
 {
 	pt = liste_commandes ;	//Réinitialisé à chaque fois dans
 		//Executer_instruction
-	console = new ConsoleUI(modele , this) ;
 	modele = new Modele() ;
+	console = new ConsoleUI(modele , this) ;
 	fichierUI = new FichierUI( this , modele ) ;
 #ifdef MAP
     cout << "# Appel au constructeur de <Controleur>" << endl;
