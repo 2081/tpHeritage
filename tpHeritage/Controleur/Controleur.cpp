@@ -126,12 +126,15 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 
 	string premier = tab_instruction[0];
 	//Recherche dans la liste de commandes attendues.
-	for( pt = liste_commandes ; pt != liste_commandes+14; pt++)
+	pt = liste_commandes;
+	while( pt != liste_commandes+14)
 	{
 		if(*pt == premier && premier_argument=="pas_trouve")
 		{
 			premier_argument = *pt ;
+			pt = liste_commandes+14;
 		}
+		else pt++;
 	}
 
 	//Analyse du résultat et appel des procédures de commandes.
@@ -194,11 +197,16 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	}
 	else if(premier_argument == "REDO")
 	{
+		(*pt_cmd)->Faire();
+		pt_cmd++ ;
 		//Appel de faire de l'avant dernière commande de la pile.
 		//return true ;
 	}
 	else if(premier_argument == "UNDO")
 	{
+		pt_cmd = liste_cmd.end() ; //dernière commande exécutée.
+		pt_cmd-- ;
+		(*pt_cmd)->Defaire();
 		//Appel de defaire de la dernière commande de la pile.
 		//return true ;
 	}

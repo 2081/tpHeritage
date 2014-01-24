@@ -29,6 +29,24 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+bool Groupe::Calculer_dependance()
+{
+	/*Fonction appelée si on supprime un element d'un objet agrégé.
+	 * Si cet élément était responsable de la dépendance de l'OA,
+	 *  alors celui-ci a peut-être maintenant une dépendance diminuée, */
+	int max_dep_membres = 0 ;
+	for(Elements_groupe::iterator it = membres.begin() ; it!=membres.end() ; it++)
+	{
+		if((*it)->dependance > max_dep_membres) max_dep_membres = (*it)->dependance ;
+	}
+	if(max_dep_membres<dependance)
+	{
+		dependance = max_dep_membres;
+		return true;
+	}
+	return false;
+}
+
 string Groupe::Obtenir_descripteur()
 {
 	string a_retourner ;
@@ -36,7 +54,7 @@ string Groupe::Obtenir_descripteur()
 	flux << "OA " << nom << " " ;
 	for (deque<ElementGeo *>::iterator it = membres.begin() ; it != membres.end() ; it++)
 	{
-		//flux << it->nom << " " ;
+		flux << (*it)->nom << " " ;
 	}
 	a_retourner = flux.str();
 	return a_retourner ;
@@ -49,8 +67,13 @@ bool Groupe::Deplacer(int dx, int dy, int id)
 
 bool Groupe::Ajouter_membre(ElementGeo * elt)
 {
-	membres.push_back(elt) ;
-	return true ;
+	if(elt != this){
+		if(elt->dependance >= dependance) dependance = elt->dependance +1 ;
+		membres.push_back(elt) ;
+		elt->groupes.push_back(this) ;
+		return true ;
+	}
+	else return false;
 }
 
 bool Groupe::Enlever_membre(ElementGeo * elt)
@@ -62,6 +85,13 @@ bool Groupe::Enlever_membre(ElementGeo * elt)
 		if(*it == elt)
 		{
 			membres.erase(it) ;
+			if (Calculer_dependance()){
+				//Appel récursif si cet objet agrégé est lui même membre d'un autre.
+				for(Groupes::iterator it = groupes.begin() ; it != groupes.end() ; it++)
+				{
+					(*it)->Calculer_dependance() ;
+				}
+			}
 			return true ;
 		}
 	}

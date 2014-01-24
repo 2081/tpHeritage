@@ -17,6 +17,7 @@
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
+typedef deque<ElementGeo *> Elements_groupe ;
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <Groupe>
@@ -35,6 +36,8 @@ public:
     //
     // Contrat :
     //
+	bool Calculer_dependance() ;
+
 	string Obtenir_descripteur();
 
 	bool Deplacer(int dx, int dy, int id = 0);
@@ -71,7 +74,7 @@ public:
     // Contrat :
     //
 
-    deque<ElementGeo *> membres;
+    Elements_groupe membres;
 //------------------------------------------------------------------ PRIVE 
 
 protected:

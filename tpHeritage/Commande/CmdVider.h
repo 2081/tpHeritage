@@ -15,7 +15,7 @@
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
-
+typedef vector<ElementGeo*> Elements_cleared ;
 //------------------------------------------------------------------------ 
 // Rôle de la classe <CmdVider>
 //
@@ -56,13 +56,13 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    CmdVider ( Modele * fmodele ) :Commande(fmodele) {};
+    CmdVider ( Modele * fmodele );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~CmdVider ( ){};
+    virtual ~CmdVider ();
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,7 +74,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    vector<ElementGeo*> elements ;
+Elements_cleared elements_cleared ;
 
 };
 

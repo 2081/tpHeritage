@@ -10,15 +10,17 @@
 #define ELEMENTGEO_H_
 
 #include <string>
-#include <list>
+#include <vector>
 //#include "Groupe.h"
 
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes 
 
-//------------------------------------------------------------------ Types 
+//------------------------------------------------------------------ Types
 class Groupe ;
+typedef vector<Groupe *> Groupes ;
+
 
 //------------------------------------------------------------------------ 
 // Rôle de la classe <ElementGeo>
@@ -75,7 +77,7 @@ public:
 
     int dependance;
 	string nom;
-	list<Groupe *> groupes;
+	Groupes groupes;
 
 //------------------------------------------------------------------ PRIVE 
 

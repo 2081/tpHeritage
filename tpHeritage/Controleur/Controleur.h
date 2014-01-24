@@ -96,13 +96,14 @@ protected:
     Modele* modele;
     FichierUI* fichierUI;
     ConsoleUI* console ;
+    string* pt;	//Pointeur de recherche dans liste_commandes.
     string liste_commandes[14] = {"C","R","L","PL","OA","DELETE","MOVE",
     			   		"LIST","UNDO","REDO","LOAD","SAVE","CLEAR","EXIT"};
     //rajouter -std=c++11 aux options de compilation si problème pour l'attribut liste_commandes
-    string*pt ;		//Pointeur de recherche dans liste_commandes.
     string premier_argument = "pas_trouve";
     vector<string> tab_instruction ;
-    Pile_Commande liste_cmd ;
+    Pile_Commande liste_cmd ;	//Pointeur sur la pile de Commandes.
+    Pile_Commande::iterator pt_cmd ;
     Sauvegardes sauvegardes ;
 
 

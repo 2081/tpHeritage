@@ -28,20 +28,30 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-bool Faire()
+bool CmdVider::Faire()
 {
+	modele->elements.clear();
 	return true ;
 }
 
 
-bool Defaire()
+bool CmdVider::Defaire()
 {
+	//Réajout des éléments anciennement supprimés au modèle.
+	for (Elements_cleared::iterator it=elements_cleared.begin() ; it != elements_cleared.end() ; it++)
+	{
+		modele->elements.insert(pair<string,ElementGeo *>((*it)->nom , *it));
+	}
 	return true ;
 }
 
 
-bool Initialisation( string instruction )
+bool CmdVider::Initialisation( string instruction )
 {
+	for (Elements::iterator it = modele->elements.begin() ; it != modele->elements.end() ; it++)
+	{
+		elements_cleared.push_back(it->second);
+	}
 	return true ;
 }
 
@@ -49,11 +59,12 @@ bool Initialisation( string instruction )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-/*
+
 CmdVider::CmdVider ( Modele * fmodele ) : Commande(fmodele)
 // Algorithme :
 //
 {
+
 #ifdef MAP
     cout << "Appel au constructeur de <CmdVider>" << endl;
 #endif
@@ -68,7 +79,7 @@ CmdVider::~CmdVider ( )
     cout << "Appel au destructeur de <CmdVider>" << endl;
 #endif
 } //----- Fin de ~CmdVider
-*/
+
 
 //------------------------------------------------------------------ PRIVE
 
