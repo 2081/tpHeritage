@@ -81,7 +81,6 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	if(!mots[0].compare("C")){ // CERCLE
 		if(taille != 5){
 			Commande::Message(7);
-			cout << "retour de false " << endl ;
 			return false;
 		}
 		int nombre[3];
@@ -152,8 +151,6 @@ bool CmdAjouterElement::Initialisation( string instruction)
 	}
 	if(rep && element->Deplacer(0,0))	// Vérifier si l'élément n'est pas hors limite.
 	{
-		cout << "ajout de l'element" << endl ;
-		//modele->Ajouter_element(element);
 		return true;
 	}
 	delete element;
@@ -199,7 +196,7 @@ CmdAjouterElement::~CmdAjouterElement ( )
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterElement>" << endl;
 #endif
-    delete element;
+    if(element != 0) delete element;
 } //----- Fin de ~CmdAjouterElement
 
 
