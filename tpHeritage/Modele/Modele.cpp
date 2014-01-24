@@ -62,12 +62,10 @@ bool Modele::Enlever_element( ElementGeo * element)
 
 ElementGeo * Modele::Element_par_nom( string nom)
 {
-	for(Elements::iterator it = elements.begin() ; it!=elements.end() ; it++)
+	Elements::iterator it = elements.find(nom) ;
+	if(it!=elements.end())
 	{
-		if(it->first == nom)
-		{
-			return it->second ;
-		}
+		return it->second ;
 	}
 	return 0 ;
 }
