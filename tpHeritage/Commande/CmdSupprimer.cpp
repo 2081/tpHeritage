@@ -34,28 +34,28 @@ typedef unsigned int uint;
 bool CmdSupprimer::Faire()
 // Algorithme :
 {
-	for(uint i = 0; i<elements.size(); i++){
+	for(uint i = 0; i<elements_suppr.size(); i++){
 		list<Groupe *>::iterator it;
-		for( it = elements[i]->groupes.begin(); it != elements[i]->groupes.end() ; it++ ){
-			(*it)->Enlever_membre(elements[i]);
+		for( it = elements_suppr[i]->groupes.begin(); it != elements_suppr[i]->groupes.end() ; it++ ){
+			(*it)->Enlever_membre(elements_suppr[i]);
 		}
-		if(!modele->Enlever_element(elements[i]))return false;
+		if(!modele->Enlever_element(elements_suppr[i]))return false;
 	}
-	cout << Commande::message[4] << "Suppression de "<<elements.size()<<" element(s)."<<endl;
+	cout << Commande::message[4] << "Suppression de "<<elements_suppr.size()<<" element(s)."<<endl;
 	return true;
 }
 
 bool CmdSupprimer::Defaire()
 // Algorithme :
 {
-	for(uint i = 0; i<elements.size(); i++){
+	for(uint i = 0; i<elements_suppr.size(); i++){
 		list<Groupe *>::iterator it;
-		for( it = elements[i]->groupes.begin(); it != elements[i]->groupes.end() ; it++ ){
-			(*it)->Ajouter_membre(elements[i]);
+		for( it = elements_suppr[i]->groupes.begin(); it != elements_suppr[i]->groupes.end() ; it++ ){
+			(*it)->Ajouter_membre(elements_suppr[i]);
 		}
-		if(!modele->Ajouter_element(elements[i]))return false;
+		if(!modele->Ajouter_element(elements_suppr[i]))return false;
 	}
-	cout << Commande::message[5] << "Suppression de "<<elements.size()<<" element(s)."<<endl;
+	cout << Commande::message[5] << "Suppression de "<<elements_suppr.size()<<" element(s)."<<endl;
 	return true;
 }
 
@@ -67,7 +67,7 @@ bool CmdSupprimer::Initialisation(string instruction)
 	for(uint i = 1; i< donnees.size(); i++){
 		ElementGeo * el = modele->Element_par_nom(donnees[i]);
 		if(el == 0)return false;
-		elements.push_back(el);
+		elements_suppr.push_back(el);
 	}
 	return true;
 }

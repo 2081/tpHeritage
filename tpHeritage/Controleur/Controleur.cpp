@@ -57,6 +57,20 @@ bool Controleur::VerifierSaveLoad(string& filename)
 	return true ;
 }
 
+void Controleur::Save_systeme()
+{
+	if(system("cd SAVES") !=0)
+	{
+		system("mkdir SAVES") ;
+	}
+	string filename = "./SAVES/";
+	filename.append(static_cast<ostringstream*>( &(ostringstream() << sauvegardes.size()) )->str());
+	if(fichierUI->Sauvegarder_modele(filename))
+	{
+		sauvegardes.push_back(filename) ;
+	}
+
+}
 Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire() ici
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
@@ -135,7 +149,6 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		string filename;
 		if (VerifierSaveLoad(filename))
 		{
-			cout << "appel de sauvegarder" << endl ;
 			// && !modele->elements.empty()
 			fichierUI->Sauvegarder_modele(filename);
 		}

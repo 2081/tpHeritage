@@ -41,6 +41,8 @@ public:
     //
     // Contrat :
     //
+	void Save_systeme();
+
 	void Lancer_console() ;
 
 	bool VerifierSaveLoad(string& filename);

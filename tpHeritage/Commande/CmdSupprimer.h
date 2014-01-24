@@ -87,7 +87,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-vector<ElementGeo *> elements;
+vector<ElementGeo *> elements_suppr;
 
 };
 

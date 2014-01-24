@@ -49,16 +49,13 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 			for (int i = nb_rangs ; i!=it->second->dependance ; i++){
 			Commandes_objet Cn ;	//liste de string
 			situation_modele.push_back(Cn) ;
-			cout << "rang supérieur" << endl ;
 			}
 			nb_rangs = it->second->dependance;
 		}
-		cout << "ajout " << it->second->dependance << endl ;
 		situation_modele[it->second->dependance].push_back(it->second->Obtenir_descripteur()) ;
 	}
 
 	//Ecriture dans le fichier.
-	cout << "ecriture" << endl ;
 	ofstream fichier(nom_fichier, ios::out | ios::trunc);
 	for (Situation_modele::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
 	{
@@ -68,7 +65,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 		}
 	}
 
-	cout << "# Le nom de votre sauvegarde est : \"" << nom_fichier << "\"."<< endl ;
+	cout << "# Le modèle courant est sauvegardé en : \"" << nom_fichier << "\"."<< endl ;
 	return true ;
 }
 
@@ -96,7 +93,12 @@ ligne par ligne par rapport aux lignes du fichier*/
 		return ligne_ok ;
 		//La lecture s'est bien passée et les commandes ont toute été correctes.
 		*/
+
+		//Sauvegarde avant de démarrer le chargement.
+		controleur->Save_systeme();
+		cout << "La sauvegarde a été faite." << endl ;
 		CmdSequence * sequence = new CmdSequence(modele);
+
 		string commande_ligne ;
 		while (getline(fichier,commande_ligne))
 		{
