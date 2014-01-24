@@ -30,6 +30,8 @@ using namespace std;
 //} //----- Fin de Méthode
 bool Point::Deplacer(int dx, int dy )
 {
+	this->x += dx;
+	this->y += dy;
 	return true ;
 }
 
