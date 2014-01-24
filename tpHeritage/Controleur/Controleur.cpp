@@ -197,6 +197,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	}
 	else if(premier_argument == "REDO")
 	{
+		cout << "redo" ;
 		(*pt_cmd)->Faire();
 		pt_cmd++ ;
 		//Appel de faire de l'avant dernière commande de la pile.
