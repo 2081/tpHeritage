@@ -97,7 +97,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		string filename;
 		if (VerifierSaveLoad(filename))
 		{
-			cout << "appel de cherger" << endl ;
+			//cout << "appel de charger" << endl ;
 			renvoi = fichierUI->Charger_modele(filename) ;
 		}
 	}
@@ -106,14 +106,10 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		//cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
 		renvoi = new CmdAjouterElement(modele) ;
 	}
-	if(!renvoi->Initialisation(instruction)){
-		cout << "Retour dans traduire - bloc d'erreur" << endl ;
-		cout << "renvoi avant le delete" << renvoi << endl ;
+	if((renvoi!=0)&&!(renvoi->Initialisation(instruction))){
 		delete renvoi;	//Le programme bugue à cet endroit.
-		cout << "arpès le delete" << endl ;
 		renvoi = 0;
 	}
-	cout << "renvoi dans 0 : " << renvoi << endl ;
 	return renvoi;
 }
 
@@ -211,12 +207,9 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		/*Appel de la fonction traduire.*/
 		//liste_cmd.push_back( ) ;
 		Commande * retour = Traduire_instruction(instruction) ;
-		cout << "retour dans exécuter - bloc d'erreur" << endl ;
-		cout << "retour : " << retour << endl ;
 		if(retour != 0)
 		{
 			if(retour->Faire()){
-				cout << "La commande s'est exécutée correctement, on l'ajoute dans le pile." << endl ;
 				liste_cmd.push_back(retour);
 				cout << "OK" << endl;
 			} else {

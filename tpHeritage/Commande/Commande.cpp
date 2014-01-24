@@ -93,7 +93,6 @@ Commande::~Commande ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Commande>" << endl;
 #endif
-    delete modele;
 } //----- Fin de ~Commande
 
 

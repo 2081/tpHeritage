@@ -41,11 +41,7 @@ bool Modele::Ajouter_element( ElementGeo * element)
 			return false ;
 		}
 	}
-	cout << "insertion dans Ajouter_element : " <<  element << " ; " << endl ;
 	elements.insert( pair<string,ElementGeo *>(element->nom,element) ) ;
-
-	cout << "merde" << endl ;
-
 
 	return true ;
 }
