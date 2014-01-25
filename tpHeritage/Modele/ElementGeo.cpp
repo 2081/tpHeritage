@@ -71,11 +71,11 @@ ElementGeo::ElementGeo ( string fnom )
 // Algorithme :
 //
 {
-	nom = fnom ;
-	dependance = 0 ;
 #ifdef MAP
     cout << "Appel au constructeur de <ElementGeo>" << endl;
 #endif
+	nom = fnom ;
+	dependance = 0 ;
 } //----- Fin de ElementGeo (constructeur de copie)
 
 

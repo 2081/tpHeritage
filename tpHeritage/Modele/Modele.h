@@ -11,9 +11,14 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <map>
+#include <limits>
 #include "ElementGeo.h"
 
 //------------------------------------------------------------- Constantes 
+const long int BORD_DROIT = std::numeric_limits<long int>::max();
+const long int BORD_HAUT = std::numeric_limits<long int>::max();
+const long int BORD_GAUCHE = std::numeric_limits<long int>::min();
+const long int BORD_BAS = std::numeric_limits<long int>::min();
 
 //------------------------------------------------------------------ Types 
 typedef map <string , ElementGeo*> Elements ;

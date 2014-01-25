@@ -95,7 +95,6 @@ Modele::Modele ( )
 // Algorithme :
 //
 {
-	//delete elements ;
 #ifdef MAP
     cout << "Appel au constructeur de <Modele>" << endl;
 #endif

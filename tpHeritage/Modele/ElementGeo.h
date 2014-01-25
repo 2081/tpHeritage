@@ -40,6 +40,10 @@ public:
     // Contrat :
     //
 	virtual bool Deplacer(long int dx, long int dy, int id = -1) = 0;
+	// Mode d'emploi :
+	//
+	// Contrat : Les méthodes filles doivent vérifier si elles sont hors limite !
+	//
 
 	bool Ajouter_au_groupe( Groupe * groupe);
 	bool Enlever_du_groupe( Groupe * groupe);

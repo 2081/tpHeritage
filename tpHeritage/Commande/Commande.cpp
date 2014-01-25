@@ -57,7 +57,12 @@ void Commande::Message(unsigned int num)
 bool Commande::Est_un_nombre(string & str, long int & l){
 	char * pEnd;
 	l = (long int)strtol(str.c_str(),&pEnd,10);
-	return *pEnd == '\0';
+	stringstream convertion;
+	convertion << l;
+	string verif = convertion.str();
+	bool limite = true;
+	if((limite = verif.compare(str)) != 0)cout <<Commande::message[2]<<"Convertion d'un nombre. Limite des coordonnees : "<<BORD_GAUCHE<<" a +"<<BORD_DROIT<<endl;
+	return *pEnd == '\0' && limite;
 }
 
 void Commande::Decouper(string & str, vector<string> & vect){
