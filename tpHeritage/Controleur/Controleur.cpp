@@ -107,6 +107,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		renvoi = new CmdAjouterElement(modele) ;
 	}
 	if((renvoi!=0)&&!(renvoi->Initialisation(instruction))){
+		cout << "# Initialisation echouee."<< endl;
 		delete renvoi;	//Le programme bugue à cet endroit.
 		renvoi = 0;
 	}
@@ -222,6 +223,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 				liste_cmd.push_back(retour);
 				cout << "OK" << endl;
 			} else {
+				//cout << "Faire erreur"<< endl;
 				cout << "ERR" << endl;
 			}
 		} else {

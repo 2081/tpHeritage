@@ -18,7 +18,7 @@ using namespace std;
 #include "Groupe.h"
 
 //------------------------------------------------------------- Constantes
-
+int ElementGeo::prochain_id_deplacement = 0;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -39,7 +39,7 @@ bool ElementGeo::Enlever_du_groupe( Groupe * groupe)
 
 bool ElementGeo::Deplacer(long int dx, long int dy, int id)
 {
-	if(id == this->dernier_deplacement){
+	if(id != -1 && id == this->dernier_deplacement){
 		return false;
 	} else {
 		this->dernier_deplacement = id;

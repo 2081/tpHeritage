@@ -68,6 +68,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    bool Meme_signe(long int x1, long int x2);
 
 //----------------------------------------------------- Attributs protégés
 

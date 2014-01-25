@@ -44,6 +44,17 @@ string PolyLigne::Obtenir_descripteur()
 
 bool PolyLigne::Deplacer(long int dx, long int dy, int id )
 {
+	if(!ElementGeo::Deplacer(dx,dy,id))return false; // déjà déplacé
+	if(!coord[0].Deplacer(dx,dy))return false;
+	for(unsigned int i = 1; i < coord.size(); i++){
+		if(!coord[i].Deplacer(dx,dy)){
+			for(unsigned int j = i-1; j > 0; j--){
+				coord[j].Deplacer(-dx,-dy);
+			}
+			coord[0].Deplacer(-dx,-dy);
+			return false;
+		}
+	}
 	return true ;
 }
 

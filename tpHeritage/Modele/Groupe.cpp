@@ -62,6 +62,20 @@ string Groupe::Obtenir_descripteur()
 
 bool Groupe::Deplacer(long int dx, long int dy, int id)
 {
+	if(id == -1){
+		id = prochain_id_deplacement++;
+	} else{
+		if(!ElementGeo::Deplacer(dx,dy,id))return false; // déjà déplacé
+	}
+	for(unsigned int i = 0; i < membres.size(); i++){
+		if(!membres[i]->Deplacer(dx,dy,id)){
+			id = prochain_id_deplacement++;
+			for(unsigned int j = i; j > 0; j--){
+				membres[j-1]->Deplacer(-dx,-dy,id);
+			}
+			return false;
+		}
+	}
 	return true ;
 }
 

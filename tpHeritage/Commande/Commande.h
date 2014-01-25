@@ -31,8 +31,10 @@ class Modele ;
 class Commande
 {
 //----------------------------------------------------------------- PUBLIC
-
 public:
+
+	static const string message[];
+
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
@@ -104,7 +106,6 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 //----------------------------------------------------- Attributs protégés
 Modele * modele;
-static const string message[];
 static const unsigned int N_MESSAGE;
 /*Message d'erreur : une initialisation en dehors de la classe est requise.*//*= {
 		"# Instruction incorrecte. ",

@@ -46,7 +46,10 @@ bool CmdDeplacer::Initialisation( string instruction)
 	Commande::Decouper(instruction,donnees);
 	if(donnees.size()!= 4)return false;
 	element = modele->Element_par_nom(donnees[1]);
-	if(element == 0)return false;
+	if(element == 0){
+		cout <<Commande::message[2]<< "L'element n'existe pas.";
+		return false;
+	}
 	return Est_un_nombre(donnees[2],dx) && Est_un_nombre(donnees[3],dy);
 }
 

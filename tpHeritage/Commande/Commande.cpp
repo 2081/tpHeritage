@@ -33,7 +33,8 @@ const string Commande::message[] = {
 		"# Opération annulée. ", 										// 5
 		"# Echec de l'annulation. ",									// 6
 		"# Nombre d'arguments incorrect.",								// 7
-		"# Les coordonnées doivent être des nombres entiers."			// 8
+		"# Les coordonnées doivent être des nombres entiers.",			// 8
+		"# Deplacement hors-limite."									// 9
 };
 
 
@@ -57,12 +58,12 @@ void Commande::Message(unsigned int num)
 bool Commande::Est_un_nombre(string & str, long int & l){
 	char * pEnd;
 	l = (long int)strtol(str.c_str(),&pEnd,10);
-	stringstream convertion;
-	convertion << l;
-	string verif = convertion.str();
-	bool limite = true;
-	if((limite = verif.compare(str)) != 0)cout <<Commande::message[2]<<"Convertion d'un nombre. Limite des coordonnees : "<<BORD_GAUCHE<<" a +"<<BORD_DROIT<<endl;
-	return *pEnd == '\0' && limite;
+	stringstream conversion;
+	conversion << l;
+	string verif = conversion.str();
+	bool hors_limite = false;
+	if((hors_limite = verif.compare(str) != 0))cout <<Commande::message[2]<<"Convertion d'un nombre. Limite des coordonnees : "<<BORD_GAUCHE<<" a +"<<BORD_DROIT<<endl;
+	return *pEnd == '\0' && !hors_limite;
 }
 
 void Commande::Decouper(string & str, vector<string> & vect){

@@ -39,6 +39,12 @@ string Ligne::Obtenir_descripteur()
 
 bool Ligne::Deplacer(long int dx, long int dy, int id )
 {
+	if(!ElementGeo::Deplacer(dx,dy,id))return false; // déjà déplacé
+	if(!coord[0]->Deplacer(dx,dy))return false;
+	if(!coord[1]->Deplacer(dx,dy)){
+		coord[0]->Deplacer(-dx,-dy);
+		return false;
+	}
 	return true ;
 }
 

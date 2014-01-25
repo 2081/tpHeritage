@@ -98,5 +98,6 @@ private:
 
 //--------------------------- Autres définitions dépendantes de <ElementGeo>
 
+
 #endif // ELEMENTGEO_H_
 

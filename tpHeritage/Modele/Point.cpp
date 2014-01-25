@@ -16,6 +16,8 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Point.h"
 #include "ElementGeo.h"
+#include "Modele.h"
+#include "../Commande/Commande.h"
 
 
 //------------------------------------------------------------- Constantes
@@ -30,9 +32,20 @@ using namespace std;
 //} //----- Fin de Méthode
 bool Point::Deplacer(long int dx, long int dy )
 {
+	if((( Meme_signe(x,dx) && !Meme_signe(x,x+dx) )|| (Meme_signe(y,dy) && !Meme_signe(y,y+dy)))
+			||(x+dx < BORD_GAUCHE || x+dx > BORD_DROIT || y+dy < BORD_BAS || y+dy > BORD_HAUT)){//Si lim long long du compil > lim long
+			cout << Commande::message[9] << endl;
+			return false;
+	}
 	this->x += dx;
 	this->y += dy;
 	return true ;
+}
+
+bool Point::Meme_signe(long int x1, long int x2){
+	if(x1 == 0 || x2 == 0)return true;
+	cout << x1 << "," << x2 << "," << (((0 < x1) - (x1 < 0)) == ((0 < x2) - (x2 < 0))) << endl;
+	return ((0 < x1) - (x1 < 0)) == ((0 < x2) - (x2 < 0));
 }
 
 
