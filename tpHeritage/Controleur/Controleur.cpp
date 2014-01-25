@@ -202,17 +202,20 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	}
 	else if(premier_argument == "REDO")
 	{
-		cout << "redo" ;
-		(*pt_cmd)->Faire();
-		pt_cmd++ ;
+		//cout << "redo" ;
+		if(pt_cmd != liste_cmd.end()){
+			(*pt_cmd)->Faire();
+			pt_cmd++ ;
+		}
 		//Appel de faire de l'avant dernière commande de la pile.
 		//return true ;
 	}
 	else if(premier_argument == "UNDO")
 	{
-		pt_cmd = liste_cmd.end() ; //dernière commande exécutée.
-		pt_cmd-- ;
-		(*pt_cmd)->Defaire();
+		if(pt_cmd != liste_cmd.begin()){
+			pt_cmd-- ;
+			(*pt_cmd)->Defaire();
+		}
 		//Appel de defaire de la dernière commande de la pile.
 		//return true ;
 	}
@@ -224,7 +227,18 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		if(retour != 0)
 		{
 			if(retour->Faire()){
+				if(liste_cmd.size()>0 && pt_cmd != liste_cmd.end()){
+					Pile_Commande::iterator pt_cmd2;
+					do {
+						pt_cmd2 = liste_cmd.end();
+						pt_cmd2--;
+						delete (*pt_cmd2);
+						liste_cmd.pop_back();
+
+					} while(pt_cmd2 != pt_cmd); // On supprime aussi pt_cmd
+				}
 				liste_cmd.push_back(retour);
+				pt_cmd = liste_cmd.end();
 				cout << "OK" << endl;
 			} else {
 				//cout << "Faire erreur"<< endl;
@@ -258,6 +272,7 @@ Controleur::Controleur ( )
 	modele = new Modele() ;
 	console = new ConsoleUI(modele , this) ;
 	fichierUI = new FichierUI( this , modele ) ;
+	this->pt_cmd = this->liste_cmd.end();
 #ifdef MAP
     cout << "# Appel au constructeur de <Controleur>" << endl;
 #endif
