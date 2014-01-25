@@ -76,6 +76,7 @@ ElementGeo::ElementGeo ( string fnom )
 #endif
 	nom = fnom ;
 	dependance = 0 ;
+	dernier_deplacement = -1;
 } //----- Fin de ElementGeo (constructeur de copie)
 
 

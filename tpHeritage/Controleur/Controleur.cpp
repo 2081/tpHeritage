@@ -101,9 +101,13 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 			renvoi = fichierUI->Charger_modele(filename) ;
 		}
 	}
+	else if(premier_argument == "OA")
+	{
+		renvoi = new CmdGrouper(modele);
+	}
 	else	//Création d'un objet ou objet agrégé.
 	{
-		//cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
+		cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
 		renvoi = new CmdAjouterElement(modele) ;
 	}
 	if((renvoi!=0)&&!(renvoi->Initialisation(instruction))){

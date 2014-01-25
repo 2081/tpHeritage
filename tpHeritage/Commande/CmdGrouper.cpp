@@ -61,7 +61,7 @@ bool CmdGrouper::Initialisation(string instruction)
 	Commande::Decouper(instruction,mots);
 	int taille = mots.size();
 
-	if(taille < 2){
+	if(taille < 3){
 		cout << Commande::message[0] <<endl;
 		return false;
 	}

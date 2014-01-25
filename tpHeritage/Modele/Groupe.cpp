@@ -65,7 +65,7 @@ bool Groupe::Deplacer(long int dx, long int dy, int id)
 	if(id == -1){
 		id = prochain_id_deplacement++;
 	} else{
-		if(!ElementGeo::Deplacer(dx,dy,id))return false; // déjà déplacé
+		if(!ElementGeo::Deplacer(dx,dy,id))return true; // déjà déplacé
 	}
 	for(unsigned int i = 0; i < membres.size(); i++){
 		if(!membres[i]->Deplacer(dx,dy,id)){

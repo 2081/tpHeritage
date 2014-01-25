@@ -42,7 +42,7 @@ string Cercle::Obtenir_descripteur()
 
 bool Cercle::Deplacer(long int dx, long int dy, int id )
 {
-	if(!ElementGeo::Deplacer(dx,dy,id))return false; // déjà déplacé
+	if(!ElementGeo::Deplacer(dx,dy,id))return true; // déjà déplacé
 	if((dx >= 0 && BORD_GAUCHE + centre->x + rayon + dx > -1)
 			||(dy >= 0 && BORD_BAS + centre->y + rayon + dy > -1)
 			||(dx <= 0 && BORD_DROIT + centre->x - rayon + dx < -1)
