@@ -36,7 +36,7 @@ public:
     //
 	string Obtenir_descripteur() ;
 
-	bool Deplacer(int dx, int dy, int id = 0);
+	bool Deplacer(long int dx, long int dy, int id = -1);
 
 //------------------------------------------------- Surcharge d'opérateurs
     Cercle & operator = ( const Cercle & unCercle );
@@ -53,7 +53,7 @@ public:
     // Contrat :
     //
 
-    Cercle ( string & nom, Point* centre, int rayon);
+    Cercle ( string & nom, Point* centre, long int rayon);
     // Mode d'emploi :
     //
     // Contrat :
@@ -66,7 +66,7 @@ public:
     //
 
     Point* centre;
-    int rayon;
+    long int rayon;
 
 //------------------------------------------------------------------ PRIVE 
 

@@ -45,7 +45,7 @@ public:
 	// Contrat :
 	//
 
-	static bool Est_un_nombre(string & str, int & l);
+	static bool Est_un_nombre(string & str, long int & l);
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -97,8 +97,6 @@ public:
     //
     // Contrat :
     //
-
-    static int doudou ; // ??
 
 //------------------------------------------------------------------ PRIVE 
 

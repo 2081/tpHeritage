@@ -38,7 +38,7 @@ string Rectangle::Obtenir_descripteur()
 	return a_retourner ;
 }
 
-bool Rectangle::Deplacer(int dx, int dy, int id )
+bool Rectangle::Deplacer(long int dx, long int dy, int id )
 {
 	return true ;
 }

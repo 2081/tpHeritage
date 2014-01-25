@@ -83,7 +83,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			Commande::Message(7);
 			return false;
 		}
-		int nombre[3];
+		long int nombre[3];
 		for(int i = 0; i < 3; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i])){
 				Commande::Message(8);
@@ -99,7 +99,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			Commande::Message(7);
 			return false;
 		}
-		int nombre[4];
+		long int nombre[4];
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i])){
 				Commande::Message(8);
@@ -117,7 +117,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 			Commande::Message(7);
 			return false;
 		}
-		int nombre[4];
+		long int nombre[4];
 		for(int i = 0; i < 4; i++){
 			if(!Est_un_nombre(mots[i+2],nombre[i])){
 				Commande::Message(5);
@@ -137,7 +137,7 @@ bool CmdAjouterElement::Initialisation( string instruction)
 		}
 		vector<Point> nombre;
 		for(int i = 0; i < taille-2; i += 2){
-			int a,b;
+			long int a,b;
 			if(!Est_un_nombre(mots[i+2],a) || !Est_un_nombre(mots[i+2+1],b)){
 				Commande::Message(8);
 				return false;

@@ -37,7 +37,7 @@ string Ligne::Obtenir_descripteur()
 	return a_retourner ;
 }
 
-bool Ligne::Deplacer(int dx, int dy, int id )
+bool Ligne::Deplacer(long int dx, long int dy, int id )
 {
 	return true ;
 }

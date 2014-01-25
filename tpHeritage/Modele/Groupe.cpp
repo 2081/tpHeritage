@@ -60,7 +60,7 @@ string Groupe::Obtenir_descripteur()
 	return a_retourner ;
 }
 
-bool Groupe::Deplacer(int dx, int dy, int id)
+bool Groupe::Deplacer(long int dx, long int dy, int id)
 {
 	return true ;
 }

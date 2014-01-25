@@ -54,9 +54,9 @@ void Commande::Message(unsigned int num)
 	}
 }
 
-bool Commande::Est_un_nombre(string & str, int & l){
+bool Commande::Est_un_nombre(string & str, long int & l){
 	char * pEnd;
-	l = (int)strtol(str.c_str(),&pEnd,10);
+	l = (long int)strtol(str.c_str(),&pEnd,10);
 	return *pEnd == '\0';
 }
 

@@ -28,7 +28,7 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-bool Point::Deplacer(int dx, int dy )
+bool Point::Deplacer(long int dx, long int dy )
 {
 	this->x += dx;
 	this->y += dy;
@@ -55,7 +55,7 @@ bool Point::Deplacer(int dx, int dy )
 } //----- Fin de Point (constructeur de copie)
 */
 
-Point::Point ( int fx, int fy)
+Point::Point ( long int fx, long int fy)
 // Algorithme :
 //
 {

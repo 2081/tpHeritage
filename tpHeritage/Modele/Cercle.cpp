@@ -38,7 +38,7 @@ string Cercle::Obtenir_descripteur()
 	return a_retourner ;
 }
 
-bool Cercle::Deplacer(int dx, int dy, int id )
+bool Cercle::Deplacer(long int dx, long int dy, int id )
 {
 	return true ;
 }
@@ -63,7 +63,7 @@ bool Cercle::Deplacer(int dx, int dy, int id )
 } //----- Fin de Cercle (constructeur de copie)
 */
 
-Cercle::Cercle (string & fnom, Point* c, int r) : ElementGeo(fnom)
+Cercle::Cercle (string & fnom, Point* c, long int r) : ElementGeo(fnom)
 // Algorithme :
 //
 {

@@ -38,7 +38,7 @@ public:
     //
 	string Obtenir_descripteur() ;
 
-	bool Deplacer(int dx, int dy, int id = 0);
+	bool Deplacer(long int dx, long int dy, int id = -1);
 
 //------------------------------------------------- Surcharge d'opérateurs
     PolyLigne & operator = ( const PolyLigne & unPolyLigne );

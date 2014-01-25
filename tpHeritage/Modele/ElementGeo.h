@@ -39,7 +39,7 @@ public:
     //
     // Contrat :
     //
-	virtual bool Deplacer(int dx, int dy, int id = -1) = 0;
+	virtual bool Deplacer(long int dx, long int dy, int id = -1) = 0;
 
 	bool Ajouter_au_groupe( Groupe * groupe);
 	bool Enlever_du_groupe( Groupe * groupe);

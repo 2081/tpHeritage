@@ -85,7 +85,7 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
 ElementGeo * element;
-int dx, dy;
+long int dx, dy;
 //----------------------------------------------------- Attributs protégés
 
 };

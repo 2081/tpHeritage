@@ -33,7 +33,7 @@ public:
     //
     // Contrat :
     //
-	bool Deplacer(int dx, int dy);
+	bool Deplacer(long int dx, long int dy);
 
 //------------------------------------------------- Surcharge d'opérateurs
    /* Point & operator = ( const Point & unPoint );
@@ -50,7 +50,7 @@ public:
     // Contrat :
     //
 
-    Point (int x, int y);
+    Point (long int x, long int y);
     // Mode d'emploi :
     //
     // Contrat :
@@ -62,7 +62,7 @@ public:
     // Contrat :
     //
 
-    int x, y;
+    long int x, y;
 
 //------------------------------------------------------------------ PRIVE 
 

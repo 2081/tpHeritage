@@ -37,7 +37,7 @@ bool ElementGeo::Enlever_du_groupe( Groupe * groupe)
 	return true ;
 }
 
-bool ElementGeo::Deplacer(int dx, int dy, int id)
+bool ElementGeo::Deplacer(long int dx, long int dy, int id)
 {
 	if(id == this->dernier_deplacement){
 		return false;
