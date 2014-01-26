@@ -84,7 +84,7 @@ bool Groupe::Ajouter_membre(ElementGeo * elt)
 	if(elt != this){
 		if(elt->dependance >= dependance) dependance = elt->dependance +1 ;
 		membres.push_back(elt) ;
-		elt->Ajouter_au_groupe(this) ;
+		//elt->Ajouter_au_groupe(this) ;
 		return true ;
 	}
 	else return false;
