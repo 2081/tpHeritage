@@ -90,6 +90,7 @@ ligne par ligne par rapport aux lignes du fichier*/
 			{
 				// On remplie la sequence
 				Commande * cmd = controleur->Traduire_instruction(commande_ligne);
+				//cerr << commande_ligne <<endl;
 				if(cmd == 0) return 0;
 				sequence->Ajouter_cmd(cmd);
 			}

@@ -50,9 +50,10 @@ void Controleur::Demarrer()
 
 bool Controleur::VerifierSaveLoad(string& filename)
 {
-	if(tab_instruction.size()>2) return false ;
-
-	filename = tab_instruction[1] ;
+	//cerr << "VerifierSaveLoad"<<endl;
+	//if(tab_instruction.size()>2) return false ;
+	//cerr << "VerifierSaveLoad - 2"<<endl;
+	//filename = tab_instruction[1] ;
 	return true ;
 }
 
@@ -60,7 +61,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
 	"LIST"*/
-	cout << "# Appel de traduction" << endl ;
+	cout << "# Appel de traduction : "<<instruction << endl ;
 
 	vector<string> donnees;
 	Commande::Decouper(instruction,donnees);
@@ -82,11 +83,13 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	}
 	else if(donnees[0] == "LOAD")
 	{
-		string filename;
-		if (VerifierSaveLoad(filename))
-		{
-			//cout << "appel de charger" << endl ;
-			renvoi = fichierUI->Charger_modele(filename) ;
+		if(donnees.size()==2){
+			string filename = donnees[1];
+			if (VerifierSaveLoad(filename))
+			{
+				//cout << "appel de charger" << endl ;
+				renvoi = fichierUI->Charger_modele(filename) ;
+			}
 		}
 	}
 	else if(donnees[0] == "OA")
@@ -102,6 +105,8 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 		cout << "# Initialisation echouee."<< endl;
 		delete renvoi;	//Le programme bugue à cet endroit.
 		renvoi = 0;
+	} else {
+		//cout << "Initialisation ok" << endl;
 	}
 	return renvoi;
 }
