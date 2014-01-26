@@ -62,22 +62,25 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	"LIST"*/
 	cout << "# Appel de traduction" << endl ;
 
+	vector<string> donnees;
+	Commande::Decouper(instruction,donnees);
+
 	Commande * renvoi = 0;
 
-	if (premier_argument == "DELETE")
+	if (donnees[0] == "DELETE")
 	{
 		renvoi = new CmdSupprimer(modele) ;
 
-	} else if(premier_argument == "MOVE")
+	} else if(donnees[0] == "MOVE")
 	{
 		renvoi = new CmdDeplacer(modele) ;
 
 	}
-	else if(premier_argument == "CLEAR")
+	else if(donnees[0] == "CLEAR")
 	{
 		renvoi = new CmdVider(modele);
 	}
-	else if(premier_argument == "LOAD")
+	else if(donnees[0] == "LOAD")
 	{
 		string filename;
 		if (VerifierSaveLoad(filename))
@@ -86,7 +89,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 			renvoi = fichierUI->Charger_modele(filename) ;
 		}
 	}
-	else if(premier_argument == "OA")
+	else if(donnees[0] == "OA")
 	{
 		renvoi = new CmdGrouper(modele);
 	}
@@ -107,33 +110,48 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 bool Controleur::Executer_instruction(string instruction) // retourne toujours true, sauf si EXIT
 // Algorithme :
 //
-{	premier_argument = "pas_trouve" ;
+{
+	vector<string> donnees;
+	Commande::Decouper(instruction,donnees);
+
+	//premier_argument = "pas_trouve" ;
+	/**
 	tab_instruction.clear();
 	istringstream flux_commande(instruction);
 	istream_iterator<string> begin(flux_commande), end;
-	tab_instruction = vector<string>(begin, end);
+	tab_instruction = vector<string>(begin, end);*/
 
 
-	string premier = tab_instruction[0];
+	string premier = donnees[0];
 	//Recherche dans la liste de commandes attendues.
-	pt = liste_commandes;
-	while( pt != liste_commandes+14)
+
+	//string * pt = liste_commandes;
+
+	/*while( pt != liste_commandes+14)
 	{
-		if(*pt == premier && premier_argument=="pas_trouve")
+		if(*pt == premier && donnees[0]=="pas_trouve")
 		{
-			premier_argument = *pt ;
+			donnees[0] = *pt ;
 			pt = liste_commandes+14;
 		}
 		else pt++;
+	}*/
+	bool instruction_connue = false;
+	for(int i = 0; i < 14; i++){
+		if(liste_commandes[i] == donnees[0]){
+			instruction_connue = true;
+			i = 14;
+		}
 	}
 
+
 	//Analyse du résultat et appel des procédures de commandes.
-	if(premier_argument=="pas_trouve")
+	if(!instruction_connue)
 	{
-		cout << "# \"" << premier << "\"" << " n'est pas une commande valide" << endl ;
+		cout << "# \"" << donnees[0] << "\"" << " n'est pas une commande valide" << endl ;
 		//return true ;
 	}
-	else if(premier_argument == "SAVE")
+	else if(donnees[0] == "SAVE")
 	{
 		string filename;
 		if (VerifierSaveLoad(filename))
@@ -145,17 +163,17 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 
 	}
 
-	else if(premier_argument == "LIST")
+	else if(donnees[0] == "LIST")
 	{
 		console->Lister_modele();
 		//return true ;
 		//Créer instance de CmdSequence.
 	}
-	else if(premier_argument == "EXIT")
+	else if(donnees[0] == "EXIT")
 	{
 		return false;
 	}
-	else if(premier_argument == "REDO")
+	else if(donnees[0] == "REDO")
 	{
 		//cout << "redo" ;
 		if(curseur_cmd != liste_cmd.end()){
@@ -165,7 +183,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		//Appel de faire de l'avant dernière commande de la pile.
 		//return true ;
 	}
-	else if(premier_argument == "UNDO")
+	else if(donnees[0] == "UNDO")
 	{
 		if(curseur_cmd != liste_cmd.begin()){
 			curseur_cmd-- ;
