@@ -15,7 +15,7 @@
 //------------------------------------------------------------- Constantes 
 
 //------------------------------------------------------------------ Types 
-typedef vector<ElementGeo*> Elements_cleared ;
+typedef vector<ElementGeo*> Elements_enleves ;
 //------------------------------------------------------------------------ 
 // Rôle de la classe <CmdVider>
 //
@@ -74,7 +74,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-Elements_cleared elements_cleared ;
+    Elements_enleves elements_enleves ;
 
 };
 

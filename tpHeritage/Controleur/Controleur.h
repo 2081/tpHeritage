@@ -43,14 +43,7 @@ public:
     //
 	void Save_systeme();
 
-	void Lancer_console() ;
-
-	bool VerifierSaveLoad(string& filename);
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
+	void Demarrer() ;
 
 	Commande * Traduire_instruction(string instruction);
 	// type Méthode ( liste des paramètres );
@@ -91,6 +84,12 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    bool VerifierSaveLoad(string& filename);
+	// type Méthode ( liste des paramètres );
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
 //----------------------------------------------------- Attributs protégés
     Modele* modele;
@@ -103,7 +102,7 @@ protected:
     string premier_argument = "pas_trouve";
     vector<string> tab_instruction ;
     Pile_Commande liste_cmd ;	//Pointeur sur la pile de Commandes.
-    Pile_Commande::iterator pt_cmd ;
+    Pile_Commande::iterator curseur_cmd ;
     Sauvegardes sauvegardes ;
 
 

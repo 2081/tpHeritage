@@ -30,44 +30,26 @@ using namespace std;
 //} //----- Fin de Méthode
 bool Modele::Ajouter_element( ElementGeo * element)
 {
-
-
-	for(Elements::iterator it = elements.begin() ; it != elements.end() ; it++)
-	{
-		//cout << "element pointé par for : " << it->first << endl ;
-		if(it->first == element->nom)
-		{
-			cout << "\"" << it->first << "\" est déjà présent dans le dessin." << endl ;
-			return false ;
-		}
-	}
-	elements.insert( pair<string,ElementGeo *>(element->nom,element) ) ;
-
-	return true ;
+	cout << "# Ajout : "<<element->nom<<endl;
+	return elements.insert(make_pair(element->nom,element)).second; //true si element insere, false si existe deja
 }
 
 bool Modele::Enlever_element( ElementGeo * element)
 {
-	for(map<string,ElementGeo *>::iterator it = elements.begin() ; it != elements.end() ; it++)
-	{
-		if(it->first == element->nom)
-		{
-			elements.erase(it) ;
-			return true ;
-		}
-	}
-	return false ;
-
+	int i = elements.erase(element->nom);
+	cout << "# Element enleve : "<<element->nom<<endl;
+	return  i == 1;
 }
 
 ElementGeo * Modele::Element_par_nom( string nom)
 {
 	Elements::iterator it = elements.find(nom) ;
-	if(it!=elements.end())
+	return it == elements.end() ? 0 : it->second;
+	/*if(it!=elements.end())
 	{
-		return it->second ;
+		return it->second;
 	}
-	return 0 ;
+	return 0 ;*/
 }
 
 

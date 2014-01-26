@@ -30,17 +30,27 @@ using namespace std;
 
 bool CmdVider::Faire()
 {
-	modele->elements.clear();
+	for(unsigned int i = 0; i < elements_enleves.size(); i++){
+		if(!modele->Enlever_element(elements_enleves[i])){
+			for(unsigned int j = i; j > 0; j--){
+				modele->Ajouter_element(elements_enleves[j-1]);
+			}
+			return false;
+		}
+	}
 	return true ;
 }
 
 
 bool CmdVider::Defaire()
 {
-	//Réajout des éléments anciennement supprimés au modèle.
-	for (Elements_cleared::iterator it=elements_cleared.begin() ; it != elements_cleared.end() ; it++)
-	{
-		modele->elements.insert(pair<string,ElementGeo *>((*it)->nom , *it));
+	for(unsigned int i = 0; i < elements_enleves.size(); i++){
+		if(!modele->Ajouter_element(elements_enleves[i])){
+			for(unsigned int j = i; j > 0; j--){
+				modele->Enlever_element(elements_enleves[j-1]);
+			}
+			return false;
+		}
 	}
 	return true ;
 }
@@ -48,9 +58,10 @@ bool CmdVider::Defaire()
 
 bool CmdVider::Initialisation( string instruction )
 {
-	for (Elements::iterator it = modele->elements.begin() ; it != modele->elements.end() ; it++)
-	{
-		elements_cleared.push_back(it->second);
+	map<string,ElementGeo * >::iterator it = modele->elements.begin();
+	while(it != modele->elements.end()){
+		elements_enleves.push_back(it->second);
+		it++;
 	}
 	return true ;
 }

@@ -43,7 +43,7 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-void Controleur::Lancer_console()
+void Controleur::Demarrer()
 {
 	console->Attendre_instruction();
 }
@@ -53,7 +53,6 @@ bool Controleur::VerifierSaveLoad(string& filename)
 	if(tab_instruction.size()>2) return false ;
 
 	filename = tab_instruction[1] ;
-	cout << filename << ", retour de true" << endl ;
 	return true ;
 }
 
@@ -90,7 +89,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	}
 	else if(premier_argument == "CLEAR")
 	{
-		//Créer instance de CmdSequence.
+		renvoi = new CmdVider(modele);
 	}
 	else if(premier_argument == "LOAD")
 	{
@@ -203,18 +202,18 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	else if(premier_argument == "REDO")
 	{
 		//cout << "redo" ;
-		if(pt_cmd != liste_cmd.end()){
-			(*pt_cmd)->Faire();
-			pt_cmd++ ;
+		if(curseur_cmd != liste_cmd.end()){
+			(*curseur_cmd)->Faire();
+			curseur_cmd++ ;
 		}
 		//Appel de faire de l'avant dernière commande de la pile.
 		//return true ;
 	}
 	else if(premier_argument == "UNDO")
 	{
-		if(pt_cmd != liste_cmd.begin()){
-			pt_cmd-- ;
-			(*pt_cmd)->Defaire();
+		if(curseur_cmd != liste_cmd.begin()){
+			curseur_cmd-- ;
+			(*curseur_cmd)->Defaire();
 		}
 		//Appel de defaire de la dernière commande de la pile.
 		//return true ;
@@ -227,18 +226,18 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		if(retour != 0)
 		{
 			if(retour->Faire()){
-				if(liste_cmd.size()>0 && pt_cmd != liste_cmd.end()){
-					Pile_Commande::iterator pt_cmd2;
+				if(liste_cmd.size()>0 && curseur_cmd != liste_cmd.end()){
+					Pile_Commande::iterator curseur_cmd2;
 					do {
-						pt_cmd2 = liste_cmd.end();
-						pt_cmd2--;
-						delete (*pt_cmd2);
+						curseur_cmd2 = liste_cmd.end();
+						curseur_cmd2--;
+						delete (*curseur_cmd2);
 						liste_cmd.pop_back();
 
-					} while(pt_cmd2 != pt_cmd); // On supprime aussi pt_cmd
+					} while(curseur_cmd2 != curseur_cmd); // On supprime aussi curseur_cmd
 				}
 				liste_cmd.push_back(retour);
-				pt_cmd = liste_cmd.end();
+				curseur_cmd = liste_cmd.end();
 				cout << "OK" << endl;
 			} else {
 				//cout << "Faire erreur"<< endl;
@@ -272,7 +271,7 @@ Controleur::Controleur ( )
 	modele = new Modele() ;
 	console = new ConsoleUI(modele , this) ;
 	fichierUI = new FichierUI( this , modele ) ;
-	this->pt_cmd = this->liste_cmd.end();
+	this->curseur_cmd = this->liste_cmd.end();
 #ifdef MAP
     cout << "# Appel au constructeur de <Controleur>" << endl;
 #endif
