@@ -57,11 +57,12 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 
 	//Ecriture dans le fichier.
 	ofstream fichier(nom_fichier, ios::out | ios::trunc);
+	if(!fichier.isopen())return false;
 	for (Situation_modele::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
 	{
 		for(vector<string>::iterator it_descripteurs = it_listes->begin() ; it_descripteurs != it_listes->end() ; it_descripteurs++)
 		{
-			fichier << *it_descripteurs << endl;
+			if(!(fichier << *it_descripteurs << endl))return false;
 		}
 	}
 
