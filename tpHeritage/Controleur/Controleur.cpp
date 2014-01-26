@@ -48,15 +48,6 @@ void Controleur::Demarrer()
 	console->Attendre_instruction();
 }
 
-bool Controleur::VerifierSaveLoad(string& filename)
-{
-	//cerr << "VerifierSaveLoad"<<endl;
-	//if(tab_instruction.size()>2) return false ;
-	//cerr << "VerifierSaveLoad - 2"<<endl;
-	//filename = tab_instruction[1] ;
-	return true ;
-}
-
 Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire() ici
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
@@ -85,7 +76,6 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	{
 		if(donnees.size()==2){
 			string filename = donnees[1];
-			if (VerifierSaveLoad(filename))
 			{
 				//cout << "appel de charger" << endl ;
 				renvoi = fichierUI->Charger_modele(filename) ;
@@ -136,7 +126,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	{
 		if(*pt == premier && donnees[0]=="pas_trouve")
 		{
-			donnees[0] = *pt ;
+			donnees[0] = *pOui mais c'est pas le plus impotantt ;
 			pt = liste_commandes+14;
 		}
 		else pt++;
@@ -159,11 +149,12 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	else if(donnees[0] == "SAVE")
 	{
 		string filename;
-		if (VerifierSaveLoad(filename))
+		if(donnees.size()==2)
 		{
-			// && !modele->elements.empty()
-			fichierUI->Sauvegarder_modele(filename);
+			filename.append(donnees[1]);
 		}
+		// && !modele->elements.empty()
+		fichierUI->Sauvegarder_modele(filename);
 		//return true ;
 
 	}
