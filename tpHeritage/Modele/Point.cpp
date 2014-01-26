@@ -44,7 +44,7 @@ bool Point::Deplacer(long int dx, long int dy )
 
 bool Point::Meme_signe(long int x1, long int x2){
 	if(x1 == 0 || x2 == 0)return true;
-	cout << x1 << "," << x2 << "," << (((0 < x1) - (x1 < 0)) == ((0 < x2) - (x2 < 0))) << endl;
+	//cout << x1 << "," << x2 << "," << (((0 < x1) - (x1 < 0)) == ((0 < x2) - (x2 < 0))) << endl;
 	return ((0 < x1) - (x1 < 0)) == ((0 < x2) - (x2 < 0));
 }
 

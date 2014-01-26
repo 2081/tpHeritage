@@ -80,23 +80,6 @@ ligne par ligne par rapport aux lignes du fichier*/
 	ifstream fichier(nom_fichier , ios::in) ;
 	if (fichier)
 	{
-		/* Je me permet de modifier ça - Robin
-		string commande_ligne ;
-		bool ligne_ok ;
-		while (getline(fichier,commande_ligne) && ligne_ok)
-		{
-			//C'est comme si on exécutait les instructions une par une.
-			ligne_ok = controleur->Traduire_instruction(commande_ligne);
-			//si ligne_ok reste true, alors la ligne dans le fichier est une
-			//commande correcte.
-		}
-		return ligne_ok ;
-		//La lecture s'est bien passée et les commandes ont toute été correctes.
-		*/
-
-		//Sauvegarde avant de démarrer le chargement.
-		controleur->Save_systeme();
-		cout << "La sauvegarde a été faite." << endl ;
 		CmdSequence * sequence = new CmdSequence(modele);
 
 		string commande_ligne ;
