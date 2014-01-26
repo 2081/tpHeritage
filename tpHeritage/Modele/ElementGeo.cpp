@@ -29,12 +29,24 @@ int ElementGeo::prochain_id_deplacement = 0;
 //} //----- Fin de Méthode
 bool ElementGeo::Ajouter_au_groupe( Groupe * groupe)
 {
+	for(Groupes::iterator it = groupes.begin(); it != groupes.end(); it++){
+			if( *it == groupe){
+				return false;
+			}
+		}
+	groupes.push_back(groupe);
 	return true ;
 }
 
 bool ElementGeo::Enlever_du_groupe( Groupe * groupe)
 {
-	return true ;
+	for(Groupes::iterator it = groupes.begin(); it != groupes.end(); it++){
+		if( *it == groupe){
+			groupes.erase(it);
+			return true;
+		}
+	}
+	return false ;
 }
 
 bool ElementGeo::Deplacer(long int dx, long int dy, int id)

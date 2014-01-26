@@ -148,41 +148,11 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	else if(premier_argument == "LIST")
 	{
 		console->Lister_modele();
-		return true ;
+		//return true ;
 		//Créer instance de CmdSequence.
 	}
 	else if(premier_argument == "EXIT")
 	{
-		//demande si l'utilisateur veut enregistrer sa figure /// <--- C'est pas dans les spec !
-		//Verif si la dernière commande était une sauvegarde
-		/*if (liste_cmd.top() != ##sauvegarde)
-		{*/
-		/*	cout << "# Passage dans exit\n" ;
-			bool reponse_pas_bonne = true ;
-			while(reponse_pas_bonne == true)
-			{
-				string reponse_question ;
-				cout << "# Voulez-vous sauvegarder votre travail avant de quitter ? (y/yes ; n/no) :" ;
-				getline(cin,reponse_question);
-				if (reponse_question == "y" || reponse_question == "yes" || reponse_question == "Yes" || reponse_question == "Y")
-				{
-					cout << "# Yes ! " << endl ;
-					reponse_pas_bonne = false ;
-					string filename;
-					cout << "# Veuillez rentrer le nom de votre sauvegarde." << endl ;
-					getline(cin , filename);
-					fichierUI->Sauvegarder_modele(filename);
-				}
-				else if (reponse_question == "n" || reponse_question == "no" || reponse_question == "No" || reponse_question == "N")
-				{
-					reponse_pas_bonne = false ;
-				}
-				else
-				{
-					cout << "# \"" << reponse_question << "\" n'est pas une réponse valide, veuillez répondre à nouveau." << endl ;
-				}
-			}
-		*/
 		return false;
 	}
 	else if(premier_argument == "REDO")

@@ -48,12 +48,16 @@ bool CmdSupprimer::Faire()
 bool CmdSupprimer::Defaire()
 // Algorithme :
 {
+	//cout << "undo defaire"<<endl;
 	for(uint i = 0; i<elements_suppr.size(); i++){
 		Groupes::iterator it;
+		//cout << elements_suppr[i] <<" -  "<<elements_suppr[i]->groupes.size()<<endl;
 		for( it = elements_suppr[i]->groupes.begin(); it != elements_suppr[i]->groupes.end() ; it++ ){
+			//cout <<elements_suppr[i]->groupes.size()<< " - entree dans la boucle"<<endl;
 			(*it)->Ajouter_membre(elements_suppr[i]);
 		}
 		if(!modele->Ajouter_element(elements_suppr[i]))return false;
+		//cout << "Ajouté : "<<elements_suppr[i]->nom<<endl;
 	}
 	cout << Commande::message[5] << "Suppression de "<<elements_suppr.size()<<" element(s)."<<endl;
 	return true;
