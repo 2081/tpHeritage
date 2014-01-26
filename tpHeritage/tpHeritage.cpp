@@ -15,4 +15,5 @@ int main()
 	cout << "# Bienvenue dans votre dessinateur préféré !" << endl ;
 	Controleur controleur ;
 	controleur.Demarrer();
+	cout <<"# Arret de la simulation."<<endl<< "# A bientot !"<<endl;
 }

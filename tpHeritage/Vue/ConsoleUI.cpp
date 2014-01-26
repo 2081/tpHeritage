@@ -36,14 +36,9 @@ void ConsoleUI::Attendre_instruction()
 {
 	string commande_tapee ;
 	bool continuer_programme = true ;
-	//cout << "# Veuillez taper une instruction : " ;
 	while (continuer_programme && getline(cin , commande_tapee))
 	{
 		continuer_programme = pt_controleur->Executer_instruction(commande_tapee);
-		if(continuer_programme)
-		{
-			//cout << "# Veuillez taper une instruction : " ;
-		}
 	}
 } //----- Fin de Attendre_instruction
 

@@ -157,7 +157,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		//Verif si la dernière commande était une sauvegarde
 		/*if (liste_cmd.top() != ##sauvegarde)
 		{*/
-			cout << "# Passage dans exit\n" ;
+		/*	cout << "# Passage dans exit\n" ;
 			bool reponse_pas_bonne = true ;
 			while(reponse_pas_bonne == true)
 			{
@@ -182,7 +182,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 					cout << "# \"" << reponse_question << "\" n'est pas une réponse valide, veuillez répondre à nouveau." << endl ;
 				}
 			}
-
+		*/
 		return false;
 	}
 	else if(premier_argument == "REDO")
@@ -268,7 +268,6 @@ Controleur::~Controleur ( )
 // Algorithme :
 //
 {
-	cout << "# A bientôt ! " << endl ;
 	delete console ;
 	delete fichierUI ;
 #ifdef MAP
