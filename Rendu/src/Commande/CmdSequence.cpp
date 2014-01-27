@@ -43,11 +43,13 @@ bool CmdSequence::Faire()
 bool CmdSequence::Defaire()
 {
 	Commandes::iterator it;
-	it = cmds.end();
-	do{
-		it--;
-		(*it)->Defaire(); // Attention ! Renvoie tjs vrai
-	} while (it != cmds.begin());
+	if(cmds.size() != 0){
+		it = cmds.end();
+		do{
+			it--;
+			(*it)->Defaire(); // Attention ! Renvoie tjs vrai
+		} while (it != cmds.begin());
+	}
 	return true;
 }
 
