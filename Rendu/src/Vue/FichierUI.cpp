@@ -43,6 +43,7 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 	int nb_rangs = 0 ;
 	for(Elements::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
+		cout << it->second->dependance << endl ;
 		if(it->second->dependance > nb_rangs)	//Un nouveau vector pour le rang supérieur.
 		{
 			for (int i = nb_rangs ; i!=it->second->dependance ; i++){
@@ -56,17 +57,20 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 
 	//Ecriture dans le fichier.
 	ofstream fichier(nom_fichier, ios::out | ios::trunc);
-	if(!fichier.isopen())return false;
-	for (Situation_modele::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
-	{
-		for(vector<string>::iterator it_descripteurs = it_listes->begin() ; it_descripteurs != it_listes->end() ; it_descripteurs++)
+	if(fichier != 0 && fichier.is_open()){
+		for (Situation_modele::iterator it_listes = situation_modele.begin() ; it_listes != situation_modele.end() ; it_listes++)
 		{
-			if(!(fichier << *it_descripteurs << endl))return false;
+			for(vector<string>::iterator it_descripteurs = it_listes->begin() ; it_descripteurs != it_listes->end() ; it_descripteurs++)
+			{
+				if(!(fichier << *it_descripteurs << endl))return false;
+			}
 		}
+		cout << "# Le modèle courant est sauvegardé en : \"" << nom_fichier << "\"."<< endl ;
+		return true ;
+	} else {
+		cout << "# Création du fichier impossible." << endl;
+		return false;
 	}
-
-	cout << "# Le modèle courant est sauvegardé en : \"" << nom_fichier << "\"."<< endl ;
-	return true ;
 }
 
 // bool FichierUI::Charger_modele(string nom_fichier)
@@ -80,6 +84,7 @@ ligne par ligne par rapport aux lignes du fichier*/
 	ifstream fichier(nom_fichier , ios::in) ;
 	if (fichier)
 	{
+		cout << "# Fichier trouvé, début du chargement."<<endl;
 		CmdSequence * sequence = new CmdSequence(modele);
 
 		string commande_ligne ;
@@ -91,11 +96,18 @@ ligne par ligne par rapport aux lignes du fichier*/
 				// On remplie la sequence
 				Commande * cmd = controleur->Traduire_instruction(commande_ligne);
 				//cerr << commande_ligne <<endl;
-				if(cmd == 0) return 0;
+				if(cmd == 0){
+					cout << "# Une commande est erronee, annulation du chargement."<<endl;
+					sequence->Defaire();
+					cout << "# Fin de l'annulation du chargement."<< endl;
+					return 0;
+				}
+				cmd->Faire();
 				sequence->Ajouter_cmd(cmd);
 			}
 		}
 		// Une fois remplie, on retourne la sequence ( NEW ! )
+		cout << "# Fin du chargement de "<<nom_fichier<<endl;
 		return sequence;
 	}
 	else
