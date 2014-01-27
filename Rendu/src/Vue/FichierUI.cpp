@@ -43,7 +43,6 @@ bool FichierUI::Sauvegarder_modele(string nom_fichier)
 	int nb_rangs = 0 ;
 	for(Elements::iterator it =  modele->elements.begin() ; it!=modele->elements.end() ; it++)
 	{
-		cout << it->second->dependance << endl ;
 		if(it->second->dependance > nb_rangs)	//Un nouveau vector pour le rang supérieur.
 		{
 			for (int i = nb_rangs ; i!=it->second->dependance ; i++){
