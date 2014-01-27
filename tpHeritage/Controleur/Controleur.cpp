@@ -48,11 +48,20 @@ void Controleur::Demarrer()
 	console->Attendre_instruction();
 }
 
+bool Controleur::VerifierSaveLoad(string& filename)
+{
+	//cerr << "VerifierSaveLoad"<<endl;
+	//if(tab_instruction.size()>2) return false ;
+	//cerr << "VerifierSaveLoad - 2"<<endl;
+	//filename = tab_instruction[1] ;
+	return true ;
+}
+
 Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire() ici
 {
 	/*Traduction de soit : "C","R","L","PL","OA","DELETE","MOVE",
 	"LIST"*/
-	cout << "# Appel de traduction : "<<instruction << endl ;
+	cout << "# Traduction de l'instruction suivante : "<<instruction << endl ;
 
 	vector<string> donnees;
 	Commande::Decouper(instruction,donnees);
@@ -76,6 +85,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	{
 		if(donnees.size()==2){
 			string filename = donnees[1];
+			if (VerifierSaveLoad(filename))
 			{
 				//cout << "appel de charger" << endl ;
 				renvoi = fichierUI->Charger_modele(filename) ;
@@ -88,7 +98,7 @@ Commande * Controleur::Traduire_instruction(string instruction) // Pas de Faire(
 	}
 	else	//Création d'un objet ou objet agrégé.
 	{
-		cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
+		//cout << "# Appel de CmdAjouterElement depuis Traduire." << endl ;
 		renvoi = new CmdAjouterElement(modele) ;
 	}
 	if((renvoi!=0)&&!(renvoi->Initialisation(instruction))){
@@ -126,7 +136,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	{
 		if(*pt == premier && donnees[0]=="pas_trouve")
 		{
-			donnees[0] = *pOui mais c'est pas le plus impotantt ;
+			donnees[0] = *pt ;
 			pt = liste_commandes+14;
 		}
 		else pt++;
@@ -144,19 +154,20 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	if(!instruction_connue)
 	{
 		cout << "# \"" << donnees[0] << "\"" << " n'est pas une commande valide" << endl ;
+		cout << "ERR" << endl;
 		//return true ;
 	}
 	else if(donnees[0] == "SAVE")
 	{
-		string filename;
-		if(donnees.size()==2)
-		{
-			filename.append(donnees[1]);
+		if(donnees.size()==2){
+			string filename = donnees[1];
+			if (VerifierSaveLoad(filename))
+			{
+				cout << (fichierUI->Sauvegarder_modele(filename) ? "OK" : "ERR") << endl;
+			}
+		} else {
+			cout << "ERR"<< endl;
 		}
-		// && !modele->elements.empty()
-		fichierUI->Sauvegarder_modele(filename);
-		//return true ;
-
 	}
 
 	else if(donnees[0] == "LIST")
@@ -173,8 +184,10 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	{
 		//cout << "redo" ;
 		if(curseur_cmd != liste_cmd.end()){
-			(*curseur_cmd)->Faire();
+			bool ok = (*curseur_cmd)->Faire();
 			curseur_cmd++ ;
+			//bool ok = (*curseur_cmd)->Defaire();
+			cout << (ok ? "OK" : "CERR") << endl;
 		}
 		//Appel de faire de l'avant dernière commande de la pile.
 		//return true ;
@@ -183,7 +196,8 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 	{
 		if(curseur_cmd != liste_cmd.begin()){
 			curseur_cmd-- ;
-			(*curseur_cmd)->Defaire();
+			bool ok = (*curseur_cmd)->Defaire();
+			cout << (ok ? "OK" : "CERR") << endl;
 		}
 		//Appel de defaire de la dernière commande de la pile.
 		//return true ;
@@ -195,7 +209,8 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 		Commande * retour = Traduire_instruction(instruction) ;
 		if(retour != 0)
 		{
-			if(retour->Faire()){
+			bool rep = donnees[0] == "LOAD" ? true : retour->Faire();
+			if(rep){
 				if(liste_cmd.size()>0 && curseur_cmd != liste_cmd.end()){
 					Pile_Commande::iterator curseur_cmd2;
 					do {
@@ -214,6 +229,7 @@ bool Controleur::Executer_instruction(string instruction) // retourne toujours t
 				cout << "ERR" << endl;
 			}
 		} else {
+			//cout << "retour erreur" << endl;
 			cout << "ERR" << endl;
 		}
 	}
